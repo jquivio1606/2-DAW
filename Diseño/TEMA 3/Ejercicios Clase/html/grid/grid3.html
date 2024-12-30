@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Ejemplos con grid 3</title>
+
+    <style>
+        .contenedor {
+            display: grid;
+            grid-template-columns: 250px 250px;
+            grid-template-rows: repeat(3, 50px);
+            
+            height: 300px;
+            background-color: gainsboro;
+            gap:10px;
+
+            justify-content: space-evenly;
+            align-content: space-around;
+            justify-items: center;
+            align-items: center;
+        }
+
+        .item{
+            padding: 10px;
+            background-color: black;
+            color: white;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <div class="contenedor">
+        <div class="item item-1"> Contenedor 1 </div>
+        <div class="item item-2"> Contenedor 2 </div>
+        <div class="item item-3"> Contenedor 3 </div>
+        <div class="item item-4"> Contenedor 4 </div>
+        <div class="item item-5"> Contenedor 5 </div>
+        <div class="item item-6"> Contenedor 6 </div>
+
+    </div>
+
+
+</body>
+
+</html>

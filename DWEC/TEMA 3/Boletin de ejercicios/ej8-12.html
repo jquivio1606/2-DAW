@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+    <script>
+        const productos =[
+            {nombre: "Producto 1", precio: 10.99},
+            {nombre: "Producto 2", precio: 5.50},
+            {nombre: "Producto 3", precio: 12.00},
+            {nombre: "Producto 4", precio: 7.75},
+            {nombre: "Producto 5", precio: 3.99}
+        ];
+
+        console.log(calcularPrecioTotal(productos));
+        console.log(filtarPorPrecioMaximo(productos, 8.00));
+        console.log(ordenarPorPrecio(productos));
+        console.log(calcularMediaPrecios(productos));
+
+
+
+
+        function calcularPrecioTotal(array){
+            return array.reduce((acum, valor) => {return acum + valor.precio }, 0);
+        }
+
+        function filtarPorPrecioMaximo(array, precioMaximo){
+            return array.filter(valor => valor.precio<=precioMaximo);
+        }
+
+        function ordenarPorPrecio(array){
+            return array.slice().sort((a,b)=> a.precio-b.precio)
+        }
+
+        function calcularMediaPrecios(array){
+            let suma = array.reduce((acum, valor) => {return acum + valor.precio }, 0);
+            return suma / array.length;
+        }
+
+       
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tablas2</title>
+</head>
+<body>
+    
+    <table border="2" align="center">  <!-- Le da estilo a la table, aunque no tenga puesto el atributo style, y aparezca en rojo -->
+        <caption> Tabla 2: Ejemplo de tablas de contenidos </caption>
+        
+        <colgroup>  <!--El colgroup siempre va entre el caption, y todo lo demás-->
+            
+            <col span="1" style ="background-color: lightcoral;"> <!-- Coge una columna -->
+            <col span="2" style ="background-color: lightcyan;"> <!-- Coge las 2 siguientes -->
+            <col span="1" style ="background-color: rgb(135, 128, 240);"> <!-- Cogería la siguiente columna -->
+            <col span="3" style ="background-color: rgb(240, 229, 128);"> <!-- Cogería las 3 siguientes columnas -->
+
+        </colgroup>
+
+        <tr>
+            <th> Nombre </th>
+            <th> Apellidos </th>
+            <th> Edad </th>
+        </tr>
+
+        <tr>
+            <td> Ismael </td>
+            <td> Moreno Relinque </td>
+            <td> 21 </td>
+        </tr>
+
+        <tr>
+            <td> Jesús </td>
+            <td> Moreno Relinque </td>
+            <td> 17 </td>
+        </tr>
+
+    </table>
+</body>
+</html>

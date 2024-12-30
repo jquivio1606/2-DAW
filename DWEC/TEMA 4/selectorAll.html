@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        .parrafos {
+            color: darkcyan;
+        }
+
+        .parrafo {
+            color: red;
+        }
+    </style>
+
+
+    <!--p.clase*5#${Este es un parrafo}-->
+    <p class="clase" id="1">Esto es un parrafo</p>
+    <p class="clase" id="2">Esto es un parrafo</p>
+    <p class="clase" id="3">Esto es un parrafo</p>
+    <p class="clase" id="4">Esto es un parrafo</p>
+    <p class="clase" id="5">Esto es un parrafo</p>
+    <button type="button" id="bt1">Cambiar todos</button>
+    <input type="number" id="num" max="5" min="1">
+    <button type="button" id="bt2">Cambiar un parrafo</button>
+
+    <script>
+        const btn1 = document.querySelector("#bt1");
+
+        btn1.addEventListener("click", function () {
+            const parrafos = document.querySelectorAll(".clase");
+            parrafos.forEach(elemento => {
+                elemento.classList.toggle("parrafos");
+            })
+        });
+
+
+
+        let bt2 = document.querySelector("#bt2");
+
+        bt2.addEventListener("click", function () {
+            let id = Number(document.querySelector("#num").value);
+            let parrafoX = document.getElementById(id);
+            parrafoX.classList.toggle("parrafo");
+        })
+
+
+
+    </script>
+
+</body>
+
+</html>

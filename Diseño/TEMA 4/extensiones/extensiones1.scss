@@ -1,0 +1,80 @@
+.place-holder{
+    color: antiquewhite;
+    font-size: 20px;
+    font-style: italic;
+}
+
+// extender esta clase
+.entrada-place-holder {
+    @extend .place-holder;
+}
+
+.text-area-place-holder {
+    @extend .place-holder;
+}
+
+
+.boton{
+    padding: 10px 20px;
+    border-radius: 5%;
+    color:antiquewhite;
+}
+
+.primario-boton{
+    @extend .boton;
+    background-color: rgb(60, 62, 65);
+}
+
+.secundario-boton{
+    @extend .boton;
+    background-color: rgb(61, 45, 31);
+}
+
+.tarjeta {
+    border: 1px solid rgb(75, 42, 19);
+    padding: 5px;
+
+    .cabecera-tarjeta {
+        font-size: 18px;
+        font-weight: bold;
+    }
+    .cuerpo-tarjeta {
+        font-size: 15px;
+    }
+}
+
+.especial-tarjeta {
+    @extend .tarjeta;
+    
+    .cabecera-tarjeta{
+        background-color: rgb(173, 92, 0);
+    }
+
+    .cuerpo-tarjeta {
+        background-color: rgb(253, 215, 0);
+    }
+}
+
+
+/*    CSS resultante    *//*
+
+.place-holder, .entrada-place-holder, .text-area-place-holder {
+  color: antiquewhite;
+  font-size: 20px;
+  font-style: italic; 
+}
+
+.boton, .primario-boton, .secundario-boton {
+  padding: 10px 20px;
+  border-radius: 5%;
+  color: antiquewhite; 
+}
+
+.primario-boton {
+  background-color: #3c3e41; 
+}
+
+.secundario-boton {
+  background-color: #3d2d1f; 
+}
+*/

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio con flex 1</title>
+    <style>
+        .container{
+            border: 1px solid black;
+            /* Si se pone inline se ajusta al espacio, si se pone solo flex, no se ajusta */
+            display: flex;
+            flex-direction: row;
+            /* Se pone modo espejo si esta: 1 2 3 *espacio* con row-reverse se va para la derecha y pone *espacio* 3 2 1 */
+            flex-direction: row-reverse;
+            background-color: rgb(161, 161, 161);
+            /* Se mueve para abajo si no entra en el ancho del container. Con el wrap-reverse se ajusta al continer pero al reves*/
+            flex-wrap: wrap;
+            width: 300px;
+            height: 200px;
+            /* Es como poner el flex-direction, y el flex-wrap en uno */
+            flex-flow: row wrap;
+            gap: 4px 8px;
+            /*
+            row-gap: 4px;
+            column-gap: 8px;
+            */
+
+            /* Alineacion vertical */
+            justify-content: space-evenly;
+
+            /* Alineacion horizontal: con el strench si no tenemos el height coge todo el ancho, sino se ajusta al contenido. */
+            align-items: center;
+
+            /*Aling-content solo tiene sentido si se agrupa con el wrap*/
+        }
+        .item {
+            border: 1px solid black;
+            width: 20px;
+            height: 20px;
+            text-align: center;
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <div class="item item1"> 1 </div>
+        <div class="item item2"> 2 </div>
+        <div class="item item3"> 3 </div>
+        <div class="item item4"> 4 </div>
+        <div class="item item5"> 5 </div>
+        <div class="item item6"> 6 </div>
+    </div>
+    
+</body>
+</html>

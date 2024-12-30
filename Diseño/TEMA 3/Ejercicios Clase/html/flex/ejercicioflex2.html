@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .contPrin {
+            display: flex;
+            flex-direction: column;
+            border: 1px solid black;
+            height: 100vh;
+            padding: 20px;
+        }
+
+        .cabecera {
+            flex: 1;
+            border: 1px solid black;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cab1{
+            border: 1px solid black;
+            margin: 2px;
+            flex:4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .cab2{
+            border: 1px solid black;
+            margin: 2px;
+            flex:1;
+            display: flex;
+            align-items: center;
+            justify-content: end;
+            padding-right: 100px;
+        }
+
+        .cuerpo {
+            height: 100%;
+            flex: 6;
+            border: 1px solid black;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .contCuerpo {
+            border: 1px solid black;
+            height: 80%;
+            width: 400px; 
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+        }
+
+        .contI{
+            border: 1px solid black;
+            margin: 2px;
+            flex:1;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        .img{
+            flex:2;
+            border: 1px solid black;
+            margin: 10px;
+            width: 70%;
+            height: 70%;
+            border-radius: 50%;
+        }
+
+        .textoH3{
+            flex:3;
+            height: 98%;
+            border: 1px solid black;
+            margin: 2px;
+        }
+
+        .contD{
+            border: 1px solid black;
+            margin: 2px;
+            flex:1;
+        }
+
+        .contD2{
+            border: 1px solid black;
+            margin: 2px;
+
+            flex:3;
+        }
+
+
+    </style>
+
+
+    <div class="contPrin">
+        <div class="cabecera">
+            <div class="cab1"><h1>Las 3 Trejas</h1></div>
+            <div class="cab2"><p>MEDINA</p></div>
+        </div>
+        
+        <div class="cuerpo">
+            <div class="contCuerpo">
+                <div class="contI">
+                    <div class="img"></div>
+                    <div class="textoH3"></div>
+                </div>
+                <div class="contI">
+                    <div class="img"></div>
+                    <div class="textoH3"></div>
+                </div>
+                <div class="contI">
+                    <div class="img"></div>
+                    <div class="textoH3"></div>
+                </div>
+            </div>
+            <div class="contCuerpo">
+                <div class="contD"></div>
+                <div class="contD2"></div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+</body>
+
+</html>

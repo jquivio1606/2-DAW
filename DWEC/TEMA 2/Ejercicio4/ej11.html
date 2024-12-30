@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejericio 11</title>
+</head>
+<body>
+    <script>
+        /* Programa un script que pida al usuario que teclee 4 números (uno cada vez). Con esos números el
+        programa deberá calcular la media aritmética. O sea la suma de los 4 números dividida entre 4. */
+
+        var suma=0, num;
+        for(var index= 1; index<=4; index++){
+            num= parseInt(prompt("Introduce el "+ index+"ª número."));
+            suma+=num;
+        }
+        let media = suma/4;
+
+        alert("La media entre los 4 numeros es de "+media);
+
+
+
+
+
+    </script>
+</body>
+</html>

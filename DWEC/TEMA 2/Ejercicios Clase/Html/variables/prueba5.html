@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IES TRAFALGAR</title>
+</head>
+<body>
+
+
+
+    <script>
+        let nr1= 3;
+        let nr2="2";
+        console.log(typeof(nr1));
+        console.log(typeof nr2); // Se puede poner sin parentesis
+
+
+        console.log(nr1*nr2);
+        console.log(nr1+nr2); //Al ser un string nr2 con el + lo que hace es concatenarlo, no sumarlo
+        console.log(nr1-nr2);
+        console.log(nr1**nr2); //ESTO ES PARA CALCULAR LA POTENCIA
+        
+        let nr3= 6;
+        console.log(nr3%nr2);
+
+        let nr4= 23;
+        console.log(typeof nr4);
+
+        nr4= String(nr4); // Convertir numero en cadena (CASTING)
+        console.log(typeof nr4);
+
+        //Tambien podemos pasar de cadena a numero:
+        nr2=Number(nr2);
+        console.log(typeof nr2);
+        console.log(nr1+nr2);
+
+
+
+    /* --------------------------------------------------------------------------------- */
+        let cadena = "Toda cadena que no este vacia es TRUE";
+        cadena=Boolean(cadena);
+        console.log(cadena, typeof cadena);
+
+        cadena="";
+        console.log(cadena, typeof cadena);
+        cadena=Boolean(cadena);
+        console.log(cadena, typeof cadena);
+
+
+
+    /* --------------------------------------------------------------------------------- */
+        let valor_null= null;  // Sale que es null, y es un objeto
+        console.log(valor_null, typeof valor_null);
+        
+        valor_null= Number(valor_null); // Utiliza el valor por defecto para numeros vacios: 0
+        console.log(valor_null, typeof valor_null);
+        
+        valor_null= String(valor_null); // Sale un 0 pero es un String
+        console.log(valor_null, typeof valor_null);
+
+
+
+    /* --------------------------------------------------------------------------------- */
+        let saludos = "Hola"
+        saludos= Number(saludos); // Sale NaN porque no es un numero.
+        console.log(saludos,typeof saludos);
+
+
+
+    /* --------------------------------------------------------------------------------- */
+        // Mostrar más cosas no solo las variables
+        nr1= 50;
+        nr2=20;
+        console.log(`El resto de ${nr1} con ${nr2} es igual a ${nr1%nr2}`)
+
+
+
+    /* --------------------------------------------------------------------------------- */
+        // Metodos de numeros:
+        let division = nr1/nr2;
+        console.log(division.toFixed(2)); // Para que solo salgan 2 decimales
+        console.log(division.toExponential(2)); // Para que lo muestre de forma exponencial
+
+
+
+    /* --------------------------------------------------------------------------------- */
+        nr1=1;
+        console.log(nr1++); // Saldria 1 porque lo muestra, y luego lo suma
+
+        nr1= 1;
+        console.log(++nr1); // Aqui sale 2 porque lo suma y luego lo muestra
+
+        //Pregunta de examen: ¿Que daria esto?
+        let nr=2;
+        console.log(nr++,nr,++nr,nr); // Saldria: 2 3 4 4
+
+
+
+    /* --------------------------------------------------------------------------------- */
+        // Pidiendo por teclado los lados de un triangulo c1,c2, 
+        //Calcula la hipotenusa mostrandola redondeando los decimales.
+        //TEOREMA DE PITAGORAS: a2= b2+c2
+
+        let c1= Number(prompt("Cateto 1: ", 2));
+        let c2= Number(prompt("Cateto 2: ", 4));
+
+        let resultado = Math.sqrt((c1**2) + (c2**2));
+        console.log("Cateto 1: " + c1 + "   Cateto 2: "+ c2 +"   Hipotenusa: " + resultado.toFixed(2));
+
+
+
+    /* --------------------------------------------------------------------------------- */
+        nr1= 2;
+        console.log(nr1+=3, nr1-=3, nr1*=2, nr1/=2, nr1**=3, nr1%=3); // 5  2  4  2  8  2
+
+        //Usando lo anterior calcula nr1 elevado a nr2
+        //el resto de nr1 con nr3
+        console.log(nr1**=nr2);
+        console.log(nr1%=nr3);
+
+
+
+    /* --------------------------------------------------------------------------------- */
+        //Comparaciones: 
+        var nr6= 6;
+        var nr7= 6;
+        console.log(nr6==nr7, nr6===nr7); // true true
+
+        nr6 =String(nr6);
+        console.log(nr6==nr7, nr6===nr7); // true false
+
+        nr6=Number(nr6);
+        console.log(nr6!=nr7, nr6!==nr7); //false false
+        nr6 =String(nr6);
+        console.log(nr6!=nr7, nr6!==nr7); // false true
+  
+
+
+    /* --------------------------------------------------------------------------------- */
+        //Operadores basicos: 
+        nr6= 8;
+        nr7=5;  
+        console.log(nr6>nr7); // true
+        console.log(nr6>=nr7); // true
+        console.log(nr6<nr7); // false
+        console.log(nr6<=nr7); // false
+
+        var nr8= 3;
+        console.log(nr6>nr7 && nr8<nr6); // and
+        console.log(nr6>nr7 || nr8<nr6); // or
+        console.log(!(nr6>nr7)); // not -> negacion
+
+
+
+    /* --------------------------------------------------------------------------------- */
+        /* Crea una variable que contenga un valaor en metros, conviertala a kiilometros,
+           y registre el valor en kilometros en el siguiente formato:
+           La distancia de "1300m" es igual a "1,3km."
+        */
+        var metros= Number(prompt("Introduce lo metros: ", 50));
+        let kilometros = metros/1000;
+
+        console.log(`La distancia de \"${metros}m\" es de \"${kilometros}km\"`)
+
+
+
+    /* --------------------------------------------------------------------------------- */
+        /* Establezca los valores para la altura en pulgadas y el peso en libras, 
+           para convertirlas a centimetros y kilos, enviando los resultados a la consola:
+                A.- 1pulgada es igual a 2,54cm
+                B.- 2,046 libras es igual a 1 kilo
+            Calcula y resgistra el IMC: esto es igual al peso (en kilos) divididos por
+            la altura al cuadrado (en metros).
+        */
+
+        var altura= Number(prompt("Altura", 0));
+        var peso= Number(prompt("Peso"),0);
+
+        altura *= 2.54;
+        altura /=100;
+        peso /= 2.046;
+
+        var IMC = peso/altura**2;
+        console.log("El IMC es: " + IMC.toFixed(2));
+
+
+    </script>
+    
+</body>
+</html>

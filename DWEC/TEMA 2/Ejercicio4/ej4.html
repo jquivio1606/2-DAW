@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 4</title>
+</head>
+<body>
+    <script>
+        /* Nota de una alumna, indica si esta suspensa,aprobada,notable o sobresaliente. */
+        var nota = parseFloat(prompt("¿Cuál es tu nota 0-10?"));
+        var msg="";
+        switch (true){
+            case (nota <5):
+                msg="Suspenso";
+            break;
+            case (nota >= 5 && nota <7):
+                msg="Aprobado";
+            break;
+            case (nota >= 7 || nota <= 8):
+                msg="Notable";
+            break;
+            case (nota >= 9 || nota <=  10):
+                msg="Sobresaliente";
+            break;
+            default:
+                msg="Valor incorrecto, vuelva a introducir la nota";
+            break;
+        }
+
+        alert("Tu calificación es: " + msg);
+        console.log(msg);
+
+
+        // ejercicio 4 pero leyendo tres notas, y mostrando su media "notable con una media de: "
+        var nota1,nota2,nota3, media, calificacion;
+        nota1= parseInt(prompt("Dame la nota 1",5));
+        nota2= parseInt(prompt("Dame la nota 2",6));
+        nota3= parseInt(prompt("Dame la nota 3",10));
+        media=(nota1+nota2+nota3)/3;
+
+        if(media <5){
+            calificacion="Suspenso con una nota media de "+ media;
+        } else if(media == 5 || media == 6){
+            calificacion="Aprobado con una nota media de "+ media;
+        } else if(media == 7 || media == 8){
+            calificacion="Notable con una nota media de "+ media;
+        } else if(media == 9 || media ==10){
+            calificacion="Sobresaliente con una nota media de "+ media;
+        }else{
+            calificacion="Valor incorrecto ";
+        }
+
+        alert("Tu calificación es: " + calificacion);
+        console.log(calificacion);
+
+
+
+    </script>
+    
+</body>
+</html>

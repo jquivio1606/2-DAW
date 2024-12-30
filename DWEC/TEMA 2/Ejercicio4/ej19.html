@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Ejercicio 19 </title>
+</head>
+<body>
+    
+    <input type="number" id="num">
+    <input type="button" onclick="dibujar()" value="Enviar">
+    <p id="dibujo"></p>
+    <br>  
+    <p id="dibujo2"></p>
+
+    <script>
+
+        function dibujar(){
+            /* Dibujar normal */
+            let num= document.getElementById("num").value;
+            let salida= "";
+            for (let i= 0; i < num; i++){
+                for(let j= i; j>=0; j--){
+                    salida+="*";
+                }
+                salida+="<br>";
+            }
+            document.getElementById("dibujo").innerHTML= salida;
+        
+            /* Dibujar al reves */
+            let salida2="";
+
+            for(let b = num; b >= 0; b--){
+                for(let b2 = b; b2>0; b2--){
+                    salida2+="+";
+                }
+                salida2+="<br>";
+            }
+
+            for(let fila =0; fila<num; fila++){
+                for(let col =0;col<=fila;col++){
+                    salida2+="*";
+                }
+                salida2+="<br>";
+            }
+            document.getElementById("dibujo2").innerHTML = salida2;
+            
+        
+        }
+
+
+
+    </script>
+</body>
+</html>

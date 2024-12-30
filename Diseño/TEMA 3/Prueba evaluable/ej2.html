@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prueba evaluable 2</title>
+    <style>
+        .container1 {
+            width: fit-content;
+            margin: auto;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container1">
+        <h1> Formulario de CheckOut--Importe total = 502€</h1>
+        <form action="cotejo.php" method="post">
+
+            <label for="ntarjeta"> Número de la tarjeta: </label>
+            <input type="text" name="ntarjeta" id="ntarjeta" required pattern="[1-9][0-9]{15}">
+
+            <br><br>
+
+            <label for="titular"> Nombre del titular: </label>
+            <input type="text" name="titular" id="titular" required>
+
+            <br><br>
+
+            <label for="fcad"> Fecha de caducidad: </label>
+            <select name="fcad-año" id="fcad-año" required>
+                <option value="Mes" disabled selected> Mes </option>
+                <option value="enero"> Enero </option>
+                <option value="febrero"> Febrero </option>
+                <option value="marzo"> Marzo </option>
+                <option value="abril"> Abril </option>
+                <option value="mayo"> Mayo </option>
+                <option value="junio"> Junio </option>
+                <option value="julio"> Julio </option>
+                <option value="agosto"> Sgosto </option>
+                <option value="septiembre"> Septiembre </option>
+                <option value="octubre"> Octubre </option>
+                <option value="noviembre"> Noviembre </option>
+                <option value="diciembre"> Diciembre </option>
+            </select>
+            <select name="fcad-mes" id="fcad-mes">
+                <option value="Año" disabled selected> Año </option>
+                <option value="2024"> 2024 </option>
+                <option value="2025"> 2025 </option>
+                <option value="2026"> 2026 </option>
+                <option value="2027"> 2027 </option>
+                <option value="2028"> 2028 </option>
+            </select>
+
+            <br><br>
+
+            <label for="cvv">CVV:</label>
+            <input type="text" name="cvv" id="cvv" pattern="[0-9]{3}">
+
+            <br><br>
+
+            <input type="checkbox" id="guardar" name="guardar" required>
+            <label for="guardar"> ¿Guardar los datos para otras comprar? </label><br><br>
+
+            <input type="submit" value="Pagar">
+            <input type="reset" value="Cancelar">
+        </form>
+
+
+    </div>
+
+    <div class="container2">
+        <h2> Deportes </h2>
+        <ol>
+            <li>Argentina</li>
+            <ul>
+                <li><a href="#"> IUSPORT </a> </li>
+                <li><a href="#"> TYCSPORT </a> </li>
+                <li><a href="#"> CAD </a> </li>
+            </ul>
+            <li>España</li>
+            <ul>
+                <li><a href="#"> El País Digital </a> </li>
+                <li><a href="#"> ABC </a> </li>
+                <li><a href="#"> El Mundo </a> </li>
+            </ul>
+        </ol>
+
+    </div>
+
+</body>
+
+</html>

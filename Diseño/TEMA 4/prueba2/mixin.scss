@@ -1,0 +1,20 @@
+// Funciones: 
+
+@mixin borde-redondo($radio){
+    border-radius: $radio;
+    
+    // Para el navegador WebKit
+    -webkit-border-radius: $radio;
+    // Para el navegador de mozilla
+    -moz-border-radius: $radio;
+    // Para el navegador de microsoft
+    -ms-border-radius: $radio;
+}
+
+@mixin transicion ($propiedad, $tiempo){
+    transition: $propiedad $tiempo;
+
+    -webkit-transition: $propiedad $tiempo;
+    -moz-transition: $propiedad $tiempo;
+    -ms-transition: $propiedad $tiempo;
+}

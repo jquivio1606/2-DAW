@@ -1,0 +1,91 @@
+/* Todos los parrafos */
+p{ 
+    background-color: rgb(210, 210, 210);
+    font-family: 'Courier New', Courier, monospace;
+}
+
+/* Solo los elementos con la clase clase */
+.clase{
+    color: darkred;
+}
+
+/* Solo a los elementos con el id ident */
+#ident {
+    color:darkgreen;
+    font-weight: bold;
+}
+
+/* A todo los elementos */
+*{
+    font-style: italic;
+}
+
+/* A todos los a que esten dentro de un p */
+p a{
+    background-color: rgb(255, 193, 118);
+}
+
+/* A todos los h3 y a todos los small */
+h3,small{
+    color: lightseagreen;
+}
+
+/* A los span que estan dentro de los div */
+div > span {
+    color: lightpink;
+}
+
+/* A los small que están a la misma altura que los span */
+/* El css se aplica al u´ltimo elemento de la fila, en este caso a small */
+span + small{
+    border: 1px solid black;
+}
+
+/* Esto es para cuanndo vas a imprimir en una impresora */
+@media print {
+    h1{
+        font-size: 5px;
+    }
+}
+
+/* Para la pantalla, o cuando se vaya a imprimir */
+@media screen, print{
+    h1{
+        line-height: 1.2;
+    }
+}
+
+/* Para cuando la pantalla cumpla una condición */
+@media screen and (max-width:600px) {
+    body {
+        background-color: lightblue;
+        /* .... */
+    }
+
+    span {
+        background-color: whitesmoke;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        /* .... */
+    }
+}
+
+/* Cumple 2 condiciones */
+@media (max-width:600px) and (min-width:450px){
+    .clase{
+        color: darkcyan;
+    }
+}
+
+/* cuando la pantalla está en modo oscuro */
+@media screen and (prefers-color-schema:dark){
+    .clase{
+        color:darkslateblue;
+    }
+}
+
+/* Cuando la pantalla este en horizonntal , y la dimensión sea menor a 1200px */
+@media screen and (orientation:landscape) and (max-width: 1200px) {
+    .clase {
+        color: darkgoldenrod;
+    }
+}

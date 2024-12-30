@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad 4</title>
+</head>
+<body>
+
+    <script>
+        //Array libres y ocupados
+        let trabajadores_ocupados = ["Juaky", "Luisa", "Juan", "Ana"];
+        let trabajadores_libres = ["Judit", "Jose", "Alba", "Felipe"];
+        
+        rotar(trabajadores_ocupados, trabajadores_libres);
+        console.log("---------------------------------|2 vez|-------------------------------------------");
+        rotar(trabajadores_ocupados, trabajadores_libres);
+
+        function rotar(lista1,lista2){
+            //Muestra las listas sin los cambios
+            console.log("Lista sin los cambios: \n",lista1, lista2);
+
+            //Añade el primer elemento de lista1 al final de la lista 2
+            lista2.push(lista1[0]);
+            lista1.shift();
+
+            //Añade el primer elemento de lista2 al final de la lista 1
+            lista1.push(lista2[0]);
+            lista2.shift();
+
+            //Muestra la lista con los cambios
+            console.log("Lista con los cambios: \n", lista1, lista2);
+        }
+    </script>
+
+</body>
+</html>

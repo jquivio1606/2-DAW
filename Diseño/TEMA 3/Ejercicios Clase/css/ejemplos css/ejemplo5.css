@@ -1,0 +1,52 @@
+.animacion{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 10px;
+    padding: 1rem;
+    background: black;
+    width: 300px;
+    height: 300px;
+    /* para que funcione lo de abajo hay que ponerlo en el border-image-source */
+    border-image-source: conic-gradient(from var(--a),indigo, purple, hotpink,pink);
+    border-image-slice: 1 1 1 1;
+    border-image-width: 3rem;
+    box-shadow: 10px 10px grey;
+    
+    /* IMPORTANTE: no poner espacio en el linear(...)*/
+    --timing: linear(0,0.3,0.75,1);
+    animation: move 1s infinite var(--timing);
+}
+
+@keyframes move{
+    from{
+        --a: 0deg;
+    } 
+
+    to{
+        --a: 360deg;
+    }
+}
+
+@property --a{
+    syntax: "<angle>";
+        inherits: true;
+        initial-value: 0deg;
+}
+
+
+.div{
+    width: 100px;
+    height: 100px;
+    background-color: lightblue;
+    transition: width 2s, height 2s, transform 2s;
+    transition-delay: 0.5s ;
+}
+
+.div:hover{
+    width: 300px;
+    height: 300px;
+    transform: rotate(90deg);
+}
+
+.text1{
+    writing-mode: vertical-lr;
+}

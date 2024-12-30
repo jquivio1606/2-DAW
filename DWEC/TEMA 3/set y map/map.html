@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map</title>
+</head>
+<body>
+    
+
+    <script>
+        //La clave tiene que ser siempre del mismo tipo.
+        let receta = new Map ([["Tomate", 300],["Pepino",45],["Pan", 56]]);
+
+        //Recorrer un map: 
+        //Devuelve la clave
+        for(let ingredientes of receta.keys()){
+            console.log(ingredientes);
+        }
+
+        //Devuelve el valor:
+        for(let gramos of receta.values()){
+            console.log(gramos);
+        }
+
+        //Recorrer clave valor: 
+        receta.forEach((valor, clave, map)=> { console.log(clave, valor, map)});
+
+        //Crear un map DWEC, DIW, DWES, LC
+
+        let asignaturas= new Map();
+
+        asignaturas.set("DWEC","Desarrollo Web en entorno cliente");
+        asignaturas.set("DIW","Desarrollo de Interfaces Web");
+        asignaturas.set("DWES","Desarrollo Web en entorno servidor");
+        asignaturas.set("LC","Libre configuración");
+
+        console.log("El tamaño del map es: " + asignaturas.size);
+
+        asignaturas.forEach((valor, clave) => {console.log(clave, valor)});
+
+
+        //Devolvemos el valor
+        for(let elemento of asignaturas.values()){
+            console.log(elemento);
+        }
+
+        //Devolvemos las claves
+        for(let valor of asignaturas.keys()){
+            console.log(valor);
+        }
+
+        // Está el modulo DWEC?
+        console.log("Está el elemento DWEC?", asignaturas.has("DWEC"));
+
+        //Esta en el mapa el elemento Despliegue? Si está hay que borrarlo:
+        console.log("Está el elemento DESPLIEGUE?", asignaturas.has("DESPLIEGUE"));
+        
+        if (asignaturas.has("DESPLIEGUE")){
+            asignaturas.delete("DESPLIEGUE");
+        } else {
+            console.log("No está");
+        }
+
+        //Módulo, horas, alumnos:
+        let map2= new Map([
+            ["DWEC", [420, 12]],
+            ["DIW", [200, 30]],
+            ["DWES", [500, 25]],
+            ["HLC", [20, 5]]
+        ]);
+
+
+        // Que curso tiene más horas, o alumnos
+        let horas=0;
+        let alumnos=0;
+        let modulo= ["",""];
+
+        map2.forEach((valor, clave) => {
+            if(horas<valor[0]){
+                horas=valor[0];
+                modulo[0]=clave;
+            } else if(alumnos<valor[1]){
+                alumnos=valor[1];
+                modulo[1]=clave;
+            }
+            console.log(clave, valor[0], valor[1]);
+        });
+        
+        console.log("El módulo que más horas tiene es: " + modulo[0]+ " con " + horas + " horas.");
+        console.log("El módulo que más alumnos tiene es: " + modulo[1]+ " con " + alumnos + " alumnos.");
+
+        //Para crear un array a partir de un map o un set, para poder modificar el array, sin modificar el set, o el map.
+        let map_clonado =[...structuredClone(map2)];
+        console.log(map_clonado[0]);// Sale las horas del primer elemento. Si se pone [0][1] sale el array [420,12]. Si se pone [0] sale ["DWEC", [420][12]]
+
+    </script>
+</body>
+</html>

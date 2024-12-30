@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej fechas</title>
+</head>
+<body>
+    
+    <input type="date" name="fecha" id="fec_sal">
+    <input type="button" id="btn1" onclick="saludar()" value="Comprobar">
+
+    <script>
+        function saludar(){
+            var fecha_form = document.getElementById("fec_sal");
+            let mseg= fecha_form.valueAsNumber;
+            
+            var fecha = new Date(mseg);
+            console.log(fecha);
+
+            var ahora=new Date();
+            let hora = ahora.getHours();
+            let minutos = ahora.getMinutes();
+            console.log(hora,minutos);
+        
+            if (hora >= 6 && hora < 12){
+                alert("Buenos días!");
+            } else if (hora >= 12 && hora < 21){
+                alert("Buenas tardes!");
+            } else {
+                alert("Buenas noches!");
+            }
+
+        }
+    </script>
+
+</body>
+</html>

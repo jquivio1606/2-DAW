@@ -1,0 +1,38 @@
+//Variables
+$color-primario: rgb(36, 182, 182);
+$color-secundario: rgb(173, 81, 81);
+$tipo-letra: 'Arial, sans-serif'; //Es lo mismo escribir tipo-letra que tipo_letra
+
+// Así se escribe una funcion:   @mixin nombre-funcion (variables){  }
+@mixin button-styles($color){
+    background-color: $color;
+    border: none;
+    color: azure;
+    padding: 10px 20px;
+    text-align: center;
+    display: inline;
+    font-size: 16px;
+    margin: 4px 2px;
+    border-radius: 5px;
+}
+
+// Escribir los estilos
+h1 {
+    color:$color-primario;
+}
+
+p{
+    color: $color-secundario;
+}
+
+.btn-primary{
+    @include button-styles($color-secundario);
+}
+
+.container{
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    background-color: rgb(36, 37, 37);
+    box-shadow: 0 0 10px gray;
+}

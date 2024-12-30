@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 7</title>
+</head>
+<body>
+    
+    <script>
+       
+        /*En una sala de juegos existen tres salas: Consolas, Juegos 2D, Juegos 3D, Realidad Virtual. Si un usuario paga
+        4 créditos puede acceder a todas, si paga 3 solo podrá acceder a las tres primeras, si paga 2 a las dos
+        primeras y si paga 1 solo a la primera sala. Pida los créditos e indique a que salas puede ir.*/
+
+        var creditos, acceso;
+        creditos = parseInt(prompt("¿Cuantos creditos vas a pagar?", 4 ));
+
+        switch(creditos){
+            case 1:
+                acceso="Puede entrar en la sala de las consolas";   
+            break;
+
+            case 2:
+                acceso="Puede entrar en la sala de las consolas, y Juegos 2D";
+            break;
+
+            case 3:
+                acceso="Puede entrar en la sala de las consolas, Juegos 2D, y juegos 3D";
+            break;
+
+            case 4:
+                acceso= "Puede entrar en todas las salas";
+            break;
+            default: 
+                acceso= "No puedes entrar en  ninguna sala.";
+            break;
+        }
+        alert(acceso);
+
+
+    </script>
+</body>
+</html>

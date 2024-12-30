@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factorial</title>
+</head>
+<body>
+    <input type="number" id="num">
+    <input type="button" onclick="calcularFactorial()" value="Enviar">
+    <p id="salida"></p>
+    <script>
+        function calcularFactorial(){
+            let numero= document.getElementById("num").value;
+            let salida=1;          
+            var txt="";
+            for (let i=numero; i>0;i--){
+                salida *= i;
+                (i==1)? txt+=i : txt +=i+"x";
+            }
+            document.getElementById("salida").innerHTML= numero+"! = " + txt + " = " + salida;
+
+           
+        }
+
+    </script>
+</body>
+</html>

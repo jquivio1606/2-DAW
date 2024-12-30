@@ -1,0 +1,24 @@
+body {
+  font-family: "Arial, sans-serif"; }
+
+h1 {
+  color: darkcyan; }
+
+p {
+  color: darkgoldenrod; }
+
+button {
+  color: white;
+  background-color: darkcyan;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -ms-transition: all 0.5s; }
+  button:hover {
+    background-color: #003f3f; }
+
+/*# sourceMappingURL=estilos2.css.map */

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 6</title>
+</head>
+<body>
+    
+    <script>
+        /* Muestre un numero y pida su cuadrado, compruebe que es correcto. */
+
+
+        var num= Number(prompt("Dame un número"));
+        var cuadrado= Number(prompt("¿Cual es su cuadrado?"));
+        if(cuadrado==num**2){
+            alert("Has acertado!!");
+        } else  {
+            alert("F, el cuadrado de " + num + " es " + (num**2));
+        }
+       
+        // Otra forma de hacerlo es así: 
+        resultado= (cuadrado==num**2) ? "correcto" : "apuntate a mates";
+        alert("Resultado: " + resultado);
+
+
+
+    </script>
+</body>
+</html>

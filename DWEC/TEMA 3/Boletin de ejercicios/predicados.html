@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const numeros = [10, 2, 3, 40, 33, 50];
+        const duplicar = (valor) => valor * 2;
+        const multipo10 = (valor) => valor % 10 === 0;
+        let espositivo = (elemento) => elemento >= 0;
+        numeros.some(espositivo); //true         numeros.every(espositivo);//true         numeros.every(multipo10);//faslse
+        numeros.some(multipo10);
+        numeros.filter(multipo10); //10 40 50
+        numeros.find(multipo10);
+        let suma = numeros.reduce(
+            function (acumulador, numero) {
+                return acumulador + numero;
+            },
+            0
+        );
+        let suma2 = numeros.reduce((acum, valor) => {
+            return acum + valor;
+        }, 0);
+
+        const personas = [
+            { nombre: "Juan", edad: 25 },
+            { nombre: "Maria", edad: 30 },
+            { nombre: "Pedro", edad: 3 },
+        ];
+
+        //Juan tiene 25 años y le queda 40 para jubilarse
+        //lusrmgr.msc
+        var descripciones_personas = personas.map((persona) => {
+            let jubilacion = 65 - persona.edad;
+            return `${persona.nombre} + tiene + ${persona.edad} + le queda ${jubilacion} + años`;
+        });
+        var segundo_daw = [
+            { nombre: "fran", calificaciones: [7, 8, 9] },
+            { nombre: "andres", calificaciones: [4, 5, 6] },
+            { nombre: "adrian", calificaciones: [7, 8, 5] },
+            { nombre: "claudia", calificaciones: [9, 9, 9] },
+        ];
+        let suspensos = segundo_daw.filter((estudiante) =>
+            estudiante.calificaciones.some((valor) => valor <= 4)
+        );
+        let predicado = (persona) => persona.nombre == "pepe";
+        let pepe = personas.filter(predicado);
+
+        var personasmayores = personas.map((persona) => {
+            return {
+                nombre_nuevo: persona.nombre,
+                edad_nuevo: persona.edad,
+                mayor_nuevo: persona.edad >= 18,
+                color_nuevo: persona.nombre.toLowerCase(),
+            };
+        });
+        var aumentoedad = personas.map((persona) => {
+            return {
+                ...persona,
+                edad: persona.edad + 1,
+            };
+        });
+
+        var hasta50 = personas.map((persona) => 50 - persona.edad);
+        //un array con los nombres
+        //cuantoas años le quedan al personal a los 50
+        let nombres_personas = personas.map((persona) => persona.nombre);
+        console.log(nombres_personas);
+
+        //Sacar por panatalla listado de la siguient forma
+        //Juan tiene 20 años
+        const descripciones = personas.map((persona) => {
+            return `El usuario ${persona.nombre} tiene ${persona.edad} años.`;
+        });
+
+        var estudiantes = [
+            { nombre: "fran", calificaciones: [7, 8, 3, 5, 4, 9] },
+            { nombre: "andres", calificaciones: [4, 5, 6] },
+            { nombre: "adrian", calificaciones: [7, 8, 5] },
+            { nombre: "claudia", calificaciones: [9, 9, 9] },
+        ];
+        //busca:find el primer estudiante que haya sacado un 5 include
+
+        //Algun alumno que haya sacado más de un 9?
+        const estudiantessobresalientes = estudiantes.filter((estudiante) =>
+            estudiante.calificaciones.some((calificacion) => calificacion >= 8)
+        );
+        //sumen todas las calificaciones
+        const suma_calificaciones = estudiantes.reduce(
+            (acumulador, estudiante) => {
+                acumulador +
+                    estudiante.calificaciones.reduce(
+                        (suma, calificacion) => suma + calificacion
+                        ,
+                        0
+                    )
+                const media = number(toFixed(suma / calificaciones.length(), 2));
+                console.log(`Estudiante ${estudiante.nombre} tiene ${suma}`);
+
+            },
+            0
+        );
+        const cursos = [
+            {
+                nombre: "DWEC", estudiantes: [{ nombre: "lolo", calificaciones: [3, 5, 8] }, {
+                    nombre:
+                        "manuel", calificaciones: [8, 9, 10]
+                }]
+            },
+            { nombre: "DIW", estudiantes: ["juan", 'javi', 'ljsonolo'] },
+            { nombre: "HLC", estudiantes: ["juan", 'lolo'] },
+            { nombre: "DES", estudiantes: ['javi', 'lolo'] },
+        ];
+        const MAYOR3 = cursos.filter((curso) => {
+            curso.estudiantes.length >= 3
+        });
+
+
+        const matriculados = cursos.filter((curso) => {
+            return curso.estudiantes.includes("lolo");
+        }
+
+        );
+
+        console.log(matriculados);
+
+
+
+        fetch('datos.json')
+            .then(respuesta => {
+                if (!respuesta.ok) {
+                    throw new Error('Mira la red no responde ' + respuesta.statusText)
+                }
+                //Hay respuesta entopnce vamos a converto
+                //los datos como realmente lo necestitamos
+                return respuesta.json();
+            })
+            .then(datos => {
+                console.log(datos);
+                //Los nombres de los trabajadores y sus edad
+                datos.personas.forEach(persona => {
+                    console.log(`Su nombre es ${persona.nombre} y tienes ${persona.edad} años`);
+                });
+                //filtro de aquellos trabajadores
+                //mayores de 30 usar filter
+            })
+            .catch(error => {
+                //manejo cualquier error que quiera
+                console.error('El erro ha sido', error);
+            });
+    </script>
+</body>
+
+</html>

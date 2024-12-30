@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IES TRAFALGAR</title>
+</head>
+<body>
+    
+    <script>
+        let arr1= new Array ("Hola", 34, "Adios", "Segunda B");
+        var arr2= ["Cadistas", "Madrilistas", "Atleticos", 45 ];
+
+        console.log(arr1);
+        console.log(arr2);
+
+        let arr3 = new Array(10);   // Crea un array de 10 posiciones vacias
+        arr3[1]=10; // Añades un valor a la posicion 1
+        console.log(arr3);
+
+        let arr4=[15];  //Creas un array con una posicion que con el valor 15
+        console.log(arr4);
+
+        let arr5= ["hola", true, 32] // Puede contener diferentes tipos
+
+        const array9=["hola"]; // Aunque la constante no se pueda modificar, el contenido de la constante si se puede cambiar.
+        array9[0]= "adios";
+        // array9=["hola", "adios"]; En este caso no se podria cambiar daria error
+
+        var coches= ["Toyota","kia", "Renault", "Juaky"];
+        console.log(coches[0], coches[1], coches[2], coches[-1]); // EL negativo es para recorrelo hacia atras.
+        coches[0]= "tesla"; //Modifica el valor que hay en la posicion 0
+        console.log(coches);
+
+        coches[-1]= "Mercedes";   //  Ya lo veremos
+        console.log(coches);
+        console.log(coches.length);
+
+        let vacio=[]; //Se puede crear un array vacio
+        console.log(vacio.length);
+
+        var numeros= [23,24,25,26];
+        console.log(numeros[numeros.length-1]); // ver el ultimo elemento del array
+        numeros[6]= "Hola"; //Se añade en la posicion que se quiera, si hay espacios en medios sin valor los crea vacios
+        console.log(numeros);
+
+        var frutas=["peras", "mandarinas"];
+        frutas.push("tagarninas");  // Añade el elemento en la ultima posicion
+        frutas.push("manzana");
+        console.log(frutas);
+
+        frutas.splice(2, 0, "tomates"); //El numero es donde quiero empezar a insertar los elementos, se inserta en esa posicion, y desplaza lo demas
+        console.log(frutas);
+        frutas.splice(numeros.length-1, 0, "aguacate"); //añadir en la ultima posicion 
+
+        frutas.splice(2,4, "Uvas") // El segundo valor lo que hace es eliminar los valores a partir de donde va a insertar
+        console.log(frutas);
+
+
+        var verdura=["Esparagos", "colifor", "calabacin", "papas"];
+        var alimentos= frutas.concat(verdura); //Unir dos arrays
+        console.log(alimentos);
+
+        delete alimentos[0]; //Borra el elemento del array de la posicion que se le indica, y lo deja vacio
+        console.log(alimentos);
+
+        alimentos.pop(); // Borra el utlimo elemento del array y lo deja vacio
+        console.log(alimentos);
+
+        alimentos.shift(); // Eliminar el primer elemento
+        console.log(alimentos);
+
+
+
+        var nums= [1,2,3,4];
+        var arraynumeros2= nums.concat(5,6,7,8,9); //Se pueden poner directamente los numeros a añadir en el nuevo array.
+
+
+
+        let array= [1,2,3,4,5,6,7,8,9];
+        let valor= array.find(e => e === 5); // Busca en el array el valor que queramos buscar. Siempre se pone eso de e=> e===5 ;
+        console.log(valor, typeof valor);
+
+        valor= array.find(e => e === 14); 
+        console.log(valor, typeof valor); // Como no esta en el array pone undefined
+       
+        valor= array.indexOf(8); // para ver en que posicion esta en el valor pasado en la funcion
+        console.log(valor, typeof valor);
+
+        valor= array.indexOf(12); 
+        console.log(valor, typeof valor); // Como no hay elementos en la posicion 12 sale .1
+
+        array.push(8);
+        array.push(-2);
+        console.log(array);
+
+        valor= array.indexOf(6,7); // Busca el valor 6 desde la posicion 7  -> si lo encuentra te dice del 1 que encuentra, sino  sale -1;
+        console.log(valor);
+
+        valor= array.lastIndexOf(6); // Te da la posicion del ultimo 6 que encuentre
+        console.log(valor);
+
+
+        console.log(frutas.sort()); //Ordena el array por orden alfabetico
+
+        console.log(array.sort()); //Ordena el array por orden numerico
+
+        console.log(frutas.reverse()); //Ordena el array al reves
+        console.log(array.reverse()); //Ordena el array al reves
+        
+        // Puede preguntar en el examen como se ordena a partir de un numero en especifico
+
+
+    </script>
+
+</body>
+</html>

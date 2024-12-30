@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prueba evaluable 1</title>
+
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+
+        }
+
+        .menu {
+            display: flex;
+            align-items: center;
+
+        }
+
+        .p-menu {
+            border: 1px solid grey;
+            background-color: black;
+            color: white;
+            width: 100px;
+            padding: 7px;
+            text-align: center;
+        }
+
+        .enlaces {
+            display: flex;
+            width: 100%;
+            padding: 10px;
+            justify-content: space-between;
+        }
+        a {
+            text-decoration: none;
+            color: rgb(0, 139, 194);
+        }
+
+        main{
+            text-align: center;
+        }
+
+        .contenedor {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        table {
+            width: 80%;
+            text-align: center;
+            border-spacing: 0px;
+        }
+
+        th {
+            color: white;
+            background-color:darkcyan;
+            padding: 10px;
+
+        }
+
+        tr,th,td {
+            border: 0.5px solid rgb(180, 186, 190);
+        }
+    
+        tr:hover{
+            background-color: rgb(186, 216, 255);
+        }
+
+        .gris {
+            background-color: rgb(226, 226, 226);
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <div class="menu">
+                <p class="p-menu">Inicio</p>
+                <p class="p-menu">Servicios</p>
+                <p class="p-menu">Nosotros</p>
+                <p class="p-menu">Contacto</p>
+            </div>
+            <div class="enlaces">
+                <a href="#">Anterior</a>
+                <a href="#">Siguiente</a>
+            </div>
+        </nav>
+    </header>
+
+    <hr>
+
+    <main>
+        <h1> Tabla de Productos </h1>
+        <hr>
+        <div class="contenedor">
+            <table>
+                <thead>
+                    <tr>
+                        <th> Nº </th>
+                        <th> Producto </th>
+                        <th> Precio </th>
+                        <th> Stock </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="gris">
+                        <th> 1 </th>
+                        <td> Sudaderas </td>
+                        <td> 25€ </td>
+                        <td> 50 </td>
+                    </tr>
+                    <tr>
+                        <th> 2 </th>
+                        <td> Camisas </td>
+                        <td> 15€ </td>
+                        <td> 30 </td>
+                    </tr>
+                    <tr class="gris">
+                        <th> 3 </th>
+                        <td> Vaqueros </td>
+                        <td> 40€ </td>
+                        <td> 20 </td>
+                    </tr>
+                    <tr>
+                        <th> 4 </th>
+                        <td> Rebequitas </td>
+                        <td> 32€ </td>
+                        <td> 10 </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3> Tabla 1. Lista de Productos </h3>
+
+
+
+
+
+
+
+
+    </main>
+
+
+</body>
+
+</html>

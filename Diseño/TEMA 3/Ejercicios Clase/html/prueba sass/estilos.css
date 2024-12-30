@@ -1,0 +1,25 @@
+h1 {
+  color: #24b6b6; }
+
+p {
+  color: #ad5151; }
+
+.btn-primary {
+  background-color: #ad5151;
+  border: none;
+  color: azure;
+  padding: 10px 20px;
+  text-align: center;
+  display: inline;
+  font-size: 16px;
+  margin: 4px 2px;
+  border-radius: 5px; }
+
+.container {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+  background-color: #242525;
+  box-shadow: 0 0 10px gray; }
+
+/*# sourceMappingURL=estilos.css.map */

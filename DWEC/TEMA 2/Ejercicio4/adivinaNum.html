@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adivina número</title>
+</head>
+<body>
+
+    <h1> ADIVINA ADIVINANZA</h1>
+    <h3 id="fin"> </h3>
+    <p id="solucion"></p>
+    
+
+    <script>
+        var numAl= (Math.random()*9+1).toFixed(0);
+        console.log(numAl);
+
+        let salir= false;
+        
+        while(!salir){
+            var num= Number(prompt("Dime un número del 1-10. 0 para terminar"));
+
+            if(num==0){
+                document.getElementById("fin").innerHTML= "No te desesperes...";
+                salir=true;
+            } else if(num==numAl){
+                document.getElementById("fin").innerHTML= "Has acertado!!!";
+                salir=true;
+            } else if(num < numAl){
+                alert(num+" es menor al número aleatorio");
+            } else {
+                alert(num+" es mayor al número aleatorio");
+            }
+        }
+        document.getElementById("solucion").innerHTML= "El número era: "+ numAl;
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tablas2</title>
+</head>
+<body>
+    
+    <h5 style="color:brown; font-weight: bold; font-size: 28px; font-family: 'Courier New', Courier, monospace;
+    text-transform: uppercase;"> Vamos a por el estilo en las Tablas</h5>
+    <style type="text/css">
+        table {
+            border: 2px solid black;
+            caption-side: bottom;
+        }
+
+        th, td {
+            border:1px solid gray;
+            padding: 5px 15px ;
+        }
+
+        tfoot, td{
+            background: rgb(253, 211, 218);
+            color: rgb(148, 53, 85);
+        }
+
+        .primero{
+            background: lightcoral;
+        }
+        
+        .segundo{
+            background: lightpink;
+        }
+
+        .tercero{
+            background: lightgoldenrodyellow;
+        }
+
+        
+    </style>
+
+    <table>
+        <caption>Tablas 5: Notas del Alumnado 2 DAW</caption>
+        <colgroup>
+            <col>
+            <col  class="primero"/>
+            <col  class="segundo"/>
+            <col  class="tercero"/>
+
+        </colgroup>
+        
+        <tfoot>
+            <tr>
+                <td> Media </td>
+                <td>6.32</td>
+                <td>8.56</td>
+                <td>9.65</td>
+            </tr>
+        </tfoot>
+        <thead>
+            <tr class="titulo">
+                <th rowspan="2"> Alumno/a </th>
+                <th colspan="3"> Notas </th>
+            </tr>
+            <tr class="subtitulo">
+                <td> 1ª Evaluación </td>
+                <td> 2ª Evaluación </td>
+                <td> 3ª Evaluación </td>
+            </tr>
+
+        </thead>
+        <tbody>
+            <tr>
+                <td>Ana Rosa</td>
+                <td>3.2</td>
+                <td>5.6</td>
+                <td>9.56</td>
+            </tr>
+            <tr>
+                <td>Amparo</td>
+                <td>6.32</td>
+                <td>10</td>
+                <td>8.56</td>
+            </tr>
+            <tr>
+                <td>Quitana</td>
+                <td>6.32</td>
+                <td>5.54</td>
+                <td>8.56</td>
+            </tr>
+        </tbody>
+
+
+
+    </table>
+
+    
+</body>
+</html>

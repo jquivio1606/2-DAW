@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Usuario</h3>
+    <input type="text" name="usuario" id="usuario" placeholder="Nombre Usuario">
+    <h3>Contraseña</h3>
+    <input type="text" name="clave" id="clave" placeholder="Contraseña" minlength="4" maxlength="10">
+    <br>
+    <br>
+    <br>
+    <input type="button" id="boton" value="Cargar en la BD" style="margin-left: 25px;" >
+    <br>
+    <br>
+    <br>
+    <table id="tabla" style="border: solid 1px black;">
+       <th style="padding: 0px 40px 0px 10px; border: solid black 1px;"> Nombre Usuario </th>
+       <th style="padding: 0px 10px 0px 10px; border: solid black 1px;"> Contraseña </th>
+    </table>
+    <script>
+
+        class Persona{
+            constructor(nombre,clave){
+                this.Nombre=nombre;
+                this.Clave=clave;
+            }
+        };
+
+        //Darle un evento al boton
+        var boton = document.getElementById("boton");
+        boton.addEventListener("click", rellenar ,false);
+        var BD=[];
+
+        function rellenar(){
+
+            //Coger los datos del formuulario
+            var getNombre= document.getElementById("usuario").value;
+            var getClave= document.getElementById("clave").value;
+
+            //Guardar los datos en la Persona
+            var usuario = new Persona(getNombre,getClave);
+
+            //Añadir el usuario en el array
+            BD.push(usuario);
+
+            console.log(usuario);
+            console.log(BD);
+
+            //Insertar los datos en la tabla
+            document.getElementById("tabla").innerHTML += '<td style="padding: 0px 10px 0px 10px; border: solid black 1px; ">'+ usuario.Nombre + '</td><td style="padding: 0px 10px 0px 10px; border: solid black 1px;">'+ usuario.Clave + '</td>';
+            
+        }
+
+        </script>
+</body>
+</html>

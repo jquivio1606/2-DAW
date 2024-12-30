@@ -1,0 +1,19 @@
+.text-box-1 {
+  background-color: lightblue;
+  color: darkblue;
+  border: 2px solid darkgrey;
+  font-size: 14px;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px; }
+
+.text-box-2 {
+  background-color: #86d48d;
+  color: #002e00;
+  border: 2px solid darkgrey;
+  font-size: 14px;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px; }
+
+/*# sourceMappingURL=estilos3.css.map */

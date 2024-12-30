@@ -1,0 +1,26 @@
+$tamaño-letra: 10px;
+$margen: 10px;
+$oscuro: true;
+
+h1 {
+    font-size: $tamaño-letra * 2 + 9px;
+}
+
+h3 {
+    margin: $margen / 2;
+}
+
+body {
+    background-color: if($oscuro, black, white);
+    color: if($oscuro, white, black);
+}
+
+//Manipulacion de colores con darken, ligthen, complement
+
+$color:rgb(153, 0, 0);
+
+.boton {
+    background-color: lighten($color, 10%);
+    border-color: darken($color, 10%);
+    color: complement($color);
+}

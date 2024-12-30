@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej fechas</title>
+</head>
+<body>
+    
+    <h1> OBTENER DIA DE LA SEMANA </h1>
+    <p id="salida"></p>
+
+    <script>
+        
+        var dia= prompt("Introduce el dia que es en número",1);
+        var mes= prompt("Introduce el mes (del 0-11)",0);
+        var anio= prompt("Introduce el año", new Date().getFullYear());
+
+        let fecha = new Date(anio,mes,dia);
+        var meses =[
+            "Enero","Febrero","Marzo",
+            "Abril","Mayo", "Junio", 
+            "Julio", "Agosto", "Septiembre", 
+            "Octubre", "Noviembre", "Diciembre"
+        ]
+        let mesEscrito = meses[fecha.getMonth()];
+
+        var dias =[
+            "Domingo", "Lunes","Martes","Miercoles",
+            "Jueves","Viernes", "Sábado"
+            
+        ]
+        let diaEscrito = dias[fecha.getDay()];
+
+        document.getElementById("salida").innerHTML = "Hoy es " + dia + " de " + mesEscrito + " de " + fecha.getFullYear() + ", y es " + diaEscrito;
+        
+
+
+    </script>
+
+</body>
+</html>

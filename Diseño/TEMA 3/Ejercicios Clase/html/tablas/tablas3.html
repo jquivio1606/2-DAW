@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tablas2</title>
+</head>
+<body>
+    
+    <h5 style="color:brown; font-weight: bold; font-size: 28px; font-family: 'Courier New', Courier, monospace;
+    text-transform: uppercase;"> Vamos a por el estilo en las Tablas</h5>
+    <style type="text/css">
+        table {
+            border: 2px solid cyan;
+       }
+
+       td, th {
+            border: 1px solid black;
+            padding: 10px;
+       }
+
+       th {
+            background: rgb(48, 47, 47);
+            color: rgb(235, 235, 235);
+            text-transform: uppercase;
+       }
+
+       td{
+            text-align: center;
+            border-bottom: 2px solid darkcyan;
+       }
+    </style>
+
+    <table>
+        <caption> Tabla 3: Agrupando celdas horizontal y vertical</caption>
+
+        <tr>
+            <th> Encabezado 1</th>
+            <th> Encabezado 2</th>
+            <th> Encabezado 3</th>
+            <th> Encabezado 4</th>
+
+        </tr>
+
+        <tr>
+            <td rowspan="2"> Campo 1 </td>
+            <td> Campo 2 </td>
+            <td> Campo 3 </td>
+            <td> Campo 4 </td>
+
+        </tr>
+
+        <tr>
+            <td colspan="2"> Campo 6 </td>
+            <td> Campo 8 </td>
+        </tr>
+
+        <tr>
+            <td> Campo 9 </td>
+            <td> Campo 10 </td>
+            <td rowspan="2" colspan="2"> Campo 11 </td>
+        </tr>
+
+        <tr>
+            <td> Campo 12</td>
+            <td> Campo 13</td>
+        </tr>
+
+    </table>
+
+    
+</body>
+</html>

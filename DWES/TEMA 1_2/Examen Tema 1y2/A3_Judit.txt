@@ -1,0 +1,77 @@
+<?php
+        //JUDIT QUIRÓS VIOLERO
+        //Act 3
+        
+        $cad ="Suma*Resta*Multip*Div";
+        $operacion= explode("*", $cad);
+        
+        // 3-a
+        foreach($operacion as $indice => $valor){
+            echo $indice." -> ".$valor."\n";
+        }
+        
+        // 3-b
+        $operacion[3] ="Division";
+        print_r($operacion);
+
+        // 3-c
+        for($i=0; $i<=count($operacion)-1; $i++){
+           define("$operacion[$i]", $i);
+        }
+        
+        // 3-d
+        echo "Valor de la constante Suma: ".Suma."\n";
+        
+        // 4
+        function iniciar($operacion){
+            //4-a
+            $numAl =mt_rand(0,4);
+            if($numAl == 4){
+                throw new Exception ("El número generado no coincide con ningún indice del array");
+            } else {
+                //4-b
+                $funcion=$operacion[$numAl];
+            
+                //4-c
+                return controladora($funcion);    
+            }
+            
+        }
+        
+        // 5
+        function controladora($funcion){
+            $num1= mt_rand(0,5);
+            $num2= mt_rand(0,5);
+            
+           return $funcion($num1,$num2);
+        }
+        
+        // 6
+        function Suma($num1,$num2){
+            return "La suma de ".$num1." más ".$num2." es igual a ".$num1+$num2;
+        }
+        
+        function Resta($num1,$num2){
+            return "La resta de ".$num1." menos ".$num2." es igual a ".$num1-$num2;
+        }
+        
+        function Multip($num1,$num2){
+            return "La multiplicación de ".$num1." por ".$num2." es igual a ".$num1*$num2;
+        }
+        
+        function Division($num1,$num2){
+            if($num2==0){
+                throw new Exception("No se puede dividir entre 0");
+            } else {
+                return "La division de ".$num1." entre ".$num2." es igual a ".$num1/$num2;
+            }
+        }
+        
+        // 7 y 8
+        try {
+            echo iniciar($operacion);
+        } catch(Exception $e){
+            echo "\n".$e->getMessage();
+        }
+
+?>

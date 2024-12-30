@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 17</title>
+</head>
+<body>
+    <input type="text" id="foco" value="Blur (Quitame el foco)">
+    <div id="fuera" style="width: fit-content;">MouseOut</div>
+    <div id="dentro" style="width: fit-content;">MouseOver</div>
+
+    <script>
+
+        var sobre = document.getElementById("foco");
+        sobre.addEventListener("blur",function (){
+           alert("Has quitado el foco en la caja");
+        });
+        
+        var fuera = document.getElementById("fuera");
+        fuera.addEventListener("mouseout",function (){
+           alert("Estoy fuera de la caja");
+        });
+
+        var dentro = document.getElementById("dentro");
+        dentro.addEventListener("mouseover",function (){
+           alert("Estoy dentro de la caja");
+        });
+
+    </script>
+</body>
+</html>

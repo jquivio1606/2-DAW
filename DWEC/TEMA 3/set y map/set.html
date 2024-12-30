@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Map y Set </title>
+</head>
+
+<body>
+
+    <script>
+
+        //Creacion a partir de elementos
+        let frutas = new Set(["naranjas", "peras", "manzanas"]);
+
+        // Crear un set vacío:
+        let set = new Set();
+        console.log(set, set.size);
+        let juan = { nombre: "juan" };
+        let jose = { nombre: "jose" };
+        let fran = { nombre: "francisco" };
+        let pilar = { nombre: "pilar" };
+
+
+        set.add(juan); // No se pueden agregar todos en la misma linea
+        set.add(jose);
+        set.add(fran);
+        set.add(pilar);
+        // set.add(juan);
+
+        console.log(set, set.size);
+
+        //Recorrer set:
+        for (let usuario of set) {
+            console.log(usuario, usuario.nombre);
+        }
+
+        console.log("--------------------------------------");
+
+        let set2 = new Set();
+        let juanito = { nombre: "juanito" };
+        let joselito = { nombre: "joselito" };
+        let pilarcita = { nombre: "pilarcita" };
+
+        set2.add(juan);
+        set2.add(jose);
+        set2.add(fran);
+        set2.add(joselito);
+        set2.add(pilarcita);
+        set2.add(juanito);
+
+
+        //Recorrer set:
+        for (let usuario2 of set2) {
+            console.log(usuario2, usuario2.nombre);
+        }
+
+        // Otra forma de recorrer un set: forEach()
+        set.forEach((valor, valor2, set) => {
+            console.log(valor);
+        });
+
+
+        //
+        let num1= new Set([1,2,3,4,5]);
+        let num2= new Set([4,5,6,7,8]);
+
+
+        // UNION
+        let union = new Set([...num1, ...num2]);
+        console.log("UNIÓN: ", union);
+
+        // INTERSECCION
+        let interseccion = new Set([...num1].filter(element => num2.has(element)));
+        console.log("INTERSECCIÓN: ", interseccion);
+
+        // DIFERENCIA
+        //Numeros del set 1 que no esten en el set 2
+        let diferencia = new Set([...num1].filter(element => !num2.has(element)));
+        console.log("DIFERENCIA 1-2: ", diferencia);
+        //Numeros del set 2 que no esten en el set 1
+        let diferencia2 = new Set([...num2].filter(element => !num1.has(element)));
+        console.log("DIFERENCIA 2-1: ", diferencia2);
+
+        // EXCLUSION -> son todos los elementos que no estan ninguno de los dos conceptos. Hay que hacer la diferencia de los dos set, y unirlos
+        // Es lo contrario a la interseccion. Es la union de las 2 diferencias.
+        let exclusion = new Set([...diferencia, ...diferencia2]);
+        console.log("EXCLUSIÓN: ", exclusion);
+
+
+        //Set de Objetos:
+        let conjunto1 = new Set([{nombre:"juan"}, {nombre:"css"}, {nombre:"js"}, {gusto:"json"}]);
+        let conjunto2 = new Set([{nombre:"Juan", tipo:"carnaval"}, {nombre:"css"}, {nombre:"Kotlin"}, {nombre:"json"}, {gusto:"json"}]);
+
+
+        //No sale bien, porque SET no trabaja bien con objetos
+        let interseccionConj= new Set([...conjunto1].filter(elemento=> conjunto2.has(elemento)));
+        console.log(interseccionConj);
+
+        //Solución: se le pregunta a chatgpt :)
+
+
+    </script>
+</body>
+
+</html>

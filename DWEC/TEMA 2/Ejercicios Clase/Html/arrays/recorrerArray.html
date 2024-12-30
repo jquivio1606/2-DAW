@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tablas</title>
+</head>
+<body>
+    
+    <h3> Recorrido de un array: </h3>
+    <p id="x"></p>
+
+    <script>
+        /* RECORRER UN ARRAY: */
+        // Forma 1:
+        var txt="";
+        var txt2="";
+        var dias=["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"];
+
+        dias.forEach(valores); // A lo que llama el forEach es a una funcion por lo que hay que crearla.
+
+        function valores(valor, index, array){
+            txt+=valor+ "<br>";
+        }
+        document.getElementById("x").innerHTML= txt;
+
+        // Forma 2: ha hecho lo mismo de arriba, pero ha hecho la funcion dentro del for each, no a parte.
+        let laborables = new Array();
+
+        var dias_laborables=["Lunes", "Martes", "Miércoles", "Jueves", "Viernes"];
+        dias_laborables.forEach(function (valor,index,array){
+            array[index]= valor.toUpperCase();
+            laborables.push(array[index]);
+        });
+
+        console.log(laborables);
+        console.log(dias_laborables);
+
+        // Forma 3: un for de to la vida
+        for(var i=0;i<dias_laborables.length;i++){
+            console.log(dias_laborables[i]);
+        }
+
+        // Ejemplo 2:
+
+        const meses =["enero", "febrero", "marzo", 
+                    "abril", "junio","julio",
+                    "agosto", "septimebre", "octubre", 
+                    "noviembre", "diciembre"
+        ];
+
+        // 1. for normal:
+        for(let index=0; index<meses.length;index++){
+            console.log(meses[index]);
+        }
+
+        // 2. forEach:
+        meses.forEach(function (valor){console.log(valor)});
+        //meses.forEach(function (valor, indice){console.log(valor, indice)});
+        //meses.forEach(function (valor, indice, array){console.log(valor, indice, array[indice])});
+
+        // 3. for-each casi normal:  Coge el indice del array
+        for(let ind in meses){
+            console.log(meses[ind]);
+        }
+
+        // 4. for-each casi normal 2:  Coge los valores del array
+        for(let val of meses){
+            console.log(val);
+        }
+
+
+        // EN ESTE EXAMEN NO CAE LAS FUNCIONES FLECHAS
+        // FILTER: Coge el dato que necesita
+        var numeros=[2,5,6,8,10];
+
+        //Utilizamos una funcion flecha, que no tiene nombre, se hace asi:
+        let pares= numeros.filter((val)=> val%2==0);
+        let impares =numeros.filter((val2)=> val2%2!=0);
+
+        console.log(pares,impares);
+
+
+
+    </script>
+
+</body>
+</html>

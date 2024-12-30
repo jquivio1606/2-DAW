@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Numero: <input type="number" id="num" min="1" value="5">
+    <button type="button" id="dibujar" onclick="capicua()"> Comprobar </button>
+    <h3 id="texto"></h3>
+
+<script>
+
+    function capicua(){
+        let num= parseInt(document.getElementById("num").value);
+
+        let aux=num;
+        let invertido= 0;
+        while(aux > 0){
+            invertido= (invertido*10) + (aux % 10);
+            aux=Math.floor(aux/10);
+        }
+        console.log(invertido);
+        
+        let msg="";
+        if(invertido == num){
+            msg= `El número ${num} es capicua`;
+        } else {
+            msg= `El número ${num} no es capicua`;
+        }
+
+        document.getElementById("texto").innerHTML= msg;
+
+    }
+
+
+</script>
+
+</body>
+</html>

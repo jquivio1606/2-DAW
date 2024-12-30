@@ -1,0 +1,14 @@
+.tarjeta-producto, .tarjeta-embarque {
+  border: 2px solid black;
+  border-radius: 2px; }
+  .tarjeta-producto .cabecera, .tarjeta-embarque .cabecera {
+    font-weight: bold;
+    font-style: italic; }
+
+.tarjeta-producto .cabecera {
+  color: aqua; }
+
+.tarjeta-embarque .cabecera {
+  color: aquamarine; }
+
+/*# sourceMappingURL=ejercicio1.css.map */

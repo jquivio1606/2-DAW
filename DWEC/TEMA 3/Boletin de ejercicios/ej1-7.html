@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+
+    <script>
+        let numeros = [3, 45, 6, 23, 11, 52];
+        console.log(sumarElementos(numeros));
+        console.log(numeroMayor(numeros));
+        console.log(filtrarPares(numeros));
+        console.log(filtrarPrimos(numeros));
+        console.log(ordenarNumeros(numeros));
+        console.log(ordenarNumerosSinModificar(numeros));
+        console.log(ordenarDesdePosicion(numeros, 3));
+
+
+
+
+
+        function sumarElementos(array) {
+            let suma = array.reduce((acum, valor) => { return acum + valor }, 0);
+            return suma;
+        }
+
+
+        function numeroMayor(array) {
+            let mayor = array.reduce((acum, valor) => { return valor > acum ? valor : acum; }, 0);
+            return mayor;
+        }
+
+
+        function filtrarPares(array) {
+            let pares = array.filter((valor) => {
+                if (valor % 2 == 0) {
+                    return valor
+                }
+            });
+            return pares;
+        }
+
+
+        function esPrimo(numero){
+            for(let i=2; i<numero; i++){
+                if(numero % i === 0){
+                    return false;
+                } 
+            }
+            return true;
+        }
+        
+        function filtrarPrimos(array) {
+            let primos = array.filter(esPrimo);
+            return primos;
+        }
+
+        function ordenarNumeros(array) {
+            return array.slice().sort((a,b)=> a-b);
+        }
+
+        function ordenarNumerosSinModificar(array) {
+            return array.toSorted((a,b)=> b-a);
+        }
+
+        function ordenarDesdePosicion(array, posicion) {
+            if(posicion <0 || posicion>= array.legrh){
+                return array.slice();
+            } else {
+                const arraySinMod = array.slice(0,posicion);
+                const arrayOrd = array.slice(posicion).sort((a,b)=> b-a);
+                return arraySinMod.concat(arrayOrd);
+            }
+        }
+
+    </script>
+</body>
+
+</html>

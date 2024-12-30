@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad 5</title>
+</head>
+<body>
+
+    <label for="fecha">Fecha:</label>
+    <input type="date" name="fecha" id="fecha" value="2024-01-01">
+    <input type="button" value="Enviar" onclick="obtenerFecha()">
+    <h3 id="texto"></h3>
+
+    <script>
+
+        function obtenerFecha(){
+            //Obtenemos la fecha del formulario y la pasamos a tipo fecha
+            const fecha = new Date(document.getElementById("fecha").value);
+            //Obtenemos la fecha actual para obtener la hora
+            const horaActual = new Date(); 
+
+            // Creamos dos arrays con los dias de la semana, y los meses de año
+            const diaSemana=["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"];
+            const mesAnio=["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Dicimebre"];
+
+            //Obtenemos todos los datos de las 2 fechas
+            let diaS = fecha.getDay();
+            let diaM = fecha.getDate();
+            let mes = fecha.getMonth();
+            let anio = fecha.getFullYear();
+            let hora = horaActual.getHours();
+            let min = horaActual.getMinutes();
+            let amPm= "";
+
+            //Comprobamos si es por la mañana o por la tarde y formateamos la hora
+            if(hora > 12){
+                hora-=12;
+                amPm= "tarde";
+            } else {
+                amPm= "mañana";
+            }
+
+            let msg= `Barbate, ${diaSemana[diaS]} ${diaM} de ${mesAnio[mes]} de ${anio}, son las ${hora}:${min} de la ${amPm} `;
+
+            //Mostramos el mensaje en la página web
+            document.getElementById("texto").innerHTML=msg;
+
+        }
+
+
+
+
+
+
+    </script>
+
+</body>
+</html>

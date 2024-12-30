@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,eAAO;EACH,OAAO,EAAE,SAAS;EAClB,aAAa,EAAE,GAAG;EAClB,KAAK,EAAE,YAAY;;AAGvB,eAAe;EAEX,UAAU,EAAE,KAAK",
+"sources": ["placeholder.scss"],
+"names": [],
+"file": "placeholder.css"
+}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EventListener</title>
+</head>
+
+<body>
+    <style>
+        .resaltado {
+            color: aqua;
+            font-weight: bold;
+        }
+    </style>
+
+    <h1 id="titulo">Desarrollo Web</h1>
+    <button id="boton">Cambia Estilo</button>
+
+
+    <script>
+        const titulo = document.getElementById("titulo");
+        const boton = document.getElementById("boton");
+
+        boton.addEventListener("click", function () {
+            const prueba = titulo.classList.toggle("resaltado");
+            console.log(prueba);
+        });
+
+    </script>
+
+
+</body>
+
+</html>

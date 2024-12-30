@@ -1,0 +1,28 @@
+// Estilos a aplicar
+@import 'variables';
+@import 'mixin';
+
+body {
+    font-family: $tipo-letra;
+}
+
+h1 {
+    color: $color-primario;
+}
+
+p {
+    color: $color-secundario;    
+}
+
+button {
+    color: white;
+    background-color: $color-primario;
+    @include borde-redondo(5px);
+    @include transicion(all , 0.5s);
+
+    // Para ponerle el estilo al padre con: &.   Además con :hover le  un evento al pasar el raton por ahí
+    &:hover{
+        // darken($color: , $amount: )  color es el color, y amount la transparencia
+        background-color: darken( $color-primario, 15%);
+    }
+}

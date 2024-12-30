@@ -1,0 +1,55 @@
+.place-holder, .entrada-place-holder, .text-area-place-holder {
+  color: antiquewhite;
+  font-size: 20px;
+  font-style: italic; }
+
+.boton, .primario-boton, .secundario-boton {
+  padding: 10px 20px;
+  border-radius: 5%;
+  color: antiquewhite; }
+
+.primario-boton {
+  background-color: #3c3e41; }
+
+.secundario-boton {
+  background-color: #3d2d1f; }
+
+.tarjeta, .especial-tarjeta {
+  border: 1px solid #4b2a13;
+  padding: 5px; }
+  .tarjeta .cabecera-tarjeta, .especial-tarjeta .cabecera-tarjeta {
+    font-size: 18px;
+    font-weight: bold; }
+  .tarjeta .cuerpo-tarjeta, .especial-tarjeta .cuerpo-tarjeta {
+    font-size: 15px; }
+
+.especial-tarjeta .cabecera-tarjeta {
+  background-color: #ad5c00; }
+.especial-tarjeta .cuerpo-tarjeta {
+  background-color: #fdd700; }
+
+/*    CSS resultante    */
+                          /*
+
+.place-holder, .entrada-place-holder, .text-area-place-holder {
+  color: antiquewhite;
+  font-size: 20px;
+  font-style: italic; 
+}
+
+.boton, .primario-boton, .secundario-boton {
+  padding: 10px 20px;
+  border-radius: 5%;
+  color: antiquewhite; 
+}
+
+.primario-boton {
+  background-color: #3c3e41; 
+}
+
+.secundario-boton {
+  background-color: #3d2d1f; 
+}
+*/
+
+/*# sourceMappingURL=extensiones1.css.map */

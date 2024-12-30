@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej form Libros</title>
+</head>
+
+<body>
+    <h1> Ejercicio formularios</h1>
+    <form>
+
+        <fieldset>
+            <legend>Datos del libro/alquiler</legend>
+
+            <label for="libros">Título</label> <br>
+            <select name="libros" id="libros">
+                <option id="l1"> Libro 1 </option>
+                <option id="l2"> Libro 2 </option>
+                <option id="l3"> Libro 3 </option>
+                <option id="l4"> Libro 4 </option>
+                <option id="l5"> Libro 5 </option>
+            </select>
+
+            <br><br>
+            <!-- En vez de llamar a una función se puede poner así: -->
+            <label for="dias">Días</label> <br>
+            <input type="number" id="dias" onfocusout="precio.value=(dias.value*2)">
+
+            <br><br>
+            <p style="display: inline;"> Precio: <output id="precio"></output> € </p> <br>
+            <!--  -------------------------------------------------  -->
+            <br>
+            <label for="observciones">Observaciones</label> <br>
+            <textarea name="observaciones" id="obs" rows="4" cols="40"> Escribe aquí las observaciones...</textarea>
+
+            <br><br>
+            <label for="ebook">Escribe la marca de tu Ebook</label> <br>
+            <input list="ebooks" name="ebook">
+            <datalist id="ebooks">
+                <option value="Xiaomi"></option>
+                <option value="Kobo"></option>
+                <option value="BQ"></option>
+            </datalist>
+
+            <br><br>
+            <input type="button" id="btn1" value="Enviar">
+
+            <br><br>
+
+            <fieldset>
+                <legend>Precio alquiler 2</legend>
+                <p>Precio del alquiler: 2€/dia</p>
+
+                <label for="dias">Días</label> <br>
+                <input type="number" id="dias2" onchange="calcularPrecio()">
+
+                <br><br>
+                <p style="display: inline;"> Total:
+                <p style="display: inline;" id="precio2"></p> € </p>
+            </fieldset>
+        </fieldset>
+        </div>
+        <fieldset>
+            <legend>Datos del cliente</legend>
+
+            <label for="nombre"> Nombre </label><br>
+            <input type="text" id="nombre">
+
+            <br><br>
+            <label for="apellido"> Apellidos </label><br>
+            <input type="text" id="apellido">
+
+
+            <br><br>
+            <input type="button" id="btn2" value="Enviar">
+
+        </fieldset>
+
+
+    </form>
+
+    <script>
+        function calcularPrecio() {
+            let dias = document.getElementById("dias2").value;
+            document.getElementById("precio2").innerHTML = dias * 2;
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej form Recetas</title>
+</head>
+
+<body>
+    <style>
+        legend{
+            font-weight: bold;
+            font-size: large;
+            padding-bottom: 10px;
+        }
+    </style>
+
+    <section style="width: fit-content; display: block; margin: auto; padding: 20px; ">
+        <h1 style="text-align: center;"> Reserva de plaza Polideportivo Barbate </h1>
+        <form>
+            <fieldset>
+                <legend>Datos del participante</legend>
+                <label for="nombre"> Nombre y Apellidos </label>
+                <input type="text" name="nombre">   <br>
+
+                <p>¿Es miembro del club?</p>
+                <input type="radio" id="siM" name="miembro" value="si">
+                <label for="siM"> Miembro </label>
+                <input type="radio" id="noM" name="miembro" value="no">
+                <label for="noM"> No-Miembro </label>
+
+                <br><br>
+                <label for="email">Email</label>
+                <input type="email" name="email">
+                
+            </fieldset>
+            <br>
+            <fieldset>
+                <legend>Datos de la reserva</legend>
+
+                <label for="deporte"> Deporte </label>
+                <select name="deporte">
+                    <option> Padle </option>
+                    <option> Tenis </option>
+                    <option> Futbol </option>
+                    <option> Baloncesto </option>
+                </select>
+                <br><br>
+
+                <label for="fecha">Seleccionas fecha y hora de la reserva:</label><br><br>
+                <input type="date" name="fecha">
+                <input type="time" name="fecha">
+
+                <br><br>
+                <input type="checkbox" name="normas">
+                <label for="normas">Acepto las normas del club</label>
+
+            </fieldset>
+        </form>
+
+    </section>
+
+</body>
+
+</html>

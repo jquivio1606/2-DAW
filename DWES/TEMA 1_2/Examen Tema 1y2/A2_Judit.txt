@@ -1,0 +1,19 @@
+<?php
+        //JUDIT QUIRÓS VIOLERO
+        //Act  2
+        
+        function factorial($num){
+            if(isset($num)){
+                for($i=$num;$i>0;$i--){
+                    $num *= $i;
+                }    
+            } else {
+                return false;
+            }
+            
+            return $num;
+        }
+        
+        $num =3;
+        echo factorial($num);    
+?>

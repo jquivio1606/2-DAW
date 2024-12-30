@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Ejemplos con grid 2</title>
+
+    <style>
+        .contenedor {
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            grid-template-rows: 150px 500px 75px;
+            grid-template-areas:
+                'header header'
+                'main aside'
+                'footer footer';
+            gap: 10px;
+        }
+
+        .item-1 {
+            border: 1px solid rgb(19, 24, 49);
+            color: rgb(27, 37, 90);
+            background-color: lightblue;
+            grid-area: header;
+
+        }
+
+        .item-2 {
+            border: 1px solid rgb(32, 8, 41);
+            color: white;
+            background-color: rgb(132, 89, 151);
+            grid-area: main;
+        }
+
+
+        .item-3 {
+            border: 1px solid rgb(126, 100, 14);
+            background-color: rgb(239, 240, 202);
+            grid-area: aside;
+        }
+
+        .item-4 {
+            border: 1px solid rgb(1, 66, 33);
+            background-color: rgb(124, 211, 170);
+            grid-area: footer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="contenedor">
+        <div class="item item-1"> Contenedor 1 </div>
+        <div class="item item-2"> Contenedor 2 </div>
+        <div class="item item-3"> Contenedor 3 </div>
+        <div class="item item-4"> Contenedor 4 </div>
+    </div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,23 @@
+%tarjetas {
+    border: 2px solid black;
+    border-radius: 2px;
+
+    .cabecera{
+        font-weight: bold;
+        font-style: italic;
+    }
+}
+
+.tarjeta-producto {
+    @extend %tarjetas;
+    .cabecera {
+        color: aqua;
+    }
+}
+
+.tarjeta-embarque{
+    @extend %tarjetas;
+    .cabecera {
+        color: aquamarine;
+    }
+}

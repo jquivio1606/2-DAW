@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Actividad 2 </title>
+</head>
+
+<body>
+    <p>Los elementos del array son: <span id="array"></span></p>
+    <button onclick="insertarFinal()">Insertar al final</button>
+    <button onclick="insertarPrincipio()">Insertar al principio</button>
+    <button onclick="borrarPrincipio()">Borrar al principio</button>
+    <button onclick="borrarFinal()">Borrar al final</button>
+
+    <script>
+
+        var array = [];
+
+        //Inserta un numero aleatorio al final
+        function insertarFinal() {
+            let num = Math.floor(Math.random() * 100 + 1);
+            //Inserta el numero al final del array
+            array.push(num);
+
+            //Borra lo que ya estaba en el array y lo reescribe
+            document.getElementById("array").innerHTML = " ";
+            array.forEach(elemento => {
+                document.getElementById("array").innerHTML += elemento + "  ";
+            });
+        }
+
+        //Inserta un numero aleatorio al principio
+        function insertarPrincipio() {
+            let num = Math.floor(Math.random() * 100 + 1);
+            //Inserta el numero al principio del array
+            array.unshift(num);
+
+            //Borra lo que ya estaba en el array y lo reescribe
+            document.getElementById("array").innerHTML = " ";
+            array.forEach(elemento => {
+                document.getElementById("array").innerHTML += elemento + "  ";
+            });
+        }
+
+        //Borra el primer elemento del array
+        function borrarPrincipio() {
+            //Borra el primer elemento del array
+            array.shift();
+
+            //Borra lo que ya estaba en el array y lo reescribe
+            document.getElementById("array").innerHTML = " ";
+            array.forEach(elemento => {
+                document.getElementById("array").innerHTML += elemento + "  ";
+            });
+        }
+
+        //Borra el último elemento del array
+        function borrarFinal() {
+            //Borra el último elemento del array
+            array.pop();
+
+            //Borra lo que ya estaba en el array y lo reescribe
+            document.getElementById("array").innerHTML = " ";
+            array.forEach(elemento => {
+                document.getElementById("array").innerHTML += elemento + "  ";
+            });
+        }
+
+
+    </script>
+
+</body>
+
+</html>

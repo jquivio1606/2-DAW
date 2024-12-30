@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejericio 13 - Tabla de multiplicar</title>
+</head>
+<body>
+    <header><h1>Tabla de multiplicar</h1></header>
+    <input type="number" min="1" max="10" id="num">
+    <input  type="button" onclick="Tabla()" value="Mostrar tabla">
+    <p id="parrafo"></p>
+    <script>
+        /* tabla de multiplicar */
+        function Tabla(){
+            var num= document.getElementById("num").value;
+            var salida="";
+            for (let i= 0; i<=10; i++){
+                salida+=num+" x "+i+" = "+num*i+ "<br>";
+            }
+            document.getElementById("parrafo").innerHTML=salida;
+        }
+
+    </script>
+</body>
+</html>
