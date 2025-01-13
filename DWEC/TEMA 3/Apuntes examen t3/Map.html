@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+
+         /*   CREACIÓN DE UN MAP   */
+
+        // Con elementos dentro
+        let receta = new Map ([["Tomate", 300],["Pepino",45],["Pan", 56]]);
+
+
+        // Map vacío
+        let asignaturas= new Map();
+            //Añadir datos al map 
+            asignaturas.set("DWEC","Desarrollo Web en entorno cliente");
+            asignaturas.set("DIW","Desarrollo de Interfaces Web");
+            asignaturas.set("DWES","Desarrollo Web en entorno servidor");
+            asignaturas.set("LC","Libre configuración");
+
+
+
+       
+        /*   RECORRER UN MAP   */
+
+        // Con for corto
+        //Devolvemos el valor  -->  map.values()
+        for(let elemento of asignaturas.values()){
+            console.log(elemento);
+        }
+
+        //Devolvemos las claves  --> map.keys()
+        for(let valor of asignaturas.keys()){
+            console.log(valor);
+        }
+
+
+        // Con forEach()
+        asignaturas.forEach((valor, clave) => {console.log(clave, valor)});
+
+
+
+        /*   MÉTODOS DEL MAP   */
+
+        // .has  --> Está el modulo DWEC?
+        console.log(asignaturas.has("DWEC"));
+
+        //  .delete  -->  Está el elemento Despliegue? Si está hay que borrarlo:      
+        if (asignaturas.has("DESPLIEGUE")){
+            asignaturas.delete("DESPLIEGUE");
+        } else {
+            console.log("No está");
+        }
+
+
+        /*    CREAR UN ARRAY A PARTIR DE UN MAP O SET    */
+
+        //Módulo, horas, alumnos:
+        let map2= new Map([
+            ["DWEC", [420, 12]],
+            ["DIW", [200, 30]],
+            ["DWES", [500, 25]],
+            ["HLC", [20, 5]]
+        ]);
+
+        //De esta forma se puede modificar el array, sin modificar el set, o el map.
+        let map_clonado =[...structuredClone(map2)];
+        console.log(map_clonado);
+
+
+        /* NO SE DONDE METER ESTO: */
+
+        // Array.from -->  Convertir objetos iterables (Set, Map) a arrays.
+        const numerosUnicos = new Set([10, 2, 3, 40, 33, 50, 10]);
+        const arrayNumeros = Array.from(numerosUnicos);
+        console.log(arrayNumeros); // [10, 2, 3, 40, 33, 50]
+
+        // Crear un array de valores calculados
+        const secuencia = Array.from({ length: 5 }, (_, i) => i + 1);
+        console.log(secuencia); // [1, 2, 3, 4, 5]
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cifrado César</title>
+</head>
+<body>
+    <h1>Cifrado César en JavaScript</h1>
+    <label for="texto">Mensaje</label>
+    <input type="text" id="texto"><br><br>
+    <label for="numero">Desplazamiento</label>
+    <input type="number" id="numero"><br><br>
+    <button id="cifrar">Cifrar</button>
+    <button id="descifrar">Descifrar</button>
+    <h2>Resultado:</h2>
+    <p id="resultado"></p>
+    <script>
+        const abecedario = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "ñ", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+        const botonC = document.getElementById("cifrar");
+        const botonD = document.getElementById("descifrar");
+        const parrafo = document.getElementById("resultado");
+
+        botonC.addEventListener("click", () => procesarTexto(true));
+        botonD.addEventListener("click", () => procesarTexto(false));
+
+        function procesarTexto(esCifrar) {
+            const mensaje = document.getElementById("texto").value.toLowerCase();
+            const desplazamiento = parseInt(document.getElementById("numero").value);
+
+            if (isNaN(desplazamiento)) {
+                parrafo.textContent = "Por favor, ingresa un desplazamiento válido.";
+                return;
+            }
+
+            let mensajeFinal = "";
+            for (let char of mensaje) {
+                const index = abecedario.indexOf(char);
+                if (index === -1) {
+                    // Si el carácter no está en el abecedario, lo agregamos tal cual
+                    mensajeFinal += char;
+                } else {
+                    let nuevoIndice;
+                    if (esCifrar) {
+                        nuevoIndice = (index + desplazamiento) % abecedario.length;
+                    } else {
+                        nuevoIndice = (index - desplazamiento) % abecedario.length;
+                        // Ajustar si el índice es negativo
+                        if (nuevoIndice < 0) {
+                            nuevoIndice += abecedario.length;
+                        }
+                    }
+                    mensajeFinal += abecedario[nuevoIndice];
+                }
+            }
+
+            parrafo.textContent = mensajeFinal;
+        }
+    </script>
+</body>
+</html>
