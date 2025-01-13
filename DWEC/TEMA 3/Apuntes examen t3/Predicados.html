@@ -33,7 +33,7 @@
 
         const numeros = [10, 2, 3, 40, 33, 50];
         const duplicar = (valor) => valor * 2;
-        const multipo10 = (valor) => valor % 10 === 0;
+        const multiplo10 = (valor) => valor % 10 === 0;
         let espositivo = (elemento) => elemento >= 0;
 
 
@@ -49,7 +49,7 @@
         const hayPositivos = numeros.some(espositivo);
         console.log(hayPositivos); // true
 
-        const algunMultiplo10 = numeros.some(multipo10);
+        const algunMultiplo10 = numeros.some(multiplo10);
         console.log(algunMultiplo10); // true
 
 
@@ -57,17 +57,17 @@
         const todosPositivos = numeros.every(espositivo);
         console.log(todosPositivos); // true
 
-        const todosMultiplos10 = numeros.every(multipo10);
+        const todosMultiplos10 = numeros.every(multiplo10);
         console.log(todosMultiplos10); // false
 
 
         // .filter -->  Verifica si todos los elementos cumplen una condición.
-        const multiplosDe10 = numeros.filter(multipo10);
+        const multiplosDe10 = numeros.filter(multiplo10);
         console.log(multiplosDe10); // [10, 40, 50]
 
 
         // .find --> Devuelve el primer elemento que cumple la condición.
-        const primerMultiplo10 = numeros.find(multipo10);
+        const primerMultiplo10 = numeros.find(multiplo10);
         console.log(primerMultiplo10); // 10
 
         // .findLast --> Encuentra y devuelve el último elemento que cumple una condición.
@@ -121,7 +121,7 @@
         // Duplicar los números y luego filtrar los múltiplos de 10:
         const duplicadosYMultiplos10 = numeros
             .map(duplicar)
-            .filter(multipo10);
+            .filter(multiplo10);
         console.log(duplicadosYMultiplos10); // [20, 80, 100]
 
 

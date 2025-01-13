@@ -16,7 +16,7 @@ CREATE TABLE productos (
     nombre_corto VARCHAR(50) UNIQUE,
     descripcion TEXT,
     pvp DECIMAL(10,2),
-    familia VARCHAR(6),
+    familia VARCHAR(25),
     FOREIGN KEY (familia) REFERENCES familias(cod)
 );
 
@@ -31,7 +31,7 @@ CREATE TABLE stocks (
     tienda INT(11),
     unidades INT(10) UNSIGNED,
     PRIMARY KEY (producto, tienda),
-    FOREIGN KEY (producto) REFERENCES productos(id),
+    FOREIGN KEY (producto) REFERENCES productos(id) ON DELETE CASCADE,
     FOREIGN KEY (tienda) REFERENCES tiendas(id)
 );
 

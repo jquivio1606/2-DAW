@@ -1,16 +1,10 @@
-<?php
-
-
-
-?>
-
 <!DOCTYPE html>
 <html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Listado </title>
+    <title> Listado Productos </title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
@@ -46,6 +40,7 @@
                     echo "<tr>
                             <td>
                                 <form action='detalle.php' method='get'>
+                                    <input type='hidden' name='id' value='$id_prod'>
                                     <button type='submit' class='btn' style='color: white; background-color: rgb(24, 152, 161);'>Detalle</button> 
                                 </form>
                             </td>
@@ -53,9 +48,11 @@
                             <td> $nom_prod </td>
                             <td>
                                 <form action='update.php' method='get' style='display: inline'>
+                                    <input type='hidden' name='id' value='$id_prod'>
                                     <button type='submit' class='btn btn-warning'>Actualizar</button>
                                 </form>
-                                <form action='borrar.php' method='post' style='display: inline'>
+                                <form action='borrar.php' method='get' style='display: inline'>
+                                    <input type='hidden' name='id' value='$id_prod'>
                                     <button type='submit' class='btn btn-danger'>Borrar</button>
                                 </form>
                             </td>
