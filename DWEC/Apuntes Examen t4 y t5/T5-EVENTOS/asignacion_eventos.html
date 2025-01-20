@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asignación de Eventos</title>
+</head>
+
+<body>
+
+    <button id="objeto">Haz clic aquí</button>
+
+    <!--Último ejemplo-->
+    <div onmouseover="color('lightblue')" onmouseout="color('white')"
+        style="width: 200px; height: 100px; border: 1px solid #000;">
+        Pasa el ratón por encima de este cuadro
+    </div>
+
+    <script>
+        // Asignación directa de eventos (con prefijo `on`)
+        var boton = document.getElementById("objeto");
+
+        // Al hacer clic en el objeto, se ejecuta la función `calcular`
+        boton.onclick = function () {
+            alert("Clic detectado con asignación directa");
+        };
+
+        // Al pasar el ratón por encima del objeto, se ejecuta una función anónima que llama a `calcular`
+        boton.onmouseover = function () {
+            alert("Ratón sobre el botón");
+        };
+
+        // Usando `addEventListener` para asignar el evento de manera más flexible
+        // Al hacer clic en el objeto, se ejecuta la función `calcular`
+        boton.addEventListener("click", function () {
+            alert("Clic detectado con addEventListener");
+        });
+
+        // Se utiliza una función anónima para llamar a `calcular` al hacer clic
+        boton.addEventListener("click", function () {
+            alert("Otro clic detectado con addEventListener");
+        });
+
+
+        // Función para cambiar el color de fondo
+        function color(col) {
+            // Cambiar el color de fondo del elemento que disparó el evento
+            event.currentTarget.style.backgroundColor = col;
+        }
+
+
+    </script>
+
+</body>
+
+</html>
