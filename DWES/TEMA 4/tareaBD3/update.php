@@ -70,5 +70,4 @@ $familias = mostrarFamilias();
         <a href="listado.php" class="btn btn-primary">Volver</a>
     </form>
 </body>
-
 </html>
