@@ -1,9 +1,0 @@
-%boton{
-    padding: 10px 20px;
-    border-radius: 5px;
-    color: aquamarine;
-}
-.primario-boton{
-    @extend %boton;
-    background: black;
-}
