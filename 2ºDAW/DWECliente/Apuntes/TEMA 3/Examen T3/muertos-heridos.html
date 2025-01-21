@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Números Muertos y Heridos</title>
+</head>
+
+<body>
+    <h1>Juego de los Muertos y Heridos</h1>
+    <input type="text" id="numero" name="numero"><br><br>
+    <button type="button" id="btn" onclick="comprobar()">Comprobar</button>
+    <h3>Muertos: <span id="num_muertos"></span>, Heridos: <span id="num_heridos"></span></h3>
+    <p id="int"></p>
+
+    <script>
+
+        let boton = document.getElementById('btn');
+
+        let num_al = "";
+        let num_random = new Array();
+        for (let i = 0; i < 4; i++) {
+            num_al = Math.floor(Math.random() * 9);
+            num_al += "";
+            num_random[i] = num_al;
+        }
+        console.log(num_random);
+
+        function comprobar() {
+            let intentos=8;
+            var numero_elegido = document.getElementById('numero').value;
+            let muertos = 0;
+            let heridos = 0;
+            for (let i = 0; i < 4; i++) {
+                if (num_random[i] === numero_elegido.charAt(i)) {
+                    muertos++;
+                }
+                if(num_random.includes(numero_elegido.charAt(i))){
+                    heridos++;
+                    if(muertos >= 1 ){
+                        heridos = heridos-muertos;
+                        if(heridos < 0){
+                            heridos=0;
+                        }
+                    } 
+                }
+            }
+            intentos--;
+            document.getElementById('num_muertos').innerHTML= muertos;
+            document.getElementById('num_heridos').innerHTML= heridos;
+            document.getElementById('int').innerHTML= "Numero de intentos: " + intentos;
+        }
+
+
+    </script>
+</body>
+
+</html>

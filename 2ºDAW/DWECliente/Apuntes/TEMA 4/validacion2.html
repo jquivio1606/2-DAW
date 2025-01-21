@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> try-catch </title>
+</head>
+
+<body>
+
+    <p> Números entre 5 y 10 </p>
+    <input type="text" id="num">
+    <button type="button" onclick="comprobar()"> Comprobar </button>
+    <p id="mensaje"></p>
+
+
+    <script>
+
+        function comprobar() {
+            let num = parseInt(document.getElementById("num").value);
+            let mensaje = document.getElementById("mensaje");
+
+            try {
+                if (num == "" || isNaN(num)) {
+                    throw "No se ha introducido ningún número";
+                } else if (num < 5 ) {
+                    throw "El número es  menor que 5";
+                } else if(num > 10){
+                    throw "El número es mayor que 10";
+                }
+
+            } catch (error) {
+                mensaje.innerHTML = "Error: " + error;
+            }
+        }
+
+
+
+    </script>
+</body>
+
+</html>

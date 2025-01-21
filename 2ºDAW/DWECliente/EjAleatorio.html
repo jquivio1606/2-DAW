@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aleatorio</title>
+</head>
+<body>
+    <script>
+        /*Un número del 1 al 10 aleatorio*/
+        var numAleat=(Math.random()*10).toFixed(0);
+        var numUsuario=parseInt(prompt("Dime un número"));
+
+        if(numAleat==numUsuario){
+            alert("Has acertado!");
+        } else{
+            alert("Sigue intentándolo");
+        }
+        
+    </script>
+</body>
+</html>

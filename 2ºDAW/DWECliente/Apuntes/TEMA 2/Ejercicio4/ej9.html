@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 9</title>
+</head>
+<body>
+    
+    <script>
+       
+        /* Usando switch, lea una compra e indique:
+            1. Si ha comprado menos de 100 euros no hay descuento
+            2. Si la compra está entre 100 y 300 euros le descuenta un 5%
+            3. Si la compra está por encima de 300 hasta 500 euros le descuenta un 10%
+            4. Si la compra supera los 400 euros le descuenta un 15%    */
+
+        var compra, msj;
+        compra = parseInt(prompt("Deme el importe da la factura"));
+
+        switch(true){
+            case (compra >=100 && compra <300):
+                msj="Se le descuenta un 5% de la factura. El Total es: " + (compra - (compra*0.05));
+            break;
+
+            case (compra >=300 && compra <400):
+                msj="Se le descuenta un 10% de la factura. El Total es: " + (compra - (compra*0.1));
+            break;
+
+            case (compra >400):
+                msj="Se le descuenta un 15% de la factura. El Total es: " + (compra - (compra*0.15));
+            break;
+            default: 
+                msj= "No tiene descuento";
+            break;
+        }
+        alert(msj);
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sopa de Letras Interactiva</title>
+    <style>
+        table { border-collapse: collapse; margin-bottom: 10px; }
+        td { 
+            border: 1px solid black; 
+            width: 30px; 
+            height: 30px; 
+            text-align: center; 
+            font-weight: bold; 
+            cursor: pointer;
+        }
+        button { margin-right: 10px; }
+        .seleccionada { background-color: yellow; }
+        .encontrada { background-color: lightgreen; }
+    </style>
+</head>
+<body>
+    <div id="container"></div>
+
+    <script>
+    // Array de objetos con palabras y orientaciones
+    const palabrasYOrientaciones = [
+      { palabra: "JAVASCRIPT", orientacion: "HorizontalNormal" },
+      { palabra: "HTML", orientacion: "VerticalNormal" },
+      { palabra: "CSS", orientacion: "DiagonalDerechaAbajo" },
+      { palabra: "REACT", orientacion: "DiagonalIzquierdaArriba" },
+      { palabra: "NODE", orientacion: "HorizontalReves" },
+      { palabra: "VUE", orientacion: "VerticalReves" },
+      { palabra: "ANGULAR", orientacion: "DiagonalDerechaArriba" },
+      { palabra: "PYTHON", orientacion: "DiagonalIzquierdaAbajo" }
+    ];
+
+    let seleccionActual = [];
+    let palabrasEncontradas = [];
+
+    // Función para crear la sopa de letras
+    function crearSopaDeLetras() {
+      const tamañoSopa = 8;
+      let sopaDeLetras = Array(tamañoSopa).fill().map(() => Array(tamañoSopa).fill(''));
+
+      // Función para colocar una palabra en la sopa
+      function colocarPalabra(palabra, orientacion) {
+        let filaInicio, columnaInicio, desplazamientoFila, desplazamientoColumna;
+        let intentos = 0;
+        const maxIntentos = 100;
+
+        do {
+          columnaInicio = Math.floor(Math.random() * tamañoSopa);
+          filaInicio = Math.floor(Math.random() * tamañoSopa);
+          
+          switch(orientacion) {
+            case "HorizontalNormal":
+              desplazamientoColumna = 1; desplazamientoFila = 0;
+              break;
+            case "VerticalNormal":
+              desplazamientoColumna = 0; desplazamientoFila = 1;
+              break;
+            case "DiagonalDerechaAbajo":
+              desplazamientoColumna = 1; desplazamientoFila = 1;
+              break;
+            case "DiagonalIzquierdaArriba":
+              desplazamientoColumna = -1; desplazamientoFila = -1;
+              break;
+            case "HorizontalReves":
+              desplazamientoColumna = -1; desplazamientoFila = 0;
+              palabra = palabra.split('').reverse().join('');
+              break;
+            case "VerticalReves":
+              desplazamientoColumna = 0; desplazamientoFila = -1;
+              palabra = palabra.split('').reverse().join('');
+              break;
+            case "DiagonalDerechaArriba":
+              desplazamientoColumna = 1; desplazamientoFila = -1;
+              break;
+            case "DiagonalIzquierdaAbajo":
+              desplazamientoColumna = -1; desplazamientoFila = 1;
+              break;
+          }
+
+          let sePuedeColocar = true;
+          for (let i = 0; i < palabra.length; i++) {
+            let nuevaColumna = columnaInicio + i * desplazamientoColumna;
+            let nuevaFila = filaInicio + i * desplazamientoFila;
+            if (nuevaColumna < 0 || nuevaColumna >= tamañoSopa || nuevaFila < 0 || nuevaFila >= tamañoSopa || 
+                (sopaDeLetras[nuevaFila][nuevaColumna] !== '' && sopaDeLetras[nuevaFila][nuevaColumna] !== palabra[i])) {
+              sePuedeColocar = false;
+              break;
+            }
+          }
+
+          if (sePuedeColocar) {
+            for (let i = 0; i < palabra.length; i++) {
+              sopaDeLetras[filaInicio + i * desplazamientoFila][columnaInicio + i * desplazamientoColumna] = palabra[i];
+            }
+            return true;
+          }
+
+          intentos++;
+        } while (intentos < maxIntentos);
+
+        return false;
+      }
+
+      // Colocar todas las palabras
+      palabrasYOrientaciones.forEach(({ palabra, orientacion }) => {
+        if (!colocarPalabra(palabra, orientacion)) {
+          console.log(`No se pudo colocar la palabra: ${palabra}`);
+        }
+      });
+
+      // Rellenar espacios vacíos con letras aleatorias
+      for (let fila = 0; fila < tamañoSopa; fila++) {
+        for (let columna = 0; columna < tamañoSopa; columna++) {
+          if (sopaDeLetras[fila][columna] === '') {
+            sopaDeLetras[fila][columna] = String.fromCharCode(65 + Math.floor(Math.random() * 26));
+          }
+        }
+      }
+
+      return sopaDeLetras;
+    }
+
+    // Generar y mostrar la sopa de letras
+    function mostrarSopaDeLetras() {
+      const sopaDeLetras = crearSopaDeLetras();
+      const contenedor = document.getElementById('container');
+      contenedor.innerHTML = '';
+
+      const tabla = document.createElement('table');
+      sopaDeLetras.forEach((fila, indiceFila) => {
+        const filaTr = document.createElement('tr');
+        fila.forEach((letra, indiceColumna) => {
+          const celdaTd = document.createElement('td');
+          celdaTd.textContent = letra;
+          celdaTd.dataset.fila = indiceFila;
+          celdaTd.dataset.columna = indiceColumna;
+          celdaTd.addEventListener('click', manejarClicEnLetra);
+          filaTr.appendChild(celdaTd);
+        });
+        tabla.appendChild(filaTr);
+      });
+
+      contenedor.appendChild(tabla);
+
+      // Crear botones
+      const botonNuevaSopa = document.createElement('button');
+      botonNuevaSopa.textContent = 'Nueva Sopa de Letras';
+      botonNuevaSopa.onclick = mostrarSopaDeLetras;
+
+      const botonMostrarPalabras = document.createElement('button');
+      botonMostrarPalabras.textContent = 'Mostrar Palabras';
+      botonMostrarPalabras.onclick = mostrarPalabras;
+
+      contenedor.appendChild(botonNuevaSopa);
+      contenedor.appendChild(botonMostrarPalabras);
+
+      // Reiniciar variables
+      seleccionActual = [];
+      palabrasEncontradas = [];
+    }
+
+    // Función para manejar el clic en una letra
+    function manejarClicEnLetra(evento) {
+      const celda = evento.target;
+      const fila = parseInt(celda.dataset.fila);
+      const columna = parseInt(celda.dataset.columna);
+
+      if (seleccionActual.length === 0 || sonCeldasAdyacentes(seleccionActual[seleccionActual.length - 1], { fila, columna })) {
+        seleccionActual.push({ fila, columna, letra: celda.textContent });
+        celda.classList.add('seleccionada');
+      } else {
+        // Si no es adyacente, reiniciar la selección
+        limpiarSeleccion();
+        seleccionActual.push({ fila, columna, letra: celda.textContent });
+        celda.classList.add('seleccionada');
+      }
+
+      verificarPalabra();
+    }
+
+    // Función para verificar si se ha formado una palabra válida
+    function verificarPalabra() {
+      const palabraFormada = seleccionActual.map(celda => celda.letra).join('');
+      const palabraReversa = palabraFormada.split('').reverse().join('');
+
+      const palabraEncontrada = palabrasYOrientaciones.find(p => 
+        p.palabra === palabraFormada || p.palabra === palabraReversa
+      );
+
+      if (palabraEncontrada && !palabrasEncontradas.includes(palabraEncontrada.palabra)) {
+        palabrasEncontradas.push(palabraEncontrada.palabra);
+        marcarPalabraEncontrada();
+        limpiarSeleccion();
+        verificarVictoria();
+      }
+    }
+
+    // Función para marcar una palabra encontrada
+    function marcarPalabraEncontrada() {
+      seleccionActual.forEach(celda => {
+        const elemento = document.querySelector(`td[data-fila="${celda.fila}"][data-columna="${celda.columna}"]`);
+        elemento.classList.add('encontrada');
+      });
+    }
+
+    // Función para limpiar la selección actual
+    function limpiarSeleccion() {
+      seleccionActual.forEach(celda => {
+        const elemento = document.querySelector(`td[data-fila="${celda.fila}"][data-columna="${celda.columna}"]`);
+        elemento.classList.remove('seleccionada');
+      });
+      seleccionActual = [];
+    }
+
+    // Función para verificar si se han encontrado todas las palabras
+    function verificarVictoria() {
+      if (palabrasEncontradas.length === palabrasYOrientaciones.length) {
+        alert('¡Felicidades! Has encontrado todas las palabras.');
+      }
+    }
+
+    // Función para comprobar si dos celdas son adyacentes
+    function sonCeldasAdyacentes(celda1, celda2) {
+      const difFila = Math.abs(celda1.fila - celda2.fila);
+      const difColumna = Math.abs(celda1.columna - celda2.columna);
+      return (difFila <= 1 && difColumna <= 1) && !(difFila === 0 && difColumna === 0);
+    }
+
+    // Función para mostrar las palabras
+    function mostrarPalabras() {
+      const palabrasPendientes = palabrasYOrientaciones
+        .filter(p => !palabrasEncontradas.includes(p.palabra))
+        .map(p => p.palabra)
+        .join(', ');
+      alert('Palabras pendientes: ' + palabrasPendientes);
+    }
+
+    // Llamar a la función cuando la página cargue
+    window.onload = mostrarSopaDeLetras;
+    </script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palindromos</title>
+
+    <style>
+        table{
+            border: 1px solid black;
+            width: 250px;
+        }
+        tr,td,th {
+            border: 1px solid black;
+            padding: 5px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    
+    <input type="text" id="cadena">
+    <input type="button" onclick="esPalindromo()" value="Enviar">
+    <br><br>
+    <table id="tabla">
+        <tr>
+            <th>Original</th>
+            <th>Volcada</th>
+        </tr>
+    </table>
+    <script>
+        function esPalindromo(){
+            var cadena = document.getElementById("cadena").value;
+            cadena.toLowerCase();
+            cadena = quitarEspacio(cadena);
+            console.log(cadena);
+            var cadInvertida = reverse(cadena);
+            console.log(cadInvertida);
+
+            var cadenaSplit = cadena.split("");
+            var cadInvertidaSplit = cadInvertida.split("");
+            console.log(cadenaSplit, cadInvertidaSplit);
+
+
+
+            for(let i= 0; i< cadena.length; i++){
+                document.getElementById("tabla").innerHTML += "<tr> <td> "+ cadenaSplit[i] + "</td><td> "+ cadInvertidaSplit[i] + "</td> </tr>"
+            }
+
+            if(cadena == cadInvertida){
+                document.getElementById("tabla").innerHTML += "<tr><th colspan=2>Es palindromo</th></tr>"
+            } else {
+                document.getElementById("tabla").innerHTML += "<tr><th colspan=2>No es palindromo</th></tr>"
+            }
+            
+            function quitarEspacio(cadena){
+                let split = cadena.split(" ");
+                let join =split.join(""); 
+                return join;
+            }
+
+            function reverse(cadena){
+                let split = cadena.split("");
+                let reverse =split.reverse();
+                let join =reverse.join(""); 
+                return join;
+            }  
+        }
+
+    </script>
+</body>
+</html>

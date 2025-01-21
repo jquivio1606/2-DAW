@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cifrado César</title>
+</head>
+<body>
+    <h1>Cifrado César en JavaScript</h1>
+    <label for="texto">Mensaje</label>
+    <input type="text" id="texto"><br><br>
+    <label for="numero">Desplazamiento</label>
+    <input type="number" id="numero"><br><br>
+    <button id="cifrar">Cifrar</button>
+    <button id="descifrar">Descifrar</button>
+    <h2>Resultado:</h2>
+    <p id="resultado"></p>
+    <script>
+        
+        // Creamos las variables para el abecedario, los botones cifrar y descifrar y el resultado
+        const abecedario = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "ñ", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+        const botonCifrar = document.getElementById("cifrar");
+        const botonDescifrar = document.getElementById("descifrar");
+        const resultado = document.getElementById("resultado");
+
+        //Añadimos eventos a los botones
+        botonCifrar.addEventListener("click", () => procesarTexto(true));
+        botonDescifrar.addEventListener("click", () => procesarTexto(false));
+
+        //Creamos la función para procesar el texto
+        function procesarTexto(esCifrar) {
+            //Creamos las variables para capturar el mensaje y el desplazamiento
+            const mensaje = document.getElementById("texto").value;
+            const desplazamiento = parseInt(document.getElementById("numero").value);
+            //Creamos la variable para guardar el mensaje cifrado
+            let mensajeCifrado = "";
+            //Recorremos el mensaje caracter a caracter y lo guardamos en la variable creada
+            for (let char of mensaje) {
+                //Creamos una variable para guardar el índice del caracter que estamos valorando en ese momento
+                const index = abecedario.indexOf(char);
+                // Si el carácter no está en el abecedario, lo ponemos tal y como está
+                if (index === -1) {
+                    mensajeCifrado += char;
+                } else {
+                    //Creamos una variable para guardar el índice del mensaje cifrado
+                    let nuevoIndice;
+                    //Si clicamos en el botón cifrar, al índice del mensaje original se le suma el desplazamiento y se le aplica el modulo de la longitud del abecedario
+                    if (esCifrar) {
+                        nuevoIndice = (index + desplazamiento) % abecedario.length;
+                    //Si clicamos en el botón descifrar, al índice del mensaje original se le resta el desplazamiento y se le aplica el modulo de la longitud del abecedario
+                    } else {
+                        nuevoIndice = (index - desplazamiento) % abecedario.length;
+                        // Ajustar si el índice es negativo
+                        if (nuevoIndice < 0) {
+                            nuevoIndice += abecedario.length;
+                        }
+                    }
+                    //Se añade el caracter obtenido a la variable de mensaje cifrado
+                    mensajeCifrado += abecedario[nuevoIndice];
+                }
+            }
+            //Se muestra el resultado
+            resultado.textContent = mensajeFinal;
+        }
+    </script>
+</body>
+</html>

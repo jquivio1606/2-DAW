@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Repaso 1</title>
+</head>
+
+<body>
+    <!-- REPASO DE ARRAYS Y OBJETOS -->
+    <p id="frutas"></p>
+    <p id="coches"></p>
+
+
+    <script>
+        let frutas = ["banana", "Platano", "kiwi"];
+        console.log(frutas);
+
+        frutas.push("mango"); // Añade al final
+        console.log(frutas);
+
+        frutas.unshift("Manzana");
+        console.log(frutas); // Añade al principio        
+
+        console.log(frutas.length); // Longitud del array
+
+        console.log(frutas.sort()); // Ordena orden alfabetico, de menor a mayor, y entre mayusculas y minusculas: ordena primero las minusculas, y luego la mayusculas
+
+        console.log(frutas.sort(function (a, b) {
+            return a.localeCompare(b);
+        }));
+
+        // Recorrer array: 
+        let texto = "<ul>";
+        let tamaño = frutas.length;
+        for (let i = 0; i < tamaño; i++) {
+            texto += "<li>" + frutas[i] + "</li>";
+        }
+        texto += "</ul>";
+        document.getElementById("frutas").innerHTML = texto;
+
+
+        //Agrega y borra el principio 
+        frutas.unshift("Limón");
+        console.log(frutas);
+        frutas.shift();
+        console.log(frutas);
+        
+        //Borra los dos del final, borra los dos del principio: CON EL SPLICE
+        //Agrega y borra al final. 
+        frutas.push("naranja");
+        console.log(frutas);
+        frutas.pop();
+        console.log(frutas);
+
+        // Primer caracter del primer elemento
+        console.log(frutas[0].charAt(0));
+
+        // Busca la ultima ocurrecia de "B"
+        let fruta = frutas[2];
+        console.log(frutas.lastIndexOf("B", 1)); // A partir del indice 1. Si no se pone nada apartir del inicio
+
+        //forEach();
+        frutas.forEach((elemento, indice, array) => { console.log(indice, elemento, array); });
+
+        // Ejercicio:
+        const numeros = [4, 2, 5, -1, 8];
+        let menor = numeros[0];
+        let mayor = numeros[0];
+        let posMenor = 0;
+        let posMayor = 0;
+
+        // Con for normal
+        for (let i = 0; i < numeros.length; i++) {
+            if (numeros[i] < menor) {
+                menor = numeros[i];
+                posMenor = i;
+            }
+            if (numeros[i] > mayor) {
+                mayor = numeros[i];
+                posMayor = i;
+
+            }
+        };
+
+        console.log("Menor " + posMenor + ": " + menor, "Mayor " + posMayor + ": " + mayor,);
+
+
+        // Con forEach
+        numeros.forEach((elemento, indice) => {
+            if (elemento < menor) {
+                menor = elemento;
+                posMenor = indice;
+            }
+            if (elemento > mayor) {
+                mayor = elemento;
+                posMayor = indice;
+            }
+        });
+
+        console.log("Menor " + posMenor + ": " + menor, "Mayor " + posMayor + ": " + mayor,);
+
+
+        //sopa de letras:
+        var letras="ABCDEFGHIJKLMNÑOPQRSTUVWXYZ";
+        let filas= 10;
+        let columnas=8;
+
+        document.write("<div>");
+        for(var i= 0; i<filas;i++){
+            for (var j= 0; j<columnas;j++){
+                document.write('<input type="button" id="'+i+j+'" onclick="" value="'+letras.charAt(Math.floor(Math.random()*letras.length))+'">');
+            }
+            document.write("<br>");
+        }
+        document.write("</div>");
+
+        //vestido cpn las propiedades de precio, descuento, neto
+
+        var vestido={
+            precio:15,
+            descuento:2,
+            neto: function(){
+                return this.precio * (this.descuento/100);
+            }
+        };
+
+        console.log(vestido, vestido.precio, vestido.neto);
+        vestido.descuento= parseInt(prompt("Precio descuento",vestido.descuento));
+        console.log(vestido);
+
+        //Añadir atributo
+        vestido.color= "verde";
+        console.log(vestido.color);
+
+        for(let propiedad in vestido){
+            console.log(propiedad, vestido[propiedad]);
+        }   
+        
+        delete vestido.color;
+
+        console.log("-------------------");
+
+        for(let propiedad in vestido){
+            console.log(propiedad, vestido[propiedad]);
+        }
+        console.log("-------------------");
+
+        console.log("El precio neto es: " + vestido.neto()+"€");
+
+
+
+    </script>
+    <style>
+        div{
+            display: flex;
+            flex-wrap: wrap;
+            max-width: 370px;
+        }
+        input{
+            width: 40px; height:40px; margin:2px
+        }
+    </style>
+
+
+</body>
+
+</html>

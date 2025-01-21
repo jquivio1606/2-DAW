@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad 1</title>
+</head>
+<body>
+    
+    <label for="numm">Número:</label>
+    <input type="number" name="num" id="num">
+    <input type="button" value="Enviar" onclick="esCapicua()">
+    <h3 id="texto"></h3>
+
+    <script>
+        function esCapicua(){
+            // Obtenemos el número del formulario
+            let num = document.getElementById("num").value;
+            //Creamos un auxiliar para trabajar con él
+            let aux = num;
+            let invertido= 0;
+
+            //Le damos la vuelta al número, utilizando el módulo de 10, y dividiendo entre 10
+            while(aux > 0){
+                invertido= (invertido*10) + (aux%10);
+                aux= Math.floor(aux/10);
+            }
+
+            // Comprobamos si el número invertido, y en numero del formulario es igual, y por lo tanto capicua.
+            if(invertido == num ){
+                document.getElementById("texto").innerHTML = "El número " + num + " es capicúa.";
+            } else {
+                document.getElementById("texto").innerHTML = "El número " + num + " no es capicúa.";
+            }
+        }
+    </script>
+
+</body>
+</html>

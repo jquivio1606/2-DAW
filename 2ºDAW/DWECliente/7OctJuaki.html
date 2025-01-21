@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Ejercicio 4
+        var nota;
+        nota = parseInt(prompt("¿Cual es tu nota 0-10?"));
+        switch (true) {
+            case (nota < 5):
+                msg = "Suspensa/o";
+                break;
+            case (nota >= 5 && nota < 7):
+                msg = "Aprobado/a";
+                break;
+            case (nota >= 7 && nota < 9):
+                msg = "Notable";
+                break;
+            case (nota > 8 && nota <= 10):
+                msg = "Sobresaliente";
+                break;
+            default:
+                msg="Valor incoreccto, vuelva a ......";
+                break;
+        }
+        alert("Tu calificacion es: "+msg);
+        console.log(msg);
+        //Ejercicio 4 pero leyendo tres notas y mostrando su media "Aprobado con una media de:"
+        var nota1,nota2,nota3,media,calificacion;
+        nota1=parseFloat(prompt("Deme la nota 1"));
+        nota2=parseFloat(prompt("Deme la nota 2"));
+        nota3=parseFloat(prompt("Deme la nota 3"));
+        media=(nota1+nota2+nota3)/3;
+        if (media<5) {
+            calificacion="Suspenso con una nota media de "+media;
+        } else {
+            if (media>=5 && media<7) {
+                calificacion="Aprobado con media de "+media;
+            } else {
+                calificacion="Supercalificazao de media "+media;
+            }
+        }
+        alert(calificacion);
+        //Ejercico 5 dos numeros y su diferencia a partir del mayor
+        var num1=parseInt(prompt("Deme un numerico 1"));
+        let num2=parseInt(prompt("Deme el segundo numerico 2"));
+        var resta;
+        if (num1>num2) {
+            resta=num1-num2;
+            alert("Diferencia: "+resta+ " de "+num1+ "  y "+num2);
+        } else {
+            resta=num2-num1;
+            alert("Diferencia: "+resta+ " de "+num2+ "  y "+num1);
+        }
+        //Ejercicio 6 preguntar por un numero y adivinar su cuadrado
+        var numero,cuadrado,resultado;
+        numero=parseInt(prompt("Deme un numerico"));
+        cuadrado=parseInt(prompt("Diga el cuadrado de "+numero));
+        resultado= (cuadrado==numero*numero) ? "correcto" : "Apuntate a mates";
+        alert("Resultado: "+resultado);
+        //Ejercicio 7
+        let creditos,acceso='Salas: ';
+        creditos=parseInt(prompt("Deme los créditos "));
+        switch (creditos) {
+            case 4:
+                acceso+="Realidad Virtual, ";
+            case 3:
+                acceso+="Juegos 3D, ";
+            case 2:
+                acceso+="Juegos 2D, ";
+            case 1:
+                acceso+="Consolas, ";
+                break;
+            default:
+                acceso+="Ninguna";
+        }
+        alert(acceso);
+        //Ejercicio 8
+        //menu: carne,pescado, verdura
+        //carne vino tinto
+        //pescado vino blanco
+        //verdura agua guena
+        var menu=prompt("Que menu desea?[carne|pescado|verdurita]");
+        let bebida;
+        switch (menu) {
+            case 'carne':
+                bebida="Lo merjos Vino tintol";
+                break;
+                case 'pescado':
+                bebida="Lo mejor Vino White";
+                break;
+                case 'verdurita':
+                bebida="Agua del grifo dee Barbate";
+                break;
+            default:
+                bebida="Eliaj carne o pescado o verduritas";
+                break;
+        }
+        alert(bebida);
+        //Ejercicio 9
+        let factura,total;
+        factura=parseInt(prompt("Deme el importe de la factura"));
+        switch (true) {
+            case (factura >=100 && factura <= 300):
+                descuento=5;
+                break;
+                case (factura >300 && factura <= 400):
+                descuento=10;
+                break;
+                case (factura >400):
+                descuento=15;
+                break;
+            default:
+                descuento=0;
+                break;
+        }
+        total2=factura*(1-descuento/100);
+        alert("A pagar "+total2+" €");
+        //Ejercicio 11
+        //Leamos 4 numeros y calculemos la media de los cuatros numeros
+        let suma=0,numero3;
+        for (let i = 0; i <4 ; i++) {
+            numero3=parseInt(prompt("Deme el numero "));
+            suma+=numero3;
+        }
+        media2=suma/4;
+        alert("La media es: "+media2);
+    </script>
+</body>
+</html>

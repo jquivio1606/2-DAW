@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IES TRAFALGAR - VARIABLES </title>
+</head>
+<body>
+    
+    <script>
+        // Prueba 1
+        var altura= 10;
+        var base= 20;
+        let perimetro;
+        perimetro = 2*base+2*altura;
+        console.log(perimetro);
+
+
+        // Prueba 2
+        var numero=Math.random()*100;
+        console.log(numero);
+        console.log(typeof(numero));
+
+        numero ="hola"; 
+        console.log(numero);
+        console.log(typeof(numero));
+
+        // Prueba 3
+        let nombre1="Pedro";
+        let nombre2="Claudia";
+        
+        function nombres(){
+            let nombre3="Antonio";
+            let nombre2="Judit";
+            console.log(nombre1); //Pedro
+            console.log(nombre2); //Judit
+            console.log(nombre3); // Antonio
+           
+        }
+
+        nombres();
+        console.log(nombre1); //Pedro
+        console.log(nombre2); //Claudia
+        console.log(nombre3); //undefined -- not defined
+
+
+    </script>
+
+</body>
+</html>

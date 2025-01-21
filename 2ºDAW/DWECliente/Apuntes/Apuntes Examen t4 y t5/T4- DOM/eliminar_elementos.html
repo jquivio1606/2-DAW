@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eliminando Elementos del DOM</title>
+</head>
+<body>
+
+    <ul id="listaTareas">
+        <li>Estudiar HTML <button class="eliminar">Eliminar</button></li>
+        <li>Practicar CSS <button class="eliminar">Eliminar</button></li>
+    </ul>
+
+    <script>
+        //remove(): Elimina el nodo directamente del DOM.
+        //parentNode.removeChild(): Elimina un nodo utilizando su nodo padre, más compatible con versiones antiguas de navegadores.
+
+
+         // Usando `remove()` para eliminar un elemento
+        const botonesEliminar = document.querySelectorAll('.eliminar');
+        botonesEliminar.forEach(function(boton) {
+            boton.addEventListener('click', function() {
+                const tarea = boton.parentElement;
+                console.log(tarea);
+                tarea.remove();
+            });
+        });
+
+        // Usando `parentNode.removeChild` para eliminar el elemento
+        botonesEliminar.forEach(function(boton) {
+            boton.addEventListener('click', function() {
+                const tarea = boton.parentNode;
+                tarea.parentNode.removeChild(tarea); // Eliminamos el <li> con parentNode
+            });
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    
+    <script>
+        const estudiantes = [
+            { nombre: "Juan", cliente: 5, servidor: 2, hlc: 9 },
+            { nombre: "María", cliente: 9, servidor: 8, hlc: 9 },
+            { nombre: "Pedro", cliente: 7, servidor: 7, hlc: 5 },
+            { nombre: "Ana", cliente: 9, servidor: 2, hlc: 8 },
+        ];
+
+        // 1. Usando expresiones regulares, mostrar calificaciones de nombres que comiencen con "P" o "M"
+        const regex = /^[PM]/; // Filtrar por P o M
+        const calificaciones = estudiantes
+            .filter(est => regex.test(est.nombre))
+            .map(est => ({ nombre: est.nombre, calificaciones: [est.cliente, est.servidor, est.hlc] }));
+        console.log("1. Calificaciones de nombres que comienzan con P o M:", calificaciones);
+
+        // 2. Encontrar el estudiante con la calificación más baja en cliente
+        const menorCliente = estudiantes.reduce((min, est) => est.cliente < min.cliente ? est : min);
+        console.log("2. Estudiante con menor nota en cliente:", menorCliente);
+
+        // 3. Contar cuántos estudiantes aprobaron todas las asignaturas
+        const aprobados = estudiantes.filter(est =>
+            est.cliente >= 5 && est.servidor >= 5 && est.hlc >= 5
+        ).length;
+        console.log("3. Número de estudiantes que aprobaron todo:", aprobados);
+
+        // 4. Crear un nuevo array con las calificaciones totales
+        const totales = estudiantes.map(est => ({
+            nombre: est.nombre,
+            total: est.cliente + est.servidor + est.hlc
+        }));
+        console.log("4. Calificaciones totales:", totales);
+
+        // 5. Ordenar el array descendente por nombre
+        const ordenadoNombre = [...estudiantes].sort((a, b) => b.nombre.localeCompare(a.nombre));
+        console.log("5. Ordenado por nombre descendente:", ordenadoNombre);
+
+        // 6. Ordenar el array de estudiantes por promedio de notas
+        const ordenadoPromedio = [...estudiantes].sort((a, b) => {
+            const promedioA = (a.cliente + a.servidor + a.hlc) / 3;
+            const promedioB = (b.cliente + b.servidor + b.hlc) / 3;
+            return promedioB - promedioA;
+        });
+        console.log("6. Ordenado por promedio:", ordenadoPromedio);
+
+        // 7. Ordenar el array de forma aleatoria
+        const aleatorio = [...estudiantes].sort(() => Math.random() - 0.5);
+        console.log("7. Ordenado aleatoriamente:", aleatorio);
+
+        // 8. Ordenar el array por nota de servidor, luego cliente y luego hlc
+        const ordenadoServidor = [...estudiantes].sort((a, b) =>
+            b.servidor - a.servidor || b.cliente - a.cliente || b.hlc - a.hlc
+        );
+        console.log("8. Ordenado por servidor, cliente, y hlc:", ordenadoServidor);
+
+        // 9. Obtener los enlaces de una página y asignarles el evento click
+        const enlaces = Array.from(document.querySelectorAll("a"));
+        enlaces.forEach(enlace => {
+            enlace.addEventListener("click", () => {
+                console.log(`Enlace pulsado: ${enlace.href}`);
+            });
+        });
+        console.log("9. Eventos de click asignados a los enlaces.");
+
+        // 10. Indicar si una cadena contiene una arroba
+        const email = "mail=tucorreo@gmail.com";
+        console.log("10. ¿La cadena contiene una arroba?", email.includes("@"));
+    </script>
+</body>
+
+</html>

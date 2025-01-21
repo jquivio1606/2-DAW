@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dni</title>
+</head>
+<body>
+    <h2>Comprobar Dni</h2>
+    DNI - números<br><input type="text" id="NumDni">     <br> <br>
+    DNI - letra <br><input type="text" id="LetraDni">     <br> <br>
+    <input type="button" id="boton" onclick="comprobarDni()" value="Comprobar">
+    <p id="salida"></p>
+    
+    <script>
+        function letras_dni(dni){
+            const cadenaDni="T R W A G M Y F P D X B N J Z S Q V H L C K E";
+            let letrasDni= cadenaDni.split(" ");
+            return letrasDni[dni%23];    
+        }
+
+        function comprobarDni(){
+            let letra_entrada= document.getElementById("LetraDni").value;
+            let dni = document.getElementById("NumDni").value;
+
+            let letra_wena=letras_dni(dni);
+
+            if(letra_entrada.toUpperCase() == letra_wena){
+                document.getElementById("salida").innerHTML= "Perfecto";
+                document.getElementById("salida").style.color="green";
+            } else{
+                document.getElementById("salida").innerHTML= "Incorrecto";
+                document.getElementById("salida").style.color="red";
+            }
+
+        }
+
+    </script>
+
+
+
+</body>
+</html>

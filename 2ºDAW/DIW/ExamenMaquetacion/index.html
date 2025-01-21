@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Examen Diseño de Interfaces Web</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Cinzel:wght@400..900&family=Luckiest+Guy&family=Pacifico&family=Shadows+Into+Light&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            background-color: rgb(230, 196, 230);
+        }
+        /*Estilos para el contenedor principal*/
+        .contenedor {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            grid-template-rows: 150px 100px auto 100px;
+            grid-template-areas:
+                'header header'
+                'nav aside'
+                'main aside'
+                'footer footer';
+            border-radius: 0 60px 0 60px;
+            background-color: white;
+            border: 2px solid black;
+            height: 97dvh;
+        }
+        /*Estilos para la cabecera*/
+        header {
+            grid-area: 'header';
+            display: flex;
+            flex-direction: row;
+            font-family: "Amatic SC", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            justify-content: space-between;
+        }
+        /*Estilos para el nav*/
+        nav {
+            grid-area: 'nav';
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+
+        }
+        /*Estilos para el main*/
+        main {
+            grid-area: 'main';
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: auto auto;
+        }
+        /*Estilos para el párrafo dentro del main*/
+        main p{
+            font-family: "Cinzel", serif;
+            font-optical-sizing: auto;
+            font-weight: 400;
+            font-style: normal;
+        }
+        /*Estilos para el h2 dentro del main*/
+        main h2 {
+            width: 100%;
+            font-family: "Pacifico", cursive;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        ol, form {
+            font-family: "Shadows Into Light", cursive;
+            font-weight: 400;
+            font-style: normal;
+        }
+        aside {
+            grid-area: 'aside';
+            display: flex;
+            flex-direction: column;
+        }
+        form{
+            text-align: center;
+        }
+
+        footer {
+            grid-area: 'footer';
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            margin-left: 100px;
+            margin-right: 200px;
+        }
+
+        footer h2, legend {
+            font-family: "Luckiest Guy", cursive;
+            font-weight: 400;
+            font-style: normal;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="contenedor">
+        <header>
+            <img src="./imagenes/chancla.png">
+            <h1>QUÉDATE CON QUIEN TE ACELERE EL CORAZÓN<br>COMO LO HACÍA LA CHANCLA DE TU MADRE</h1>
+        </header>
+        <nav>
+            <a href="">Inicio</a>
+            <a href="">Curiosidades</a>
+            <a href="">Contacto</a>
+        </nav>
+        <main>
+            <h2>Me llevo mal con Mr.Wonderful</h2>
+            <div class="cuerpo">
+                <img src="./imagenes/razon.jpg">
+                <p>NO ES QUE TENGA <span>SIEMPRE RAZÓN</span></p>
+                <P>ES QUE <span>NUNCA</span> ESTOY EQUIVOCADO</P>
+            </div>
+            <ol>
+                <li>Nada arruina tanto un <b>viernes,</b> como descubrir que en realidad es jueves.</li>
+                <li><span style="color: red;">No te odio</span>, pero <span
+                        style="color: green; font-size: 25px;">ojalá</span> te pongan un burger en la puerta de tu
+                    gimnasio</li>
+                <li>Cariño, estoy lista en 5 minutos. Si no lo estoy, vuelve a leerlo.</li>
+                <li>Hoy me levanté con ganas de hacer deporte... y me acosté a ver si se me pasaban.</li>
+                <li>Yo cuido mis abdominales, <b>por eso los protejo con mi barriga</b></li>
+            </ol>
+        </main>
+        <aside>
+            <p>Reacción al acabar el examen</p>
+            <form>
+                <fieldset>
+                    <legend style="text-align: center;">ÁREA DE USUARIOS</legend>
+                    <label for="usuario">Usuario: </label>
+                    <input type="text" placeholder="Introduce usuario"><br>
+                    <label for="password">Contraseña: </label>
+                    <input type="text" placeholder="Introduce contraseña"><br>
+                    <button type="submit">ACEPTA</button>
+                    <button type="reset">LIMPIA</button>
+                    <p>Olvidaste tu <a href="" style="color: blue;">password</a></p>
+                </fieldset>
+            </form>
+            <div>
+                <table>
+                    <tr>
+                        <th>Saluda a tus compañeros</th>
+                        <th>Devuelve siempre una sonrisa</th>
+                        <th>Ponte en la piel del otro</th>
+                    </tr>
+                    <tr>SIEMPRE</tr>
+                    <tr>
+                        <td>SIN</td>
+                        <td>EXCUSAS</td>
+                    </tr>
+                </table>
+            </div>
+        </aside>
+        <footer>
+            <img src="./imagenes/resultados.jpg" height="100" width="100">
+            <h2>EXAMEN REALIZADO POR<br>CLAUDIA LEDOLDIS PATÓN</h2>
+        </footer>
+    </div>
+</body>
+
+</html>

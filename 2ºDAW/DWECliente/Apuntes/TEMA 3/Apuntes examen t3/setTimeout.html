@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function saludos(nombre, rol){
+        console.log(`Hola, mi nombre es ${nombre}`);
+        console.log(`Yo soy ${rol}`);
+        }
+        let parada=setTimeout(saludos, 2000, "Jerbasio", "Programador");
+        //Código opcional para parar el setTimeout
+        //clearTimeout(parada);
+        console.log(`Tiempo de espera ID ${parada} ha sido eliminado`);
+    </script>
+</body>
+</html>

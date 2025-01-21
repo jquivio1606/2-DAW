@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EjClase</title>
+    <style>
+        /*Todos los elementos de la página tengan 16px de tamaño y sean arial, verdana y couriel*/
+        *{
+            font-size: 16px;
+            font-family: arial,verdana,couriel;
+        }
+        /*Todos los párrafos dentro de id primero, color azul*/
+        #primero{
+            color: blue;
+        }
+        /*Todos los enlaces de la página, ponerlos en color rojo*/
+        a{
+            color: red;
+        }
+        /**/
+        #primero em{
+            color:aqua;
+            background-color: yellow;
+        }
+        /*Todos los elementos <em> con la clase "especial" en toda la página*/
+        em.especial{
+            background-color: blueviolet;
+        }
+        /*Todos los span que estan dentro de la clase "normal"*/
+        .normal span{
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="primero">
+        <p>
+            <a href="#INICIO">TEMA 4: HTML &amp; CSS</a>
+        </p>
+        <p>
+            Aunque los inicios de <a href="https://es.wikipedia.org/wiki/Internet">Internet</a>; se remontan a los
+                    años sesenta............... <em>páginas complejas,
+                con contenidos dinámicos desde JS ........miles de usuarios ACCEDEN al mismo tiempo</em>.
+        </p>
+    </div>
+
+    <div id="segundo" class="normal">
+        <p>
+            Todas las páginas están internamente construidas con la misma tecnología,
+            con el <em class="especial">Lenguaje de marcas de hipertexto</em> (<span>Hypertext Markup
+                Language</span>, <a href="https://es.wikipedia.org/wiki/HTML">HTML</a>) y con las <em
+                    class="especial">Hojas de estilo en cascada</em>
+                (<span>Cascading Style Sheets</span>, <a href="https://es.wikipedia.org/wiki/CSS"></a>).
+        </p>
+
+        <p>
+            Este Curso es <em>adecuado para cualquiera que tenga
+                interés en aprender a desarrollar sus propias páginas web</em>.
+            No son necesarios conocimientos previos lo único que es necesario es saber
+            utilizar un ordenador y saber navegar por la Web.
+        </p>
+    </div>
+
+</body>
+
+</html>

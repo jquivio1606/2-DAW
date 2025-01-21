@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>target vs currentTarget</title>
+</head>
+<body>
+
+  <div id="container" style="width: 200px; height: 100px; border: 1px solid #000;">
+    <button id="button1">Haz clic aquí</button>
+  </div>
+
+  <script>
+    // Manejador de un evento con `target` y `currentTarget`
+    document.getElementById("container").addEventListener("click", function(evento) {
+      // `target` es el elemento que realmente disparó el evento
+      console.log("Elemento que disparó el evento: ", evento.target);//Sale el button
+      
+      // `currentTarget` es el elemento al que se le asignó el manejador de eventos
+      console.log("Elemento al que se le asignó el evento: ", evento.currentTarget); //Sale el div
+    });
+  </script>
+
+</body>
+</html>

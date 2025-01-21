@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Ejercicio 8
+        /*Menu: carne, pescado, verdura
+        carne vino tinto
+        pescado vino blanco
+        verdura agua*/
+        var menu= prompt("Qué menú deseas?[carne|pescado|verdurita]");
+        switch (menu) {
+            case 'carne':
+                bebida="Los mejores vino tintol";
+                break;
+            case 'pescado':
+                bebida="Los mejores vino white";
+                break;
+            case 'verdurita':
+                bebida="Agua del grifo";
+                break;
+            default:
+                bebida="Elija carne, pescado o verdurita";
+                break;
+        }
+        alert(bebida);
+    </script>
+</body>
+</html>

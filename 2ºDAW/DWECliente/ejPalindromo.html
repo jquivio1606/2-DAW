@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palíndromo</title>
+</head>
+<body>
+    <input type="text" id="frase">
+    <input type="button" value="Comprobar" onclick="comprobar()">
+    <p id="salida"></p>
+    <script>
+        function comprobar(){
+            var frase=document.getElementById("frase").value;
+            var fraseMinus= frase.toLowerCase();
+            var sinEspacios = fraseMinus.replaceAll(" ", "")
+            var separarCadena=sinEspacios.split("");
+            var reves=separarCadena.reverse();
+            var palin=reves.join(reves);
+            if(sinEspacios==reves){
+                document.getElementById("salida").innerHTML="Es palídroma";
+            } else{
+                document.getElementById("salida").innerHTML="NO es palídroma";
+            }
+            console.log(reves);
+        }
+    </script>
+</body>
+</html>

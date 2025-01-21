@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OBJETOS</title>
+</head>
+<body>
+    
+    <h1> Introduzca los datos </h1>
+    <input type="text" id= "nombre">
+    <input type="text" id= "clave">
+    <input type="button" id= "boton" onclick="capturar()" value = "Agregar usuario">
+    <table id="tabla">
+        <th>Nombre Usuario</th> <th>Clave</th>
+
+    </table>
+
+    <script>
+        
+        
+        function Persona (Nombre, Clave){
+            this.Nombre = Nombre;
+            this.Clave = Clave; 
+        };
+        
+        
+        function capturar() {
+            var getNombre= document.getElementById("nombre").value;
+            var getClave= document.getElementById("clave").value;
+
+            
+            Usuario= new Persona(getNombre,getClave); // Es una variable global porque no tiene lo de let ni var. Se puede utilizar en cualquier lado
+    
+            console.log(Usuario);
+            agregar();
+        }
+
+        var arrD= [];
+        
+        function agregar () {
+            arrD.push(Usuario);
+            document.getElementById("tabla").innerHTML += '<td>' + Usuario.Nombre + '</td> <td>' + Usuario.Clave +'</td>';
+        };
+
+        class Mascota {
+            constructor(nombre, tipo, voz){
+                this.nombre= nombre;
+                this.tipo= tipo;
+                this.voz= voz;
+            };
+            
+            grupo= "Animales"; // Variable global
+
+            saludar(){      // Como es un metodo de la clase no lleva function
+                console.log("Esta es mi voz: " + this.voz + " y soy un/a " + this.tipo)
+            };
+        };
+
+        miPerro = new Mascota("tom","perro", "ojuuuuuu");
+        miGato = new Mascota("catalina", "gato", "miauu");
+
+        console.log(miPerro);
+        console.log(miGato);
+        console.log("Mi gata es " + miGato.nombre);
+        console.log("Mi perro pertenece al grupo de  " + miPerro.grupo);
+        miPerro.saludar();
+        miGato.saludar();
+
+
+        class Rectangulo{
+            constructor(x,y){
+                this.alto= x;
+                this.ancho=y;
+            }
+        
+/*static*/  info() { 
+                return "Argumentos el ancho y el alto" 
+            };
+            area() {  
+                return this.ancho * this.alto  
+            };
+        
+        };
+
+        cuadro= new Rectangulo(10,20);
+        console.log(cuadro.area());
+        console.log(cuadro.info());  // si no se pone nadad si se puede utilizar
+        // console.log(Rectangulo.info());    // Si se pone static en el metodo ( info o area) solo puede acceder la clase rectangulo, y no cuadro
+
+
+
+
+
+
+    </script>
+
+</body>
+</html>

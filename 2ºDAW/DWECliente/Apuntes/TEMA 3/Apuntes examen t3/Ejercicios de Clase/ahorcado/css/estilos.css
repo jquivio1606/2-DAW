@@ -1,0 +1,35 @@
+#salida{
+    text-align: center;
+    font-size: x-large;
+    letter-spacing: 5px;
+    border: 1px solid black;
+    padding: 5px;
+    background-color: gray;
+    color: white;
+}
+
+#salida:hover{
+    background-color: lightgray;
+}
+
+.caja{
+    display: flex;
+}
+
+.caja input[type="text"]{
+    height: 40px;
+    text-align: center;
+    font-size: 35px;
+    flex-grow: 1;
+}
+
+div#imagen{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+img{
+    width: 100px;
+    height: 100px;
+}

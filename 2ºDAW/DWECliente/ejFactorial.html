@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factorial</title>
+</head>
+<body>
+    <p id="aqui"></p>
+    <input type="number" id="numero">
+    <input type="button" onclick="factorial()" value="Mostrar factorial">
+    <h3 id="resultado"></h3>
+    <script>
+        function factorial(){
+            valor=document.getElementById("numero").value;
+            fact=1;
+            txt="";
+            for(i = valor; i>0; i--){
+                fact *=i;
+                if(i==1){
+                    txt+=`${i}`;
+                } else{
+                    txt+=`${i} x `;
+                }
+            }
+            resul=txt+` = ${fact}`;
+            document.getElementById("resultado").innerHTML= resul;
+        }
+    </script>
+    
+</body>
+</html>

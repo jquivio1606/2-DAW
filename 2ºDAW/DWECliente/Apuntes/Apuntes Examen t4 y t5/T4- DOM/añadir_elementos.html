@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Añadiendo Elementos al DOM</title>
+</head>
+<body>
+
+    <div id="contenedor">
+        <h2>Lista de Tareas</h2>
+        <ul id="listaTareas"></ul>
+    </div>
+
+    <script>
+        //createElement: Crea un nuevo nodo de un tipo de elemento específico.
+        //appendChild: Añade un nodo como hijo de un nodo existente.
+        //innerHTML: Inserta o reemplaza contenido HTML dentro de un elemento.
+        //insertBefore: Inserta un nuevo elemento antes de otro elemento ya existente.
+
+
+         // Crear un nuevo <li> y añadirlo al DOM
+        const nuevaTarea = document.createElement('li');
+        nuevaTarea.textContent = 'Estudiar JavaScript';
+        const listaTareas = document.getElementById('listaTareas');
+        listaTareas.appendChild(nuevaTarea);
+
+        // Crear un nuevo párrafo con texto
+        const parrafo = document.createElement('p');
+        parrafo.textContent = 'Este es un párrafo nuevo que se agregará al final del body.';
+        document.body.appendChild(parrafo);
+
+        // Usar `innerHTML` para añadir contenido HTML
+        const nuevoContenido = '<p>Este párrafo fue añadido con innerHTML.</p>';
+        document.body.innerHTML += nuevoContenido;
+
+        // Añadir un elemento usando `insertBefore` (insertar antes de un elemento existente)
+        const divContenedor = document.getElementById('contenedor');
+        const nuevoElemento = document.createElement('p');
+        nuevoElemento.textContent = 'Este párrafo se inserta antes del div contenedor.';
+        document.body.insertBefore(nuevoElemento, divContenedor);
+    </script>
+
+</body>
+</html>

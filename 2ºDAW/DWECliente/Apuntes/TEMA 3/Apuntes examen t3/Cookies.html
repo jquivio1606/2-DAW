@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reserva Plaza Avion</title>
+    <style>
+        .centrado {
+            margin: 0 auto;
+            width: 50%;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .item {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid black;
+            padding: 5px;
+            height: 80px;
+            text-align: center;
+            flex-direction: column;
+            border-radius: 10px;
+            font-size: 14px;
+        }
+
+        .libre {
+            background-color: lightgreen;
+        }
+
+        .ocupado {
+            background-color: lightcoral;
+        }
+
+        .item b {
+            font-size: 14px;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .item p {
+            margin: 0 0 5px 0;
+        }
+
+        span {
+            font-weight: bold;
+        }
+
+        button {
+            font-size: 12px;
+            padding: 2px 5px;
+        }
+    </style>
+</head>
+<body>
+    <form class="centrado">
+        <h1>Reserva de Plazas en el Avión</h1>
+        <label for="nom">Nombre: </label>
+        <input type="text" name="nom" id="nom" required/><br/><br/>
+        <label for="edad">Edad: </label>
+        <input type="number" name="edad" id="edad" required/><br/><br/>
+        <label for="plaza">Número de asiento (1-20): </label>
+        <input type="number" name="plaza" id="plaza" min="1" max="20" required/><br/><br/>
+        <input type="button" value="Reservar" onclick="reservar()"/><br/><br/>
+    </form>
+
+    <script>
+        // Obtener una cookie
+        function obtenerCookie(nombre) {
+            var cookies = document.cookie.split(";");
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = cookies[i].trim();
+                if (cookie.startsWith(nombre + "=")) {
+                    return cookie.substring(nombre.length + 1);
+                }
+            }
+            return null;
+        }
+
+        // Variable global para almacenar el estado de las plazas
+        var array = Array(20).fill(null);
+
+        // Función para reservar una plaza
+        function reservar() {
+            var plaza = parseInt(document.getElementById("plaza").value) - 1;
+            var Nombre = document.getElementById("nom").value;
+            var Edad = document.getElementById("edad").value;
+
+            if (Nombre === "" || Edad === "") {
+                alert("Debes rellenar tu nombre y edad");
+                return;
+            } else {
+                // Si la plaza está libre
+                if (array[plaza] === null) {
+                    array[plaza] = { nombre: Nombre, edad: Edad };
+                    console.log(array[plaza]);
+
+                    // Obtener el elemento con id correspondiente a la plaza
+                    var asientoElemento = document.getElementById(plaza);
+
+                    // Cambiar la clase para mostrar que está ocupado
+                    asientoElemento.classList.remove("libre");
+                    asientoElemento.classList.add("ocupado");
+
+                    // Actualizar el contenido de texto para mostrar la información de la reserva y el botón de anular
+                    asientoElemento.innerHTML = `
+                        <b>Asiento Nº ${plaza + 1}</b>
+                        <p>Ocupado por: <span>${Nombre}</span></p>
+                        <button type="button" onclick="anularReserva(${plaza})">Anular Reserva</button>
+                    `;
+                    alert("Plaza reservada correctamente.");
+                } else {
+                    alert("La plaza ya está ocupada.");
+                }
+            }
+        }
+
+        // Función para anular una reserva
+        function anularReserva(plaza) {
+            array[plaza] = null;
+            var asientoElemento = document.getElementById(plaza);
+            asientoElemento.classList.remove("ocupado");
+            asientoElemento.classList.add("libre");
+            asientoElemento.innerHTML = `<b>Asiento Nº ${plaza + 1}</b><p>Libre</p>`;
+            alert("Reserva anulada correctamente.");
+        }
+
+        // Comprobar si ya hay un nombre guardado en las cookies (solo lo usamos como ejemplo, por ahora no cambia nada)
+        var nombreCookie = obtenerCookie("avion");
+        console.log(nombreCookie);
+
+        // Si no hay un nombre guardado, inicializamos las plazas
+        if (!nombreCookie) {
+            document.writeln("<div class='centrado container'>");
+            for (let i = 0; i < array.length; i++) {
+                document.writeln(
+                    `<div class='item libre' id='${i}'><b>Asiento Nº ${i + 1}</b><p>Libre</p></div>`
+                );
+            }
+            document.writeln("</div>");
+        }
+    </script>
+</body>
+</html>
