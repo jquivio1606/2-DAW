@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Repaso tema 2 Javascript</title>
+</head>
+<body>
+    <!-- Repaso de los arrays y objetos-->
+     <p id="frutas"></p>
+     <p id="coches"></p>
+     <script>
+        //const frutas=[3, "hola", false, {objeto:propiedad}];
+        const frutas=["banana", "plátano", "kiwi"];
+        console.log(frutas);
+        frutas.push("Mango");
+        fruta = frutas[2];
+        console.log(frutas.length);
+        console.log(frutas.sort());
+        console.log(frutas.sort(function(a,b){
+            return a.localeCompare(b);
+            //return b-a; para números
+        }));
+        let texto="<ul>";
+        let tamanio=frutas.length;
+        for (let i=0; i<tamanio; i++){
+            texto += "<li>"+ frutas[i]+ "</li>";
+        }
+        texto += "</ul>";
+        document.getElementById("frutas").innerHTML=texto;
+        frutas.push("Naranja");
+        frutas.push("Aguacate");
+        frutas.unshift("Limon");
+        console.log(frutas);
+        frutas.pop();
+        console.log(frutas);
+        frutas.shift();
+        console.log(frutas);
+        console.log(frutas[0].charAt(0));
+        console.log(fruta.lastIndexOf("B",1));
+        /*frutas.forEach(async(elemento)=>{console.log(elemento);
+            const datosadescargar =await fetch(url);
+            console.log(await datosadescargar.json());
+            }
+        ); foreach para trabajar de forma asíncrona*/
+
+        frutas.forEach((elemento)=>{console.log(elemento)});
+        //Ejercicio
+        const numericos=[4,2,5,-1,8];
+        //numericos.forEach(elemento=>{})
+
+        var menor=numericos[0];
+        var mayor=numericos[0];
+        var pos_mayor=0;
+        var pos_menor=0;
+        for (let i=0; i<numericos.length; i++){
+            if(numericos[i]<menor){
+                menor = numericos[i];
+                pos_menor=i;
+            }
+            if(numericos[i]>mayor){
+                mayor = numericos[i];
+                pos_mayor=i;
+            }
+        }
+        console.log(`Mayor ${mayor}; menor ${menor}`);
+
+        function minimo_array(array, resp){
+            resp="v"; resp="i"; //La v devuelve el valor y la i la posición
+        }
+
+        //Sopa de letras. Generar una matriz de botones de 10 filas por 8 columnas.
+        var letras="ABCDEFGHIJKLMNÑOPQRSTUVWXYZ";
+        const filas = 10;
+        const columnas = 8;
+        document.write("<div id>");
+        for(var i=0; i<filas; i++){
+            for (var j=0; j<columnas; j++){
+                letra= letras[Math.floor(Math.random()*letras.length)];
+                document.write("<input type='button' id='"+i+"-"+j+"' onclick='' value='"+letra+"'>");
+                
+            }
+            document.write("<br>");
+        }
+        document.write("</div>");
+        //Crear objeto vestido con las propiedades de precio, descuento y neto
+        var vestido={
+            precio:15,
+            descuento:2,
+            neto:function(){
+                return this.precio * (1-this.descuento/100);
+            }
+        }
+        console.log(parseInt(vestido.precio));
+        vestido.descuento=parseInt(prompt("Precio Descuento"));
+        console.log(vestido.descuento);
+        vestido.color="verde";
+        console.log(vestido.color);
+        for(let propiedad in vestido){
+            console.log(propiedad,vestido[propiedad]);
+        }
+        delete vestido.color;
+        for(let propiedad in vestido){
+            console.log(propiedad,vestido[propiedad]);
+        }
+        console.log("El precio neto es: "+vestido.neto()+"€");
+        const arraysDeObjetos=[
+
+        ]
+        
+     </script>
+     <style>
+        div{
+            display: flex;
+            flex-wrap: wrap;
+            width: 420px;
+        }
+        input{
+            
+            width: 50px;
+            height: 50px;
+            background-color: aquamarine;
+        }
+     </style>
+     
+</body>
+</html>

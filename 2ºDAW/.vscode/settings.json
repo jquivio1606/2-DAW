@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/c7997ce2-c9d9-4add-b3d5-ab37d0a71861/resourceGroups/learn-d57e0718-a2a0-427f-a854-5dde9d9b858b/providers/Microsoft.Web/sites/az204app5831",
+    "appService.deploySubpath": "DespliegueAplicaciones\\CreacionAplicacion"
+}

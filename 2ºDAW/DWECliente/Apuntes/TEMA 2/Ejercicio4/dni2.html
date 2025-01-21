@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dni 2</title>
+</head>
+<body>
+    <h2>Asignar letra Dni</h2>
+    DNI: <br><input type="text" id="dni"> <input type="button" id="boton" onclick="asignarLetra()" value="Comprobar"> <br><br>
+    LETRA: 
+    <label id="letra">  </label> <br><br>
+    
+    <script>
+
+        function asignarLetra(){
+            let dni=document.getElementById("dni").value;
+            const cadenaDni="T R W A G M Y F P D X B N J Z S Q V H L C K E";
+            let letrasDni=cadenaDni.split(" ");
+
+            document.getElementById("letra").innerHTML= letrasDni[dni%23];
+        }
+               
+    </script>
+
+
+
+</body>
+</html>

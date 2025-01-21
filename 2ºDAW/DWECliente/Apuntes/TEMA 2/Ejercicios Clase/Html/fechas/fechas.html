@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DATE</title>
+</head>
+<body>
+
+    <p id="salida"></p>
+    
+    <script>
+        const fecha1=new Date();
+        console.log(fecha1);
+
+        const fecha2=new Date("2005/06/16");
+        console.log(fecha2);
+
+        const fecha3 =new Date(872817240000); //milisegundos desde 1970
+        console.log(fecha3);
+        const fecha4 = Date.now() // también da los milisegundos pero en tipo numero, y luego no deja hacer un getDay o otros metodos.
+        console.log(fecha4);
+
+        // FORMATO UTC: hay que pasarle el año, mes, dia, hora,minutos, segundos, y milisegunndos
+        const fecha_utc= new Date(2018,1,25,23,32,12,5); // año,mes,dia, hora,minutos, segundos, milisegundos
+        console.log(fecha_utc);
+        
+        const cumpleJuaky=new Date("2025/03/07 15:30:00:25");
+        console.log(cumpleJuaky.getDay()); // Sale 5 que coorresponde al Viernes. El domigo es 0
+        console.log(cumpleJuaky.getDate()); // Es 7. 
+        console.log(cumpleJuaky.getMonth()); // Sale 2 que corresponde a Marzo. Enero es el 0
+        console.log(cumpleJuaky.getFullYear()); // Sale 2025  
+        console.log(cumpleJuaky.getHours()); // Sale las horas
+        console.log(cumpleJuaky.getMinutes()); // Sale los minutos
+        console.log(cumpleJuaky.getSeconds()); // Sale los segundoss
+        console.log(cumpleJuaky.getMilliseconds()); // Sale los milisegundos
+        console.log(cumpleJuaky.getTime()); // En formato UNIX con formato UTC
+
+       
+
+        const MESES =[
+            "Enero","Febrero","Marzo",
+            "Abril","Mayo", "Junio", 
+            "Julio", "Agosto", "Septiembre", 
+            "Octubre", "Noviembre", "Diciembre"
+        ]
+        
+        const fechaActual= new Date();
+        console.log(MESES[fechaActual.getMonth()]);
+
+
+
+        //CHULETARIO EXAMEN:
+        let milisegundos=1000;// 1 milisegundo= 1000 segundos
+        let  minutos = 1000*60; // minutos= milisegundos*60
+        let  horas = 1000*60*60; // horas= minutos*60
+        let  dias = 1000*60*60*24; // dias= horas*24
+        let  año = 1000*60*60*24*365; // año= dias*365
+
+
+        // Cuanto queda pa navidad en milisegundos
+
+        //PARA MONITORIAZAR ALGO Y QUE CARGUE CONSTANTEMENTE...
+         window.onload= function () {
+            setInterval(tiempoPaNavidad,1000); //setInterval(nombreFuncion, Tiempo);
+
+        }
+
+
+        function tiempoPaNavidad(){
+            var ahora = new Date();
+            var anioAct= ahora.getFullYear();
+            var finAnio = new Date(anioAct,11,31,23,59,59); //año, mes, dia, hora, min, seg
+            let diferencia= finAnio.getTime() -ahora.getTime();
+
+            document.getElementById("salida").innerHTML= diferencia;
+        }
+
+
+    </script>
+    
+</body>
+</html>

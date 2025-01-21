@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+      
+        // ANIMALES: nombre, peso, color, raza, porculero, edad
+
+        var perro={
+            nombre:"Julian",
+            peso: 2.4,
+            color:"negro",
+            raza: "chihuahua",
+            porculero: true,
+        };
+
+        console.log(perro, perro.peso, perro["edad"]);
+        perro.edad=34;
+        console.log(perro, perro.peso, perro.edad);
+
+        let años= perro.edad;
+        let variable= "edad";
+        perro[variable]= 50;
+        console.log(perro.edad);
+        console.log(perro);
+
+
+        // AUTOS JUAKY: marca, modelo, cc y color
+
+        var automovil ={
+            marca:"kia",
+            modelo:"Super",
+            cc: 1250,
+            color:"blanco"
+        };
+
+        let modelo = "modelo";
+
+        automovil[modelo]="medio";
+        console.log(automovil.modelo);
+
+        //OBJETOS dentro de un OBJETO
+
+        var autos_Juaky={
+            nombre:"SuperCoches",
+            actividad:"venta-Reparacion",
+            direccion: {
+            calle: "Dr. Valencia",
+            numero:"25",
+            city:"Barbate",
+            cp: "11160",
+            estado:"Cadiz"
+            },
+            añoCreacion:"1975"
+        }
+
+        console.log(autos_Juaky);
+        console.log(autos_Juaky.nombre, autos_Juaky.añoCreacion);
+        autos_Juaky.actividad="vendo motos";
+        console.log(autos_Juaky.actividad);
+
+        let estado= autos_Juaky.direccion.estado="Spain";
+        console.log(estado);
+
+        let direccion="direccion";
+        let estados="estado";
+        autos_Juaky[direccion][estados]="Norway";
+        console.log(autos_Juaky.direccion.estado);
+
+
+        // OTRA EMPRESA
+
+        let empresa={
+            nombre:"Helado SuperJuaky",
+            actividades:["Helados", "cafes", "meriendas"],  //Se pueden meter arrays en los objetos igual que otros objetos
+            direcciones:{
+                calle:"Dr Valencia",
+                cp: "11160",
+                city:"barbate"
+            }, 
+            añoCreacion: "1968"
+        }
+
+        let actividad = empresa.actividades[0];
+        console.log(actividad);
+        console.log(empresa.actividades.sort());
+        console.log(empresa.actividades.push("Desayunos"));
+        console.log(empresa.actividades.reverse());
+        console.log(empresa.actividades.shift());
+        console.log(empresa.actividades);
+
+        // ARRAY DE OBJETOS
+
+        let direcciones=[
+            {
+                calle:"las  palomas",
+                numero: 15
+            },
+            {
+                calle:"dr fleming",
+                numero: 30
+            },
+            {
+                calle:"luis",
+                numero: 10
+            },
+            
+        ];
+
+        console.log(direcciones);
+        console.log(direcciones.sort());
+
+        let nuevaCalle=prompt("Deme la nueva calle de objeto 1", "San francisco");
+        direcciones[0].calle= nuevaCalle; // Pone en el primer elemento del array la nueva calle.
+        console.log(direcciones);
+
+    </script>
+
+</body>
+</html>

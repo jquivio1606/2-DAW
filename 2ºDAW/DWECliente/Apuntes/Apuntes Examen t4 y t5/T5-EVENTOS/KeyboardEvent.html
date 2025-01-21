@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Propiedades del Evento</title>
+</head>
+<body>
+
+  <script>
+    // Manejador de un evento de teclado
+    document.body.addEventListener("keydown", function(e) {
+      // Mostrar el código de la tecla
+      console.log("Código de tecla: ", e.code);
+      
+      // Valor de la tecla presionada (por ejemplo, 'a', 'Enter', etc.)
+      console.log("Valor de la tecla: ", e.key);
+      
+      // Ver si se ha mantenido presionada la tecla
+      console.log("Tecla repetida: ", e.repeat);
+      
+      // Comprobar si la tecla ALT está presionada
+      console.log("ALT presionado: ", e.altKey);
+      
+      // Comprobar si la tecla SHIFT está presionada
+      console.log("SHIFT presionado: ", e.shiftKey);
+      
+      // Comprobar si la tecla CTRL está presionada
+      console.log("CTRL presionado: ", e.ctrlKey);
+    });
+  </script>
+
+</body>
+</html>

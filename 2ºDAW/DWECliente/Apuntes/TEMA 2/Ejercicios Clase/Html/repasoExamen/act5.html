@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fechas</title>
+</head>
+
+<body>
+    <label for="fecha">Fecha:</label>
+    <input type="date" id="fecha" name="fecha" value="2024-01-01" />
+    <input type="button" value="Enviar" onclick="obtenerFecha()">
+    <h3 id="texto"></h3>
+
+    <script>
+        function obtenerFecha() {
+            var fecha = new Date(document.getElementById("fecha").value);
+            console.log(fecha, typeof (fecha));
+
+            const diasSemana = ["Domingo", "Lunes", "Martes",
+                "Miércoles", "Jueves", "Viernes", "Sábado"];
+            const mesAnio = ["Enero", "Febrero", "Marzo",
+                "Abril", "Mayo", "Junio",
+                "Julio", "Agosto", "Septiembre",
+                "Octubre", "Noviembre", "Dicimebre"];
+
+            let diaS = fecha.getDay();
+            let diaM = fecha.getDate();
+            let mes = fecha.getMonth();
+            let anio = fecha.getFullYear();
+
+            var horaAct = new Date();
+            let amPm="de la mañana";
+            let hora = horaAct.getHours();
+            if(hora > 12){
+                hora-=12;
+                amPm=" de la tarde";
+            }
+            let minutos = horaAct.getMinutes();
+            let msg= "Barbate, " + diasSemana[diaS]+ " " + diaM + " de " + mesAnio[mes] 
+            + " de " + anio + ", son las " + hora + ":" + minutos+ amPm  ;
+
+            document.getElementById("texto").innerHTML = msg;
+
+        }
+    </script>
+
+</body>
+
+</html>

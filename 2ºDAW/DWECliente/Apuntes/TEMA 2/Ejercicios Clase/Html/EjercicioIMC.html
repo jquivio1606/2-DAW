@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IES TRAFALGAR</title>
+</head>
+<body>
+    
+    <input type="text" id="peso">
+    <input type="text" id="altura">
+    <input type="button" id="calcular" value="Calculo IMC">
+    
+    <p id= "IMC"></p>
+
+
+
+    <script type="text/javascript">
+        /* --------------------------------------------------------------------------------- */
+        /* Establezca los valores para la altura en pulgadas y el peso en libras, 
+           para convertirlas a centimetros y kilos, enviando los resultados a la consola:
+                A.- 1pulgada es igual a 2,54cm
+                B.- 2,046 libras es igual a 1 kilo
+            Calcula y resgistra el IMC: esto es igual al peso (en kilos) divididos por
+            la altura al cuadrado (en metros).
+
+            Hazlo usando objetos DOM   -> NOS DAN LOS DATOS EN METROS Y EN KILOS
+        */
+
+        var boton=document.getElementById('calcular');
+        boton.addEventListener("click", calcularIMC, false);
+        
+        function calcularIMC(){
+            
+            var altura= parseInt(document.getElementById("altura").value);  // OBTENER EL VALOR DEL FORMULARIO, y PASARLO A ENTERO
+            var peso= Number(document.getElementById("peso").value);  // OBTENER EL VALOR DEL FORMULARIO
+
+            var IMC = peso/(altura**2);
+            document.getElementById("IMC").innerHTML= "El IMC es: " + IMC.toFixed(2); //ESCRIBIR EN EL HTML
+
+        }
+
+        
+
+
+
+
+
+    </script>
+</body>
+</html>

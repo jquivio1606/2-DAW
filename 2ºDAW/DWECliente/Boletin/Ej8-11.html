@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array de objetos</title>
+</head>
+<body>
+    <script>
+        const productos=[
+            {nombre: "Producto 1", precio:10.99},
+            {nombre: "Producto 2", precio:5.50},
+            {nombre: "Producto 3", precio:12.00},
+            {nombre: "Producto 4", precio:7.75},
+            {nombre: "Producto 5", precio:3.99}
+        ];
+        calcularPrecioTotal(productos);
+
+        /*Ejercicio 8. Calcular el precio total de todos los productos*/
+        function calcularPrecioTotal(array){
+            var precioTotal = array.reduce((acum,valor)=>{return acum+valor.precio},0);
+            console.log(precioTotal);
+            return precioTotal;
+        }
+
+        /*Ejercicio 9. Filtrar productos por precio máximo que se les pasa a la función*/
+        function filtrarPorPrecioMaximo(array, precioMaximo){
+            return array.filter(valor=>valor.precio>=precioMaximo);
+        }
+        
+    </script>
+</body>
+</html>

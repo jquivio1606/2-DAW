@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario Polideportivo</title>
+</head>
+<body>
+    <section style="width: fit-content; display: block; margin: auto;"></section>
+    <h1>Reserva de plaza Polideportivo Barbate</h1>
+    <form action="#" method="post">
+        <fieldset>
+            <legend>Datos del participante</legend>
+            <label for="datos">Nombre y apellido </label>
+            <input id="datos" name="datos">
+            <br><br>
+
+            <p>¿Eres miembro del club?</p>
+            <input type="radio" id="miembro" name="miembro" value="Miembro" required>
+            <label for="miembro">Miembro</label>           
+            <input type="radio" id="noMiembro" name="miembro" value="No-miembro" required>
+            <label for="noMiembro">No-miembro</label>
+            <br><br>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email">
+            <br><br>
+        </fieldset>
+        <fieldset>
+            <legend>Datos de la reserva</legend>
+            <label for="deporte">Deporte</label>
+            <select id="deporte" name="deporte">
+                <option value="padle">Padle</option>
+                <option value="futbol">Fútbol</option>
+                <option value="tenis">Tenis</option>
+                <option value="baloncesto">Baloncesto</option>
+            </select>
+            <br><br>
+
+            <p>Seleccionar fecha y hora de la reserva:</p>
+            <input type="date">
+            <input type="time">
+            <br><br>
+            <input type="checkbox" id="normas" name="normas" required>
+            <label for="normas">Acepto las normas del club</label>
+        </fieldset>
+        <input type="submit" value="Enviar">
+    </form>
+</body>
+</html>

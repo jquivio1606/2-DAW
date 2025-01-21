@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 3</title>
+</head>
+<body>
+    <p id="palabras">Número de palabras: </p>
+    <p id="primera">Primera palabra: </p>
+    <p id="ultima">Última palabra: </p>
+    <p id="inverso">Frase al revés: </p>
+    <script>
+        //Creamos un array vacío
+        let arrayFrase = new Array();
+
+        //Obtenemos una frase del usuario
+        let frase = prompt("Dime una frase");
+        
+        //Guardamos la frase que hemos obtenido en el array
+        arrayFrase = frase.split(" ");
+
+        //Usamos lenght para saber el tamaño del array
+        document.getElementById("palabras").innerHTML+=arrayFrase.length;
+        
+        //Obtenemos la primera palabra
+        document.getElementById("primera").innerHTML+=arrayFrase[0];
+
+        //Obtenemos la última palabra
+        document.getElementById("ultima").innerHTML+=arrayFrase[arrayFrase.length-1];
+        
+        //Ponemos la frase al revés
+        document.getElementById("inverso").innerHTML+=arrayFrase.reverse();
+        
+    </script>
+</body>
+</html>

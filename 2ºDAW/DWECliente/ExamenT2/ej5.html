@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 5</title>
+</head>
+<body>
+    <label for="fecha">Fecha: </label>
+    <input type="date" id="fecha" name="fecha" value="2024-01-01">
+    <button onclick="obtenerFecha()">Obtener fecha</button>
+    <script>
+        function obtenerFecha(){
+        //Creo una variable de tipo Date
+        let fecha = new Date(document.getElementById("fecha").value);
+
+        //Guardo en dos arrays los meses y los días de la semana
+        let meses=["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+        let dias=["domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado"];
+
+        //Creo variables con los datos necesarios 
+        let dia = fecha.getDate();
+        let diaSemana = dias[fecha.getDay()];
+        let mes=meses[fecha.getMonth()];
+        let anio=fecha.getFullYear();
+
+        //Obtenemos la hora actual
+        let horaActual= new Date();
+        let horas = horaActual.getHours();
+        let minutos = horaActual.getMinutes();
+
+        //Creamos una variable para guardar la parte del día
+        let parteDia = horas >= 12 ? " de la tarde" : " de la mañana";
+
+        //Ponemos las horas en formato de 12 horas
+        if (horas>=12){
+            horas=horas%12;
+        }
+
+        //Si las horas o los minutos son menores a 10 le añadimos un 0 delante
+        if (horas<10){
+            horas= "0"+horas;
+        }
+        if (minutos<10){
+            minutos= "0"+minutos;
+        }
+        //Mostramos por consola la fecha
+        console.log("Barbate, "+diaSemana+" "+dia+" de "+mes+" de "+anio+", son las "+horas+":"+minutos+parteDia);
+
+    }
+
+    </script>
+</body>
+</html>

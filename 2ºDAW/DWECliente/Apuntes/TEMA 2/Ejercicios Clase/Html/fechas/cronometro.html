@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRONOMETRO</title>
+    <style>
+        .contenedor {
+            margin: auto;
+            width: 70%;
+
+
+        }
+
+        span {
+            color: darkcyan;
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: bold;
+            font-size: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="contenedor">
+        <div class="">
+            <span id="hora">00:</span>
+            <span id="min">00:</span>
+            <span id="seg">00:</span>
+            <span id="milseg">00</span>
+        </div>
+        <div>
+            <input type="button" onclick="inicio()" value="Iniciar"> <!--Simbolo del play &#9658-->
+            <input type="button" onclick="parar()" value="Parar"> <!--Simbolo de parar &#8718-->
+            <input type="button" onclick="continuar()" value="Continuar"> <!--Simbolo de continuar &#8634-->
+            <input type="button" onclick="reinicio()" value="Reiniciar"> <!--Simbolo de resetear &#8635-->
+        </div>
+    </div>
+    <script>
+        var Centesimas=0;
+        var Segundos=0;
+        var Minutos=0;
+        var Horas=0;
+        
+        function inicio(){
+            control= setInterval(cronometro,30);
+        }
+
+        function parar(){
+            clearInterval(control);
+        }
+        
+        function reinicio(){
+            clearInterval(control);
+            Centesimas=0;
+            Segundos=0;
+            Minutos=0;
+            Horas=0;
+            centesimas.innerHTML=":00";
+            segundos.innerHTML=":00";
+            minutos.innerHTML=":00";
+            horas.innerHTML="00";
+        }
+        function cronometro(){
+            if (centesimas < 99) {
+                centesimas++;
+                if (centesimas < 10) { centesimas = "0" + centesimas }
+                Centesimas.innerHTML = ":" + centesimas;
+            }
+            if (centesimas == 99) {
+                centesimas = -1;
+            }
+            if (centesimas == 0) {
+                segundos++;
+                if (segundos < 10) { segundos = "0" + segundos }
+                Segundos.innerHTML = ":" + segundos;
+            }
+            if (segundos == 59) {
+                segundos = -1;
+            }
+            if ((centesimas == 0) && (segundos == 0)) {
+                minutos++;
+                if (minutos < 10) { minutos = "0" + minutos }
+                Minutos.innerHTML = ":" + minutos;
+            }
+            if (minutos == 59) {
+                minutos = -1;
+            }
+            if ((centesimas == 0) && (segundos == 0) && (minutos == 0)) {
+                horas++;
+                if (horas < 10) { horas = "0" + horas }
+                Horas.innerHTML = horas;
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>

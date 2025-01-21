@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fechas y horas</title>
+</head>
+<body>
+    <p id="salida"></p>
+    <script>
+        let fecha = new Date();
+        console.log(fecha);
+        let fecha2= new Date("2025/10/30 23:35:15");
+        console.log(fecha2);
+        let fecha3= new Date("02/02/2026 14:25:00");
+        console.log(fecha3);
+        /*let fecha4= Date.now();
+        console.log(fecha4);
+        console.log(fecha4,fecha4.getDay());
+        let fecha_nac=new Date();
+        console.log(fecha_nac,fecha_nac.getDay());
+        let fecha_fact= new Date.now();
+        console.log(fecha_fact.getDay());*/
+        console.log(fecha.getMonth());//Enero es el 0
+        console.log(fecha.getFullYear());
+        console.log(fecha.getHours());
+        console.log(fecha.getMinutes());
+        console.log(fecha.getSeconds());
+        console.log(fecha.getMilliseconds());
+        console.log(fecha.getTime());//154646641 Tiempo en Unix UTC
+        //Formato UTC: año, mes, dia, hora, minutos, segundos, milisegundos
+        let fecha_utc=new Date(2024,9,30,15,20,21,56);
+        console.log(fecha_utc.getFullYear());
+        //chuletario para el examen
+        const milisegundos=1000;
+        const minutos=milisegundos*60;
+        let horas= minutos*60;
+        let dias= horas*24;
+        var anio=dias*365;
+        let fecha_actual= Math.round(Date.now()/anio);
+        console.log(fecha_actual);
+
+
+        //
+        window.onload= function(){
+            //setInterval(funcion,tiempo) esta funcion ejecuta la funcion cada cierto tiempo
+            setInterval(tiempoRestanteNavidad,1); //setInterval llama a la función cada tiempo que le indiquemos
+        }
+        function tiempoRestanteNavidad(){
+            var ahora=new Date();
+            var anioActual= ahora.getFullYear();
+            var finDeAnio=new Date(anioActual,11,31,23,59,59);
+            let diferencia=finDeAnio.getTime()-ahora.getTime();
+            document.getElementById("salida").innerHTML=diferencia;
+        }
+    </script>
+</body>
+</html>

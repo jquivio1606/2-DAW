@@ -1,0 +1,23 @@
+body {
+  font-family: "arial, sans-serif";
+  background-color: #9898e8;
+  color: azure;
+  font-size: 20px; }
+
+button {
+  background-color: orange;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  transition: all 0.3s; }
+  button:hover {
+    background-color: #664200; }
+
+div {
+  color: orange; }
+
+/*# sourceMappingURL=estilos.css.map */

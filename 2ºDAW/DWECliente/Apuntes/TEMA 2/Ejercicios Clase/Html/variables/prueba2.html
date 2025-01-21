@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IES TRAFALGAR - VARIABLES </title>
+</head>
+<body>
+    
+    <script>
+        
+       /* PRUEBA 1 */
+        var a= 5;  // Variable definida como objeto global
+        var a= "hola"; //var permite volver a tipar la variable
+
+        let b=6; //Es global pero no se puede cambiar el tipo
+        //let b= "hola"; 
+       
+        function numeros(){
+            console.log(a);
+            console.log(b);
+
+
+
+
+            /* PRUEBA 2 */
+
+            var c= "Hola"; // Variable dentro de la funcion numeros
+            console.log(c);
+
+            for (let d = 0; d < 5; d++) {
+                console.log(d);
+            }
+           // console.log(d); // sale undefined
+
+           for (var d1 = 5; d1 < 10; d1++) {
+                console.log(d1);
+            }
+            console.log("Esto es d1 fuera del for: " + d1);
+        }
+        numeros();
+        // console.log(c); //sale undefined
+
+
+
+
+        /* PRUEBA 3 */
+        if(true){
+            var num = 30;
+            let f = 20;
+        }
+        console.log(num);
+        // console.log(f); // Sale undefined
+
+
+        
+
+        /* PRUEBA 4 */
+        const gravedad= 9.8;
+        console.log(typeof(gravedad));
+       // gravedad="9.8"; // Sale error porque ya esta inicializada como decimal.
+
+       const vector = ["Hola", "Adiós"];
+       console.log(vector[0]);
+       
+       
+       /* PRUEBA 5 */
+       vector["0"] = "SDSSDFSD";
+       console.log(vector[0]);  // No da error porque sigue siendo una cadena, no ha cambiado el tipo.
+
+       vector[3] = "Bye";
+       console.log(vector[3]);
+
+
+    </script>
+
+</body>
+</html>

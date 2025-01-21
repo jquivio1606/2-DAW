@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objetos Juaki</title>
+</head>
+<body>
+    <h3>Usuario</h3>
+    <input type="text" id="usuario" placeholder="Juaky">
+    <h3>Clave de Acceso</h3>
+    <input type="text" id="clave" placeholder="#imprenta15" minlength="4" maxlength="10" size="10">
+    <br>
+    <br>
+    <input type="button" id="boton" value="Cargar en la BD">
+    <table id="tabla">
+
+    </table>
+    <script>
+       
+        class Persona{
+            constructor(Nombre,Clave)
+            {
+                this.Nombre=Nombre;
+                this.Clave=Clave;
+            }
+        };
+        var boton=  document.getElementById("boton");
+        boton.addEventListener("click",rellenar,false);
+        var baseD=new Array();
+        //var baseD=[];
+        function rellenar()
+        {
+            var getnombre= document.getElementById("usuario").value;
+            var getclave= document.getElementById("clave").value;
+            var usuario= new Persona(getnombre,getclave);
+            console.log(usuario);
+            baseD.push(usuario);
+            console.log(baseD);
+            //insertar en la tabla los elementos de baseD
+            document.getElementById('tabla').innerHTML += '<td>' + usuario.Nombre + '</td><td>' + usuario.Clave + '</td>';
+        }
+       
+       
+        //'use script';
+        /*
+        var perro={
+            nombre: "Julian",
+            peso: 2.4,
+            color: "negro",
+            raza: "Elefante",
+            porculero: true,
+            edad:32
+        };
+        console.log(perro, perro.peso);
+        console.log(perro["edad"]);
+        perro.edad=34;
+        console.log(perro.edad);
+        let años=perro.edad;
+        console.log(años);
+        let variable="edad";
+        perro[variable]=50;
+        var nombre="nombre";
+        console.log(perro[nombre]="Joseba");
+
+        console.log(perro.edad);
+        //Autos juaky: marca,modelo,cc,color
+        /*
+        var automovil={
+            marca:"Kia",
+            modelo: "Super",
+            cc: 1250,
+            color: "Blanco"
+        };
+        //creeis una variable llamada modelo para acceder y cambiar el modelo
+        let modelo="modelo";
+        automovil[modelo]="medio";
+        console.log(automovil.modelo);
+        //objetos dentro de un objeto.....
+        /*
+        var autos_Juaky={
+            nombre: "SuperCoches",
+            actividad: "Venta-Reparacion",
+            direccion:{
+                calle:"Dr. Nitrato",
+                numero:"25",
+                cp:"11160",
+                ciudad:"Barbate",
+                estado:"Cadi"
+            },
+            añodecreacion:"1925"
+        }
+        console.log(autos_Juaky);
+        console.log(autos_Juaky.nombre, autos_Juaky.añodecreacion);
+        autos_Juaky.actividad="Vendo Amoto";
+        console.log(autos_Juaky.actividad);
+        let estado=autos_Juaky.direccion.estado="Spain";
+        console.log(estado);
+        let direccion="direccion"
+        let estadio="estado";
+        autos_Juaky[direccion][estadio]="Norway";
+        console.log(autos_Juaky.direccion.estado);
+        */
+       /*/Array dentro de objetos
+       let empresa={
+            nombre:"Helados SuperJuaky",
+            actividades:["Helados","Cafelitos"],
+            direcciones:{
+                calle:"Dr.",
+                cp:"11160",
+                city:"Barbate"
+            },
+            añodecreacion:"1696"
+       };
+       let actividad=empresa.actividades[0];
+       console.log(actividad);
+       console.log(empresa.actividades.sort());
+       console.log(empresa.actividades.push("Lo que sea"));
+       console.log(empresa.actividades.reverse());
+       console.log(empresa.actividades.shift());
+       console.log(empresa.actividades);
+       */
+       //Array de objetos
+       /*
+        let direcciones=[
+                {
+                    calle:"Las palomas",
+                    numero:15
+                },
+                {
+                    calle:"Dr",
+                    numero:23
+                },
+                {
+                    calle:"Luis",
+                    numero:12
+                }
+        ];
+        console.log(direcciones);
+        console.log(direcciones.sort());
+        let nuevacalle=prompt("Deme la nueva calle de objeto 1","San Francisco");
+        direcciones[0].calle=nuevacalle;
+        console.log(direcciones);
+        */
+    </script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid 1</title>
+    <style>
+        .contenedor{
+            display: grid;
+            /*grid-template-columns: 100px 100px 100px 100px 100px;
+            grid-template-columns: repeat(5,100px);
+            grid-template-rows: repeat(5,100px);*/
+            grid-template-columns: repeat(7,minmax(90px,5fr));/*fr divide la porción restante*/
+            grid-template-rows: repeat(5,minmax(90px,3fr));
+            grid-auto-rows: 200px;
+            grid-auto-flow: column;
+        }
+        .item-1{
+            border: solid 1px black;
+            color:rgb(237, 153, 44);
+            background: lightblue;
+            /*grid-row-start: 1;
+            grid-row-end: 3;
+            grid-column-start: 1;
+            grid-column-end: 6;*/
+            grid-row: 1/3;
+            grid-column: 1/6;
+        }
+        .item-2{
+            border: solid 2px rgb(246, 5, 5);
+            background: rgb(225, 173, 230);
+            /*grid-row: span 1;
+            grid-column: span 5;
+            grid-area: 2/4/4/6;
+            z-index: 1;*/
+        }
+        .item-3{
+            border: solid 2px rgb(5, 246, 17);
+            background: rgb(177, 173, 230);
+            /*grid-area: 3/1/-1/-1;*/
+        }
+        .item-4{
+            border: solid 2px blue;
+            background: yellow;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="contenedor">
+        <div class="item item-1">1</div>
+        <div class="item item-2">2</div>
+        <div class="item item-3">3</div>
+        <div class="item item-4">4</div>
+    </div>
+    </div>
+    
+</body>
+</html>

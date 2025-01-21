@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Días hasta navidad</title>
+</head>
+<body onload="reloj_superJuaky()">
+    
+    <p id="reloj1" style="font-family: 'Courier New', Courier, monospace; font-size: 25px; ">Hora Actual:</p>
+    <div id="reloj_actual" style="font-size: 50px; font-weight: bold; "></div> 
+    
+    <P id="reloj2" style="font-family: 'Courier New', Courier, monospace; font-size: 25px;"> Para fin de año queda:</P>
+    <div id="reloj_navidad"style="font-size: 50px; font-style: italic; font-weight: bold; " > 
+        Quedan <p id="dia" style="display: inline;"> </p> 
+        días <p id="hora" style="display: inline;">  </p> 
+        : <p id="min" style="display: inline;"> </p> 
+        : <p id="seg" style="display: inline;"> </p>
+
+    </div>
+
+    <script>
+      
+
+        function reloj_superJuaky(){
+            var ahora = new Date();
+            let horas= ahora.getHours();
+            let minutos= ahora.getMinutes();
+            let segundos= ahora.getSeconds();
+
+            //Para que siempre salgan dos numeros. Ejm: en vez de salir    16:50:1   salga    16:50:01 con las horas, minutos y segundos
+            segundos=(segundos<10)? ("0"+segundos) : segundos; // El if pero en ternaria:  variable = (condicion) ? (resultado si es true) : (resultado si es falso)
+            if (minutos<10){
+                minutos="0"+minutos;
+            } else if(horas<10){
+                horas="0"+horas; 
+            } 
+
+
+
+            let hora_actual= horas+" : "+minutos+" : "+segundos;
+
+            document.getElementById("reloj_actual").innerHTML= hora_actual;
+            
+            
+            
+            //HASTA FIN DE AÑO: 
+            var anioAct= ahora.getFullYear();
+            var finAnio = new Date(anioAct,11,25,23,59,59); //año, mes, dia, hora, min, seg
+            let diferencia= finAnio.getTime()-ahora.getTime();
+            
+            let segT = Math.floor(diferencia/1000);
+            let minT = Math.floor(segT/60);
+            let horasT = Math.floor(minT/60);
+            let diasT = Math.floor(horasT/24);
+            
+            let segD = Math.floor(segT%60);
+            let minD = Math.floor(minT%60);
+            let horasD = Math.floor(horasT%24);
+
+            //Para que siempre salgan dos numeros. Ejm: en vez de salir    16:50:1   salga    16:50:01 con las horas, minutos y segundos
+            segD=(segD<10)? ("0"+segD) : segD; // El if pero en ternaria:  variable = (condicion) ? (resultado si es true) : (resultado si es falso)
+            if (minD<10){
+                minD="0"+minD;
+            } else if(horasD<10){
+                horasD="0"+horasD; 
+            }
+
+
+            
+            //Escribir 
+            document.getElementById("dia").innerHTML = diasT;
+            document.getElementById("hora").innerHTML = horasD;
+            document.getElementById("min").innerHTML = minD;
+            document.getElementById("seg").innerHTML = segD;
+
+            // Cambiar color
+            document.getElementById("dia").style.color="green";
+            document.getElementById("hora").style.color="green";
+            document.getElementById("min").style.color="red";
+            document.getElementById("seg").style.color="red";
+
+
+            
+            setTimeout("reloj_superJuaky()",1000);  // debería ser igual que el windows.onload porque en el body hemos puesto el atributo onload y la funcion
+        }
+
+
+
+    </script>
+</body>
+</html>

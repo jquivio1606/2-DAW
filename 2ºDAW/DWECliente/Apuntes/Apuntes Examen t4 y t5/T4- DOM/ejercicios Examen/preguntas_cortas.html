@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        .activo {
+            color: azure;
+            background-color: darkgrey;
+        }
+    </style>
+    <h1 id="titular">Hola Mundo</h1>
+    <div id="subtitulo">Este es el div con id subtitulo</div>
+
+    <section class="botones">
+        <div onclick="ocultar()" class="boton">Abrir - cerrar</div>
+        <div onclick="cambiarTitulo()" class="boton">Cambiar título</div>
+        <div onclick="crearDiv()" class="boton">Crear bloque</div>
+        <div onclick="borrarDiv()" class="boton">Borrar bloque</div>
+        <div onclick="fuentesImg()" class="boton">Fuentes</div>
+        <div onclick="intercalar()" class="boton">Subtitulo</div>
+    </section>
+
+    <ul id="lista">
+        <li>Examen 1</li>
+        <li>Examen 2</li>
+        <li>Examen 3</li>
+    </ul>
+
+
+    <script>
+
+        // Pregunta corta 1
+        function cambiar() {
+            document.getElementById('titular').innerHTML += ' con JavaScript';
+        }
+        cambiar();
+
+
+        // Pregunta corta 2
+        function creaDiv() {
+            let nuevoDiv = document.createElement('div');
+            nuevoDiv.innerHTML = 'Esto es un div';
+
+            //Opcion 1
+            nuevoDiv.style.background = 'red';
+            nuevoDiv.style.color = 'white';
+            nuevoDiv.style.textAlign = 'center';
+
+            //Opcion 2
+            //nuevoDiv.setAttribute("style","background:red;color:white;text-align:center");
+
+            document.body.appendChild(nuevoDiv);
+        };
+        creaDiv();
+
+
+        // Pregunta corta 3
+        function borrarDiv() {
+            let div = document.getElementById('subtitulo');
+
+            if (div != null) {
+                div.remove();
+            }
+        }
+        borrarDiv();
+
+
+        // Pregunta corta 4
+        function cambiaEstilo() {
+            let titular = document.getElementById('titular');
+
+            titular.addEventListener('click', () => {
+                if (titular.classList.contains('activo')) {
+                    titular.classList.remove('activo')
+                } else {
+                    titular.classList.add('activo');
+                }
+            });
+        }
+        cambiaEstilo();
+
+        // Pregunta corta 5
+        function ocultar() {
+            var barra = document.querySelector(".botones");
+            var botones = barra.children;
+            //estado:none estado:inline-block
+            var estado = barra.dataset.estado == 'none' ? 'inline-block' : 'none';
+            for (let i = 1; i < botones.lenght; i++) {
+                botones[i].style.display = estado;
+            }
+            barra.dataset.estado = estado;
+        }
+
+        // Pregunta corta 6
+        document.getElementById('lista').addEventListener('click', () => {
+            let lista = document.getElementById('lista');
+            let nuevoElemento = document.createElement('li');
+            nuevoElemento.textContent = 'Examen 4';
+
+            lista.appendChild(nuevoElemento);
+        });
+
+
+        // Pregunta corta 7
+        function validación(){
+            let apellido = document.getElementById('apellido').value;
+            let edad = document.getElementById('edad').value; 
+            if (apellido == ""){
+                alert('El apellido no debe estar vacío');
+                return false;
+            } else if (edad < 0 ||  edad >= 110){
+                alert('La edad no puede ser mayor de 110 ni un valor negativo');
+                return false;
+            } else {
+                alert('Todo OK');
+                return true;
+            }
+        }
+
+    </script>
+</body>
+
+</html>

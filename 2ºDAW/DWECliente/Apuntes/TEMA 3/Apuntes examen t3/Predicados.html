@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        
+        /* 
+         ...array -> sirve para clonar un array.También se pueden clonar objetos
+        Otra cosa q se puede hacer eso es combinar array u objetos.
+            EJEMPLO:
+        */
+        // Combinar dos objetos:
+        const base = { nombre: "Ana" };
+        const extra = { edad: 30, profesion: "Doctora" };
+        const combinado = { ...base, ...extra };
+        console.log(combinado); // { nombre: "Ana", edad: 30, profesion: "Doctora" }
+
+        //Clonar un objeto:
+        const persona = { nombre: "Juan", edad: 25 };
+        const copiaPersona = { ...persona };
+        console.log(copiaPersona); // { nombre: "Juan", edad: 25 }
+
+
+
+        /*   FUNCIONES AUXILIARES   */
+
+        const numeros = [10, 2, 3, 40, 33, 50];
+        const duplicar = (valor) => valor * 2;
+        const multiplo10 = (valor) => valor % 10 === 0;
+        let espositivo = (elemento) => elemento >= 0;
+
+
+
+        /*   FUNCIONES DE ORDEN SUPERIOR   */
+
+        // .map --> Devuelve un nuevo array transformando cada elemento según la función dada.
+        const duplicados = numeros.map(duplicar);
+        console.log(duplicados); // [20, 4, 6, 80, 66, 100]
+
+
+        // .some --> Verifica si al menos uno de los elementos cumple una condición.
+        const hayPositivos = numeros.some(espositivo);
+        console.log(hayPositivos); // true
+
+        const algunMultiplo10 = numeros.some(multiplo10);
+        console.log(algunMultiplo10); // true
+
+
+        // .every --> Verifica si todos los elementos cumplen una condición.
+        const todosPositivos = numeros.every(espositivo);
+        console.log(todosPositivos); // true
+
+        const todosMultiplos10 = numeros.every(multiplo10);
+        console.log(todosMultiplos10); // false
+
+
+        // .filter -->  Verifica si todos los elementos cumplen una condición.
+        const multiplosDe10 = numeros.filter(multiplo10);
+        console.log(multiplosDe10); // [10, 40, 50]
+
+
+        // .find --> Devuelve el primer elemento que cumple la condición.
+        const primerMultiplo10 = numeros.find(multiplo10);
+        console.log(primerMultiplo10); // 10
+
+        // .findLast --> Encuentra y devuelve el último elemento que cumple una condición.
+        const ultimoMultiplo10 = numeros.findLast(multiplo10);
+        console.log(ultimoMultiplo10); // 50
+
+
+        // .findIndex --> Devuelve el índice del primer elemento que cumple una condición.
+        const indicePrimerMultiplo10 = numeros.findIndex(multiplo10);
+        console.log(indicePrimerMultiplo10); // 0
+
+        // .findLastIndex --> Devuelve el índice del último elemento que cumple una condición.
+        const indiceUltimoMultiplo10 = numeros.findLastIndex(multiplo10);
+        console.log(indiceUltimoMultiplo10); // 5
+
+
+        // .indexOf --> Devuelve el índice de la primera aparición de un elemento en el array. 
+        // Si el elemento no se encuentra, devuelve -1.
+        const posicion40 = numeros.indexOf(40);
+        console.log(posicion40); // 3
+
+        const posicion100 = numeros.indexOf(100);
+        console.log(posicion100); // -1
+
+
+        // .includes --> Comprueba si un array contiene un valor especifico
+        const contiene40 = numeros.includes(40);
+        console.log(contiene40); // true
+
+        const contiene100 = numeros.includes(100);
+        console.log(contiene100); // false
+
+
+        // .reduce --> Reduce el array a un único valor acumulado.
+        const suma = numeros.reduce((acumulador, numero) => acumulador + numero, 0);
+        console.log(suma); // 138
+
+        const producto = numeros.reduce((acumulador, numero) => acumulador * numero, 1);
+        console.log(producto); // 396000
+
+
+        // .startWith --> Determina si una cadena comienza con los caracteres especificados.
+        const nombres = ["Pepe", "Juaky", "Judith", "Pancracio", "Heriberto"];
+        const empiezaConJ = nombres.filter(nombre => nombre.startsWith("J"));
+        console.log(empiezaConJ); // ["Juaky", "Judith"]
+
+
+
+        /*   COMBINACIÓN DE OPERACIONES   */
+
+        // Duplicar los números y luego filtrar los múltiplos de 10:
+        const duplicadosYMultiplos10 = numeros
+            .map(duplicar)
+            .filter(multiplo10);
+        console.log(duplicadosYMultiplos10); // [20, 80, 100]
+
+
+        // Calcular la suma de los valores duplicados:
+        const sumaDuplicados = numeros
+            .map(duplicar)
+            .reduce((acumulador, numero) => acumulador + numero, 0);
+        console.log(sumaDuplicados); // 276
+
+
+        // Filtrar los números positivos y luego duplicarlos:
+        const positivosDuplicados = numeros
+            .filter(espositivo)
+            .map(duplicar);
+        console.log(positivosDuplicados); // [20, 4, 6, 80, 66, 100]
+
+
+    </script>
+</body>
+
+</html>

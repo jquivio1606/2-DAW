@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let segundos = 0;
+        function crono() {
+            segundos++;
+            console.log(`Tiempo transcurrido: ${segundos} segundos`);
+        }
+
+        // Comienza el cronómetro que se ejecuta cada 1 segundo
+        var elcrono = setInterval(crono, 1000);
+
+        // Después de 5 segundos, para el cronómetro
+        setTimeout(() => {
+            clearInterval(elcrono);
+            console.log("El cronómetro ha parado.");
+        }, 5000);
+    </script>
+</body>
+</html>

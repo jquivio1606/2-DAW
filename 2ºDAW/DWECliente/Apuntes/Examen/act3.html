@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad 3</title>
+</head>
+<body>
+
+    <script>
+        //Pide la cadena de texto
+        let cadena= prompt("Introduzca una cadena de texto:");
+
+        //Se convierte en un array de palabras
+        let arrayCad = cadena.split(" ");
+
+        // Se utilizan los metodos .length .reverse() arrayCad[0] y arrayCad[arrayCad.length-1]
+        console.log("Número de palabras: " + arrayCad.length);
+        console.log("Primera palabra: " + arrayCad[0], "\nÚltima palabra: " + arrayCad[arrayCad.length -1]);
+        console.log("Array invertido: " + arrayCad.reverse());
+
+    </script>
+    
+</body>
+</html>

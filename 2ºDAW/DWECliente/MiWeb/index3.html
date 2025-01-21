@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="text/javascript" src="./js/primer.js"></script>
+    <title>IES TRAFALGAR</title>
+</head>
+
+<body>
+    <p id="p1">PARAFARMACIA</p>
+    <button type="button" onclick="document.getElementById('p1').innerHTML='CAMBIANDO'">
+        Pica aqui
+    </button>
+    <h1>Modificando las propiedades de un objeto del dom</h1>
+    <img id="img1" onclick="cambiafoto()" src="./img/barcelona.jpg" width="200" height="180" />
+    <p>Haz click en la foto</p>
+    <script>
+        function cambiafoto() {
+            var imagen = document.getElementById("img1");
+            if (imagen.src.match("barcelona")) {
+                imagen.src = "./img/monaco.jpg";
+            } else {
+                imagen.src = "./img/barcelona.jpg";
+            }
+        }
+    </script>
+
+    <h1>Cambiando los estilos</h1>
+    <p id="p2">Comprobando</p>
+    <button type="button" onclick="cambiacss()">Cambia el estilo</button>
+    <script>
+        function cambiacss() {
+            var parrafo = document.getElementById("p2");
+            parrafo.style.fontSize = "50px";
+            parrafo.style.color = "red";
+        }
+    </script>
+    <script>
+        let edad = prompt('Qué edad tienes?', 18);
+        if (edad >= 18) {
+            alert(`Eres mayor de edad pues tienes ${edad} años`)
+        } else {
+            alert(`Eres menor de edad al tener ${edad} años`)
+        }
+    </script>
+    <script>
+        terminamos();
+        function terminamos() {
+            document.write("<h1>Terminamos el tema</h1>")
+        }
+    </script>
+
+</body>
+
+</html>
