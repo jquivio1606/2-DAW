@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+
+
+
+
+    <script>
+
+        function postUsuarios() {
+            axios({
+                method: "POST",
+                url: "https://reqres.in/api/register",
+                data: {
+                    email: "eve.holt@reqres.in",
+                    // password: "pistol"
+                }
+            })
+                .then((respuesta) => { console.log(respuesta); })
+                .catch((error) => { console.log(error) })
+        }
+        postUsuarios();
+
+
+        function postUsuarios2() {
+            axios.post("https://reqres.in/api/login", {
+                "email": "eve.holt@reqres.in",
+                "password": "cityslicka"
+            })
+                .then((respuesta) => { console.log(respuesta); })
+                .catch((error) => { console.log(error) })
+        }
+        postUsuarios2();
+
+
+
+    </script>
+</body>
+
+</html>

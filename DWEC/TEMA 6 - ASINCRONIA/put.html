@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+
+
+
+
+    <script>
+
+        function putUsuarios() {
+            axios({
+                method: "PUT",
+                url: "https://reqres.in/api/users/2",
+                data: {
+                    "name": "morpheus",
+                    "job": "zion resident"
+                }
+            })
+                .then((respuesta) => { console.log(respuesta); })
+                .catch((error) => { console.log(error) })
+        }
+        putUsuarios();
+
+
+        function putUsuarios2() {
+            axios.put("https://reqres.in/api/users/2", {
+                "name": "morpheus",
+                "job": "zion resident"
+            })
+                .then((respuesta) => { console.log(respuesta); })
+                .catch((error) => { console.log(error) })
+        }
+        putUsuarios2();
+
+
+
+    </script>
+</body>
+
+</html>

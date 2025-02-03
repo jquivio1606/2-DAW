@@ -21,11 +21,11 @@ h1 {
     color: $color-primario;
 }
 
-p{
+p {
     color: $color-secundario;
 }
 
-.btn-primary{
+.btn-primary {
     @include button-styles($color-secundario);
 }
 

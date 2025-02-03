@@ -13,7 +13,12 @@ h1 {
 p {
     color: $color-secundario;    
 }
-
+$colores:("rojo":red,"azul":blue);
+@each $color in $colores{
+    .item-#{$color}{
+        background-color: map-get($colores,"rojo");
+    }
+}
 button {
     color: white;
     background-color: $color-primario;

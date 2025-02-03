@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 1 - RAID</title>
+    <style>
+        .container {
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            gap: 20px;
+            width: 100%;
+        }
+
+        .discos {
+            border: 1px solid black;
+            border-radius: 10px;
+            width: 100px;
+            height: 100px;
+            text-align: center;
+            align-content: center;
+        }
+    </style>
+</head>
+
+<body>
+
+
+
+
+    <script>
+
+
+        let cod = new Array();
+        let arrayNum = new Array();
+
+        document.body.addEventListener("keydown", function (evento) {
+            const cont = document.createElement('div');
+            cont.setAttribute('class', 'container');
+            document.body.appendChild(cont);
+
+
+            if (evento.key === 'p') {
+
+                for (let i = 0; i < 3; i++) {
+                    if(arrayNum[i] == null){
+                        arrayNum[i] = Math.floor(Math.random() * 2);
+                    } else {
+                        arrayNum[i] = arrayNum[i] + "" + Math.floor(Math.random() * 2);
+                    }
+                }
+                console.log(arrayNum);
+                const suma = arrayNum.reduce((acumulador, numero) => acumulador + numero, 0);
+                if (suma % 2 != 0) {
+                    arrayNum.push(1);
+                } else {
+                    arrayNum.push(0);
+                }
+                console.log(arrayNum);
+
+                for (let i = 0; i < 4; i++) {
+                    let div = document.createElement('div');
+                    div.setAttribute('class', 'discos');
+                    div.setAttribute('id', 'div' + i);
+                    cont.appendChild(div);
+
+                    div.innerHTML = 'Disco ' + (i + 1);
+
+                    let p = document.createElement('p');
+                    div.appendChild(p);
+                    p.innerHTML = arrayNum[i];
+
+                    for (let i = 0; i< cod.length; i++){
+
+                    }
+
+
+                }
+
+            }
+
+        });
+
+
+    </script>
+</body>
+
+</html>
