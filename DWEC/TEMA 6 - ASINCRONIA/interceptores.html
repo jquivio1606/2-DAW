@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    
+    <script> 
+    
+        const api_usuarios = axios.create({
+            baseURL: "https://jsonplaceholder.typicode.com", // Ajustado para usar baseURL
+            timeout: 2000
+        });
+
+        api_usuarios.interceptors.request.use(
+            function (config){
+                // Configura la información antes de hacer la solicitud
+                config.headers.Authorization = "Juaky";
+                config.headers['Content-Type'] = "text/plain"; // Corregido para el tipo de contenido
+                config.headers['1-Cabecera-Juan'] = "Juan Juanito Juan";
+                console.log('Encabezados: ', config.headers);
+                return config;
+            }, 
+            function (error){
+                // Rechaza la promesa si hay un error en la solicitud
+                return Promise.reject(error);
+            }
+        );
+
+        api_usuarios.interceptors.response.use(
+            function (response){
+                // Procesa la respuesta antes de devolverla
+                console.log("Respuesta conseguida: ", response);
+                response.data = {
+                    resultado: response.data,
+                    timestamp: new Date().toString()
+                };
+
+                if(response.status === 401){
+                    console.warn("Usuario no autorizado");
+                }
+                return response;
+            }, 
+            function (error) {
+                console.log(error);
+                return Promise.reject(error);
+            }
+        );
+
+        async function dameDatos(){
+            try {
+                const respuesta = await api_usuarios.get('/users'); // Asegurado que se hace la solicitud a '/users'
+                console.log(respuesta.data); // Muestra la respuesta en consola
+            } catch (error) {
+                console.error("Error al obtener los datos: ", error);
+            }
+        }
+
+        dameDatos();
+    
+    </script>
+
+</body>
+</html>

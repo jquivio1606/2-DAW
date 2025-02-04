@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+</head>
+<body>
+    
+
+    <script>
+        async function peticionesInterceptadas(){
+            axios.interceptors.request.use(
+                function (config){
+                    config.url= "https://jsonplaceholder.typicode.com/users/1";
+                    config.headers['Autorizacion']= 'Pepe';
+                    return config;
+                }, 
+
+                function (error){
+
+                    return error;
+                }
+            )
+            const respuesta = await axios.get("https://jsonplaceholder.typicode.com/users/1");
+            console.log(respuesta);
+        }
+
+        peticionesInterceptadas();
+
+    </script>
+</body>
+</html>
