@@ -29,17 +29,15 @@ boton.addEventListener("click", async () => {
       const datos = respuesta.data;
       carga.hidden = false;
 
-      titulo.innerHTML= "<b>Titulo: </b>"+ respuesta.data.Title;
-
-
-
-
-
       setTimeout(() => {
         if (datos.Response == 'True') {
 
 
-
+          titulo.innerHTML= "<b>Titulo: </b>"+ datos.Title;
+          genero.innerHTML= "<b>Género: </b>"+ datos.Genre;
+          tipo.innerHTML= "<b>Tipo: </b>"+ datos.Type;
+          duracion.innerHTML= "<b>Duracion: </b>"+ datos.Runtime;
+          actores.innerHTML= "<b>Actores: </b>"+ datos.Actors;
 
 
 
