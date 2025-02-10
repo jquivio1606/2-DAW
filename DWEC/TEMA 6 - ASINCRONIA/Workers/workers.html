@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,12 +25,15 @@
         let workerCont;
 
         function  iniciar(){
-            workerCont = new Worker('fichero js');
-
+            workerCont = new Worker('./contador.js');
+            workerCont.onmessage= function (evento){
+                document.getElementById("contador").innerHTML=evento.data;
+            }
         }
 
         function terminar(){
-
+            workerCont.terminate();
+            workerCont=null;
 
         }
 
