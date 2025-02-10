@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workers</title>
+</head>
+<body>
+    <p>Contador: <span id="contador"></span></p>
+    <button onclick="iniciar()" id="btn-init">Iniciar Contador</button>
+    <button onclick="terminar()" id="btn-stop">Parar Contador</button>
+
+    <button onclick="cambiarfondo()" id="btn-fondo">Cambiar Fondo</button>
+
+    <script>
+        function cambiarfondo(){
+            if(document.body.style.background == "beige"){
+                document.body.style.background="lightgreen";
+            } else {
+                document.body.style.background="beige";
+            }
+        }
+
+
+        let workerCont;
+
+        function  iniciar(){
+            workerCont = new Worker('fichero js');
+
+        }
+
+        function terminar(){
+
+
+        }
+
+
+    </script>
+</body>
+</html>
