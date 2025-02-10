@@ -6,6 +6,8 @@ boton.addEventListener("click", async () => {
   let contenedorDatos = document.getElementById("cont-datos");
   let carga = document.getElementById("cargando");
 
+  let foto= document.getElementById("poster");
+
   let titulo = document.getElementById("title");
   let genero = document.getElementById("genre");
   let tipo = document.getElementById("type");
@@ -15,7 +17,7 @@ boton.addEventListener("click", async () => {
   let escritor = document.getElementById("writer");
   let idioma = document.getElementById("language");
   let anio = document.getElementById("year");
-
+  let sinopsis = document.getElementById("plot");
 
   await axios.get("http://www.omdbapi.com/", {
     params: {
@@ -32,15 +34,18 @@ boton.addEventListener("click", async () => {
       setTimeout(() => {
         if (datos.Response == 'True') {
 
-
+          foto.src= datos.Poster;
           titulo.innerHTML= "<b>Titulo: </b>"+ datos.Title;
           genero.innerHTML= "<b>Género: </b>"+ datos.Genre;
           tipo.innerHTML= "<b>Tipo: </b>"+ datos.Type;
           duracion.innerHTML= "<b>Duracion: </b>"+ datos.Runtime;
           actores.innerHTML= "<b>Actores: </b>"+ datos.Actors;
+          director.innerHTML= "<b>Director: </b>"+ datos.Director;
+          escritor.innerHTML= "<b>Escritor/es: </b>"+ datos.Writer;
+          idioma.innerHTML= "<b>Idioma: </b>"+ datos.Language;
+          anio.innerHTML= "<b>Años: </b>"+ datos.Year;
 
-
-
+          sinopsis.innerHTML= "<b>Sinopsis: </b>"+ datos.Plot;
 
 
         } else {

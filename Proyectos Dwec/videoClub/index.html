@@ -6,36 +6,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Video Club</title>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="./estilos.css">
 </head>
 
 <body>
+    <div class="cont-principal">
+        <div id="cont-buscador">
+            <h1> Escribe el título de la pelicula aquí: </h1>
+            <input type="text" id="titulo_peli">
+            <button type="submit" id="btn">Buscar</button>
+        </div>
+        <h3 id="cargando" hidden> Cargando...</h3>
+        <br>
+        <div id="cont-datos">
+            <img id="poster">
+            <p id="title"></p>
+            <p id="genre"></p>
+            <p id="type"></p>
+            <p id="runtime"></p>
+            <p id="actors"></p>
+            <p id="director"></p>
+            <p id="writer"></p>
+            <p id="language"></p>
+            <p id="year"></p> <!-- Ponner year y no release-->
 
-    <div>
-        <h1> Escribe el título de la pelicula aquí: </h1>
-        <input type="text" id="titulo_peli">
-        <button type="submit" id="btn">Buscar</button>
+            <p id="plot"></p>
+        </div>
     </div>
-    <p id="cargando" hidden> Cargando...</p>
-    <div id="cont-datos">
-        <img id="poster">
-        <p id="title"></p>
-        <p id="genre"></p>
-        <p id="type"></p>
-        <p id="runtime"></p>
-        <p id="actors"></p>
-        <p id="director"></p>
-        <p id="writer"></p>
-        <p id="language"></p>
-        <p id="year"></p> <!-- Ponner year y no release-->
-
-        <p id="plot"></p>
-
-
-
-
-
-    </div>
-
     <script src="script.js"></script>
 </body>
 
