@@ -1,60 +1,62 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Principios de Asincronía</title>
 </head>
+
 <body>
-    
+
     <script>
 
-        const datos =[
-        {
-                titulo:'Don Quijote',
+        const datos = [
+            {
+                titulo: 'Don Quijote',
                 año: '1495',
-                autor:'Cervantes',
-                isbn:'12345'
+                autor: 'Cervantes',
+                isbn: '12345'
             },
             {
-                titulo:'Don Luis',
+                titulo: 'Don Luis',
                 año: '2024',
-                autor:'Domingo',
-                isbn:'45323'
+                autor: 'Domingo',
+                isbn: '45323'
             },
             {
-                titulo:'El proyecto final',
+                titulo: 'El proyecto final',
                 año: '2024',
-                autor:'Reverte',
-                isbn:'45323'
+                autor: 'Reverte',
+                isbn: '45323'
             },
             {
-                titulo:'Manolito Gafotas',
+                titulo: 'Manolito Gafotas',
                 año: '1960',
-                autor:'Elvira Lindo',
-                isbn:'135432345'
+                autor: 'Elvira Lindo',
+                isbn: '135432345'
             }
         ];
 
         // NO se pa que hemos hecho esto pero sale undefined
-        function obtenerDatos(){
-            setTimeout(()=>{
+        function obtenerDatos() {
+            setTimeout(() => {
                 return datos;
             }, 2000);
         }
         console.log(obtenerDatos());
 
-        
+
         /* Javascript tiene un objeto llamado: Promise */
-        function obtenerDatosPromesa(){
+        function obtenerDatosPromesa() {
             // Resolve: para devolver la respuesta ok, si los datos estan perfe
             // Reject: para devolver un error si no pasa algo mal con los datos
             return new Promise((resolve, reject) => {
-                if(datos.length == 0){
+                if (datos.length == 0) {
                     reject(new Error('No hay datos'));
                 } else {
                     // El setTimeout es para simular que tenemos los datos en otro lado y lo obtenemos
-                    setTimeout(()=>{ 
+                    setTimeout(() => {
                         resolve(datos);
                     }, 2000);
                 }
@@ -63,8 +65,8 @@
         }
 
         obtenerDatosPromesa()
-        .then((respuesta) =>{console.log(respuesta)}) //recoge el valor que devuelve el resolve
-        .catch((error) => {console.error(error)}); //recoge el error del reject 
+            .then((respuesta) => { console.log(respuesta) }) //recoge el valor que devuelve el resolve
+            .catch((error) => { console.error(error) }); //recoge el error del reject 
 
 
         /*   async await, fetch   */
@@ -73,13 +75,29 @@
         // obtenerDatosPromesa()
         //.then((respuesta) =>{console.log(respuesta)})
         //.catch((error) => {console.error(error)});
-        async function obtenerDatosAwait(){
+        async function obtenerDatosAwait() {
             const libros = await obtenerDatosPromesa();
             console.log(libros);
         };
 
         obtenerDatosAwait();
 
+
+        async function obtenerDatosFetch() {
+            try {
+                const respuesta = await fetch('https://jsonplaceholder.typicode.com/posts/1');
+                if (!respuesta.ok) throw new Error('Error en la petición'); // Controla errores HTTP
+                const datos = await respuesta.json(); // Convierte a JSON
+                console.log(datos); // Muestra los datos
+            } catch (error) {
+                console.error('Error:', error); // Captura errores
+            }
+        }
+
+        obtenerDatosFetch();
+
+
     </script>
 </body>
+
 </html>
