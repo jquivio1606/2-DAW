@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tienda{% endblock %}
+
+{% block body %}
+    <br>
+    <div class="cont-main">
+        <h1>CATEGORÍAS</h1>
+        <br>
+        <div class="cont-categorias">
+            {% if categorias is empty %}
+                <p>No hay categorías disponibles.</p>
+            {% else %}
+
+                    {% for categoria in categorias %}
+                        <a href="{{ path('productos_categoria', {'id': categoria.id}) }}" class="enlace-cat">
+                            <h4>{{ categoria.nombre }}</h4>
+                        </a>
+                    {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+{% endblock %}

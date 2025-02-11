@@ -1,0 +1,96 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #1d1d1d;
+    color: white;
+    padding: 30px;
+    display: grid;
+    width: 100%;
+    grid-template-columns: 300px auto;
+    height: 200px;
+    align-content: center;
+    text-align: center;
+}
+
+#logo-header {
+    width: 180px;
+    border-radius: 10px;
+}
+
+h1 {
+    align-self: center;
+}
+
+
+nav a {
+    padding: 10px 50px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: background-color 0.5s;
+    border-radius: 10px;
+}
+
+nav a:hover {
+    background-color: black;
+}
+
+.dropdown-menu {
+    width: 350px;
+}
+
+.navbar .dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.form-control {
+    width: 500px;
+}
+
+.products-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.product {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.product img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.product h3 {
+    color: #e60000;
+    font-size: 18px;
+}
+
+.product p {
+    color: #333;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}

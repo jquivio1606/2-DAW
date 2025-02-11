@@ -1,0 +1,40 @@
+.cont-main{
+    width: 60%;
+    margin: auto;
+    padding: 20px;
+    box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.5);
+    display: grid;
+    grid-template-rows: 75px auto;
+    padding-bottom: 50px;
+}
+
+.cont-main h1{
+    color: #333;
+    text-align: center;
+}
+
+.cont-categorias{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    justify-content: center;
+}
+
+.enlace-cat {
+    text-decoration: none;
+}
+
+.enlace-cat h4{
+    width: 280px;
+    align-content: center;
+    padding: 20px;
+    box-shadow: 5px 5px 8px 5px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    text-align: center;
+    color: black;
+    transition: background-color 0.5s;
+}
+
+.enlace-cat h4:hover{
+    background-color: #dddddd;
+}

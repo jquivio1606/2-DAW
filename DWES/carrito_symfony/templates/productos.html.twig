@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Productos - {{ categoria.nombre }}{% endblock %}
+
+{% block body %}
+    <div class="bg-gray-900 py-10">
+        <div class="container mx-auto px-4">
+            <h1 class="text-6xl text-white text-center"><i>Tienda Informática</i></h1>
+        </div>
+    </div>
+    <div class="mx-auto px-4 py-4">
+        <h3 class="text-3xl text-gray-900 text-center pb-4">{{ categoria.nombre }}</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-start">
+            {% if productos is empty %}
+                <p class="text-gray-500 text-center col-span-full">No hay productos disponibles en esta categoría.</p>
+            {% else %}
+                {% for producto in productos %}
+                    <div class="bg-gray-200 shadow-md rounded-lg p-4">
+                        <h4 class="text-xl font-bold mb-2">{{ producto.nombre }}</h4>
+                        <p class="text-sm text-gray-700">{{ producto.descripcion }}</p>
+                        <p class="mt-2 text-lg text-gray-900 font-semibold">Precio: {{ producto.precio | number_format(2, ',', '.') }} €</p>
+                        <p class="mt-1 text-sm text-gray-600">Stock disponible: {{ producto.stock }}</p>
+
+                        <form method="POST" action="{{ path('add_to_cart', {'id': producto.id}) }}" class="mt-4 flex items-center gap-2">
+                            <label for="cantidad-{{ producto.id }}" class="">Cantidad:</label>
+
+                            <input
+                                    type="number"
+                                    name="cantidad"
+                                    id="cantidad-{{ producto.id }}"
+                                    class="border-2 border-gray-300 rounded-md p-2 w-20 bg-white "
+                                    min="1"
+                                    max="{{ producto.stock }}"
+                                    value="1"
+                                    required>
+
+                            <button
+                                    type="submit"
+                                    class="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-gray-700">
+                                Añadir al carrito
+                            </button>
+                        </form>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,76 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Detalle del Pedido #{{ pedido.id }}{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+        .pedido-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .pedido-info {
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        .productos-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .productos-table th, .productos-table td {
+            border: 1px solid #dee2e6;
+            padding: 10px;
+            text-align: left;
+        }
+        .productos-table th {
+            background-color: #e9ecef;
+        }
+        .total-row {
+            font-weight: bold;
+            background-color: #e9ecef;
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+    <div class="pedido-container">
+        <h1 style="color: #333; margin-bottom: 20px;">Detalle del Pedido #{{ pedido.id }}</h1>
+        
+        <div class="pedido-info">
+            <p><strong>Fecha:</strong> {{ pedido.fecha|date('d/m/Y H:i') }}</p>
+            <p><strong>Estado:</strong> {{ pedido.enviado ? 'Enviado' : 'Pendiente' }}</p>
+        </div>
+        
+        <h2 style="color: #555; margin-top: 20px;">Productos:</h2>
+        <table class="productos-table">
+            <thead>
+                <tr>
+                    <th>Producto</th>
+                    <th>Cantidad</th>
+                    <th>Precio</th>
+                    <th>Subtotal</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for detalle in detallesPedido %}
+                    <tr>
+                        <td>{{ detalle.producto.nombre }}</td>
+                        <td>{{ detalle.cantidad }}</td>
+                        <td>{{ detalle.producto.precio|number_format(2, ',', '.') }} €</td>
+                        <td>{{ detalle.subtotal|number_format(2, ',', '.') }} €</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+            <tfoot>
+                <tr class="total-row">
+                    <td colspan="3" style="text-align: right;">Total:</td>
+                    <td>{{ total|number_format(2, ',', '.') }} €</td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+{% endblock %}
