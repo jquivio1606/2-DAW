@@ -1,7 +1,7 @@
 nav {
-    height: 250px; 
+    height: 200px; 
     display:grid; 
-    grid-template-rows: 170px 80px;
+    grid-template-rows: 120px 80px;
     color: white;
     text-align: center;
 }
