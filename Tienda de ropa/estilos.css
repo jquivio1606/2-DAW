@@ -45,7 +45,7 @@ nav a:hover {
 }
 
 .dropdown-menu {
-    width: 350px;
+    max-width: 350px;
 }
 
 .navbar .dropdown:hover .dropdown-menu {
@@ -53,7 +53,8 @@ nav a:hover {
 }
 
 .form-control {
-    width: 500px;
+    max-width: 500px;
+    min-width: 100px;
 }
 
 .products-container {
@@ -61,6 +62,7 @@ nav a:hover {
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 20px;
     padding: 20px;
+    margin-bottom: 100px;
 }
 
 .product {
@@ -69,20 +71,34 @@ nav a:hover {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
+    display: grid;
+    grid-template-rows: 200px auto 30px 50px;
+    gap:5px    
 }
 
 .product img {
-    width: 100%;
+    max-height: 200px;
+    max-width: 200px;
     border-radius: 10px;
+    display: block;
+    margin: auto;
 }
 
 .product h3 {
-    color: #e60000;
+    margin-top: 20px;
+    font-weight: bold;
     font-size: 18px;
 }
 
 .product p {
-    color: #333;
+    font-weight: bold;
+    color: #ff0707;
+}
+
+.product button{
+    border-radius: 10px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
 }
 
 footer {
