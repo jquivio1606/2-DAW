@@ -19,7 +19,7 @@ body {
     max-width: 800px;
     width: 100%;
     padding: 20px;
-    
+
     background: linear-gradient(145deg, #1e1e1e, #292929);
     border-radius: 15px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
@@ -121,7 +121,8 @@ h2 {
     gap: 10px;
     justify-content: space-between;
 }
-.detalle{
+
+.detalle {
     width: 320px;
     padding: 10px;
     font-size: 1em;
@@ -138,4 +139,91 @@ h2 {
 .sin-poster {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto auto;
+}
+
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    .cont-principal {
+        max-width: 90%;
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    p {
+        font-size: 1.1em;
+    }
+
+    #cont-buscador {
+        flex-direction: column;
+    }
+
+    input {
+        width: 100%;
+        padding: 12px;
+    }
+
+    button {
+        width: 100%;
+        padding: 12px;
+    }
+
+    #cont-datos {
+        max-height: 400px;
+    }
+
+    .con-poster {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+    }
+
+    .sinopsis {
+        grid-column: span 1;
+    }
+
+    .detalle {
+        width: 100%;
+    }
+}
+
+/* Ajustes para pantallas más pequeñas, tipo móviles */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.8em;
+    }
+
+    p {
+        font-size: 1em;
+    }
+
+    .cont-principal {
+        padding: 10px;
+    }
+
+    input {
+        font-size: 14px;
+    }
+
+    button {
+        padding: 10px;
+    }
+
+    #cont-datos {
+        max-height: 350px;
+    }
+
+    .sinopsis {
+        font-size: 1em;
+    }
+
+    .detalle {
+        width: 100%;
+        font-size: 0.9em;
+    }
 }

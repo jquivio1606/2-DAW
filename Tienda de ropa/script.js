@@ -1,25 +1,31 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // Usamos Axios para hacer la solicitud GET
-    axios.get('https://fakestoreapi.com/products')
-      .then(response => {
-        const data = response.data; // Los productos estarán en response.data
-        const productsContainer = document.querySelector('.products-container');
-        
-        // Iteramos sobre los productos y los mostramos
-        data.forEach(product => {
-          const productElement = document.createElement('div');
-          productElement.classList.add('product');
-          productElement.innerHTML = `
-            <img src="${product.image}" alt="${product.title}">
-            <h3>${product.title}</h3>
-            <p>$${product.price}</p>
-            <button>Añadir al carrito</button>
-          `;
-          productsContainer.appendChild(productElement);
+// URL del archivo JSON servido localmente
+const url = 'http://localhost:8080/productos.json'; // Asegúrate de que el archivo está en esta ruta
+
+// Función para obtener los productos
+function obtenerProductos() {
+  axios.get(url)
+  .then((respuesta) => {
+    console.log('Respuesta completa:', response); // Agrega esta línea para inspeccionar la respuesta completa
+    if (respuesta.status === 200) {
+      const productos = respuesta.data.productos;
+      console.log('Productos obtenidos:', productos); // Inspecciona aquí también
+
+      // Verifica que productos es un array
+      if (Array.isArray(productos)) {
+        productos.forEach(producto => {
+          console.log(producto);
         });
-      })
-      .catch(error => {
-        console.error('Error al cargar los productos:', error);
-      });
+      } else {
+        console.error('Error: "productos" no es un array:', productos);
+      }
+    } else {
+      console.log('Error al obtener los productos. Código de estado:', respuesta.status);
+    }
+  })
+  .catch((error) => {
+    console.error('Error en la solicitud:', error);
   });
-  
+}
+
+// Llamamos a la función para obtener los productos
+obtenerProductos();
