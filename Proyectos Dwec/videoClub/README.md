@@ -1,17 +1,3 @@
-
-
-Posibles problemas y errores
-
-
-Conclusión
-
-
-
-Bibliografía
-
-OMDb API
-
-
 # VideoClub
 
 ## Introducción
@@ -37,19 +23,19 @@ Este proyecto permite buscar información sobre películas a través de la API d
 
 ## Capturas de pantalla
 ### Buscar película por el título con Poster
-![Captura de pantalla de la consulta por ID](./Capturas/peliConPoster.png)
+![Captura de pantalla de la consulta de la película con Póster](./Capturas/peliConPoster.png)
 **La imagen muestra cómo se visualiza la información de la pelicula, con poster incluido.*
 
 ### Buscar película por el título con Poster
-![Captura de pantalla de la consulta por ID](./Capturas/peliSinPoster.png)
+![Captura de pantalla de la consulta de la película sin Póster](./Capturas/peliSinPoster.png)
 *La imagen muestra cómo se visualiza la información de la pelicula con diferente distribución a las películas con posters.*
 
 ### Buscar película por el título que no esta en la API
-![Captura de pantalla de la consulta por ID](./Capturas/noExistePeli.png)
+![Captura de pantalla de una consulta errónea: No existe la Película](./Capturas/noExistePeli.png)
 *La imagen muestra cómo aparece un mensaje de error en la web, al no encontrar la película.*
 
 ### No introducir ningún título y darle a Buscar
-![Captura de pantalla de la consulta por ID](./Capturas/noTitulo.png)
+![Captura de pantalla de la consulta errónea: No se introduce nada](./Capturas/noTitulo.png)
 *La imagen muestra cómo aparece un mensaje de error en la web para que se envíe un título.*
 
 
