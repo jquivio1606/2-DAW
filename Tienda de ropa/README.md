@@ -8,7 +8,7 @@ El objetivo de este proyecto es diseñar e implementar una interfaz web efectiva
 
 ## 2. Investigación
 
-Se ha realizado un análisis de tiendas en línea competidoras, como Zara, H&M y Shein, observando las mejores prácticas en diseño de interfaces, experiencia de usuario y navegación. Elementos clave considerados:
+Se ha realizado un análisis de tiendas en línea competidoras, observando las mejores prácticas en diseño de interfaces, experiencia de usuario y navegación. Elementos clave considerados:
 
 - Uso de una navegación clara con categorías bien definidas.
 - Implementación de un carrusel de productos destacados en la página principal.
@@ -25,7 +25,6 @@ El usuario objetivo de Fashion Store es un comprador de moda en línea, de entre
 - Facilidad de navegación.
 - Filtrado por categorías (ropa, calzado, accesorios, ofertas).
 - Sistema de valoraciones de clientes.
-- Carrito de compras intuitivo.
 - Responsividad y accesibilidad mejoradas.
 
 ## 4. Planificación de la Interfaz de Usuario
@@ -34,27 +33,35 @@ El usuario objetivo de Fashion Store es un comprador de moda en línea, de entre
 
 La tienda emplea una combinación de colores neutrales y elegantes:
 
-- **Blanco (#FFFFFF)**: fondo principal.
-- **Negro (#000000)**: texto y detalles.
+- **Beige (#ffffff)**: fondo principal.
+- **Negro (#333333)**: texto y detalles.
 - **Gris (#CFCFCF)**: fondos secundarios y hover en menú.
 - **Azul (#0000FF)**: resaltado en elementos interactivos.
+- **Otros tonos**: Para resaltar otro elementos de la web.
 
 ### 4.2. Tipografía
 
-La fuente utilizada en toda la web es **Arial, sans-serif** para garantizar legibilidad y claridad.
+La fuente utilizada en toda la web es **Montserrat, sans-serif** para garantizar legibilidad y claridad.
 
 - **Títulos y encabezados:** Tamaño mayor y en negrita.
-- **Texto principal:** Tamaño estándar, sin serif.
+- **Texto principal:** Tamaños establecidos en el archivo sass, sin negrita.
 
 ### 4.3. Estructura del Sitio
 
 El sitio consta de las siguientes secciones:
+- **INICIO**
+  - **Encabezado**: Logo, nombre de la tienda y enlaces de cuenta.
+  - **Menú de navegación**: Inicio, Tienda, Contacto.
+  - **Carrusel de novedades**: Destaca productos nuevos o en tendencia.
+  - **Sección de valoraciones**: Comentarios de clientes.
+  - **Footer**: Enlaces de privacidad, aviso legal, accesibilidad y redes sociales.
 
-- **Encabezado**: Logo, nombre de la tienda y enlaces de cuenta.
-- **Menú de navegación**: Inicio, Tienda, Contacto.
-- **Carrusel de novedades**: Destaca productos nuevos o en tendencia.
-- **Sección de valoraciones**: Comentarios de clientes.
-- **Footer**: Enlaces de privacidad, aviso legal y redes sociales.
+- **TIENDA**
+  - **Encabezado**: Logo, nombre de la tienda y enlaces de cuenta.
+  - **Menú de navegación**: Inicio, Tienda, Contacto.
+  - **Submenú de navegación**: Ropa, Calzado, Accesorios y Ofertas.
+  - **Productos**: Muestra todos los productos.
+  - **Footer**: Enlaces de privacidad, aviso legal, accesibilidad y redes sociales.
 
 ### 4.4. Menús y Navegación
 
@@ -75,24 +82,24 @@ El sitio consta de las siguientes secciones:
 ### 4.5. Imágenes y Logotipo
 
 - Se han incorporado imágenes representativas de productos.
-- El logotipo de la tienda se sitúa en el encabezado.
+- El logotipo de la tienda que se sitúa en el encabezado.
 
 ### 4.6. Prototipos
 
 Se han generado bocetos y wireframes mediante Balsamiq.
 
-- **Wireframes de navegación** para escritorio y móvil.
-- **Mapa de navegación** detallando la estructura del sitio.
+- **Wireframes de navegación** para escritorio.
 
 ## 5. Usabilidad y Accesibilidad
 
 Se han aplicado los siguientes principios de usabilidad:
 
-1. **Visibilidad del estado del sistema:** Mensajes claros al agregar productos al carrito.
-2. **Consistencia y estándares:** Uso de iconos y diseños reconocibles.
-3. **Control y libertad del usuario:** Opciones para eliminar productos del carrito.
-4. **Prevención de errores:** Confirmaciones antes de finalizar la compra.
-5. **Eficiencia y flexibilidad:** Navegación rápida y diseño responsivo.
+1. **Visibilidad del estado del sistema:**: 
+  - Botones claros para agregar productos al carrito.
+  - Buen contraste en los elementos de la web (Textuales, y no Textuales).
+2. **Consistencia y estándares:**: Uso de iconos y diseños reconocibles.
+3. **Eficiencia y flexibilidad:**: Navegación rápida y diseño responsivo.
+
 
 Para mejorar la accesibilidad, se han probado herramientas como **lighthouse**, **Siteimprove** y **Contrast Analyser**.
 
@@ -110,5 +117,5 @@ Este proyecto destaca la importancia de la planificación y el diseño antes de 
 ## 8. Entregables
 
 - **Código fuente**: HTML, CSS, JavaScript.
-- **Prototipos**: Wireframes y mapa de navegación.
+- **Prototipo**: Prototipo de la Web en Balsamiq.
 
